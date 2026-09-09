@@ -178,6 +178,7 @@
   }
   .course-card.theme-blue::before { background: linear-gradient(90deg, #0284c7, #38bdf8); }
   .course-card.theme-purple::before { background: linear-gradient(90deg, #7c3aed, #c084fc); }
+  .course-card.theme-emerald::before { background: linear-gradient(90deg, #059669, #34d399); }
   .course-card.theme-gray::before { background: #cbd5e1; }
 
   .card-badge-row {
@@ -194,6 +195,7 @@
   }
   .cat-blue { background: #e0f2fe; color: #0369a1; }
   .cat-purple { background: #f3e8ff; color: #6d28d9; }
+  .cat-emerald { background: #d1fae5; color: #065f46; }
   .cat-upcoming { background: #f1f5f9; color: #64748b; }
 
   .card-icon {
@@ -259,6 +261,11 @@
     color: #ffffff;
   }
   .btn-purple:hover { background: #6d28d9; }
+  .btn-emerald {
+    background: #059669;
+    color: #ffffff;
+  }
+  .btn-emerald:hover { background: #047857; }
   .btn-disabled {
     background: #f1f5f9;
     color: #94a3b8;
@@ -403,22 +410,46 @@
       </a>
     </div>
 
-    <!-- カード3：今後追加予定の教材 -->
+    <!-- カード3：最新シラバス対応 頻出英略語＆AI用語ドリル（公開中） -->
+    <div class="course-card theme-emerald">
+      <div>
+        <div class="card-badge-row">
+          <span class="card-category cat-emerald">新着・即効対策</span>
+          <span style="font-size:0.8rem; color:#64748b;">一問一答ドリル 🎯</span>
+        </div>
+        <div class="card-icon">🤖</div>
+        <h3>最新シラバス対応<br>頻出英略語 ＆ AI用語ドリル</h3>
+        <p>
+          「生成AI・LLM・ハルシネーション・RAG」から「KGI/KPI・ゼロトラスト・EDR・CSIRT」まで、最新試験で頻出するアルファベット略語とAIキーワードを一問一答形式で徹底攻略！
+        </p>
+        <ul class="card-features">
+          <li><span>✓</span> 生成AI・LLM・プロンプト最重要用語</li>
+          <li><span>✓</span> ストラテジ＆セキュリティ頻出略語マトリクス</li>
+          <li><span>✓</span> スマホで即判定！一問一答スピードドリル（全12問）</li>
+          <li><span>✓</span> フルスペル解説と試験の出題ツボ</li>
+        </ul>
+      </div>
+      <a href="ai-drill.html" class="card-btn btn-emerald">
+        ドリルに挑戦 ➔
+      </a>
+    </div>
+
+    <!-- カード4：今後追加予定の教材 -->
     <div class="course-card theme-gray" style="background:#fafafa;">
       <div>
         <div class="card-badge-row">
           <span class="card-category cat-upcoming">近日追加予定</span>
           <span style="font-size:0.8rem; color:#94a3b8;">Coming Soon</span>
         </div>
-        <div class="card-icon">🚀</div>
-        <h3>最新シラバス対応<br>頻出英略語＆AI用語ドリル</h3>
+        <div class="card-icon">📐</div>
+        <h3>計算問題特化<br>直前スピード演習ドリル</h3>
         <p>
-          シラバス改定で追加された「生成AI・LLM」「ゼロトラスト」「DX」「ESG投資」などの最新バズワードを、一問一答クイズ形式でサクサク確認できる演習ドリルを準備中！
+          損益分岐点、通信速度・転送時間、システムの稼働率（直列・並列）、アローダイアグラムのクリティカルパスなど、頻出計算パターンを特訓する専用ドリルを準備中！
         </p>
         <ul class="card-features">
-          <li><span>⏳</span> 最新シラバス Ver 6.x 完全網羅</li>
-          <li><span>⏳</span> 3文字・4文字英略語スピード暗記</li>
-          <li><span>⏳</span> スマホで解ける一問一答クイズ</li>
+          <li><span>⏳</span> 頻出9大計算パターンの型</li>
+          <li><span>⏳</span> 筆算ミスを防ぐショートカット解法</li>
+          <li><span>⏳</span> 本番形式のタイムアタック演習</li>
         </ul>
       </div>
       <div class="card-btn btn-disabled">
