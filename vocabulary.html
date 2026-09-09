@@ -1,0 +1,2444 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>【最新シラバス対応】ITパスポート 頻出単語帳 全150語 | フラッシュ暗記カード機能付き</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f8fafc;
+    --surface: #ffffff;
+    --border: #e2e8f0;
+    --border-strong: #cbd5e1;
+    --text: #0f172a;
+    --text-muted: #475569;
+    --text-faint: #64748b;
+
+    --strat-color: #7c3aed;
+    --strat-light: #f3e8ff;
+    --strat-border: #ddd6fe;
+
+    --mgmt-color: #059669;
+    --mgmt-light: #d1fae5;
+    --mgmt-border: #a7f3d0;
+
+    --tech-color: #0284c7;
+    --tech-light: #e0f2fe;
+    --tech-border: #bae6fd;
+
+    --radius-lg: 20px;
+    --radius-md: 12px;
+    --radius-sm: 8px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+    --shadow: 0 6px 18px -3px rgba(15,23,42,0.06), 0 2px 6px -1px rgba(15,23,42,0.03);
+    --shadow-hover: 0 12px 26px -4px rgba(15,23,42,0.12);
+    --font-mono: "JetBrains Mono", Menlo, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--bg);
+    background-image:
+      radial-gradient(at 0% 0%, rgba(243, 232, 255, 0.5) 0px, transparent 45%),
+      radial-gradient(at 100% 0%, rgba(224, 242, 254, 0.5) 0px, transparent 40%),
+      radial-gradient(at 50% 100%, rgba(209, 250, 229, 0.4) 0px, transparent 45%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--text);
+    font-family: 'Noto Sans JP', 'Inter', -apple-system, sans-serif;
+    line-height: 1.8;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 32px 20px 100px;
+  }
+
+  /* フローティング印刷ボタン */
+  .floating-print-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1000;
+    background: linear-gradient(135deg, #0284c7, #0369a1);
+    color: #ffffff;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 9999px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    box-shadow: 0 8px 24px rgba(2, 132, 199, 0.4);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+  }
+  .floating-print-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(2, 132, 199, 0.5);
+  }
+
+  /* ヒーロー */
+  .hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #064e3b 100%);
+    border-radius: var(--radius-lg);
+    padding: 44px 40px;
+    color: #ffffff;
+    margin-bottom: 32px;
+    box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.4);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #f1f5f9;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 10px;
+  }
+  .hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #ffffff;
+    color: #0f172a;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+  }
+  .hero-btn:hover {
+    background: #f1f5f9;
+    transform: translateY(-2px);
+  }
+  .hero h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.35;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 span.highlight {
+    background: linear-gradient(90deg, #38bdf8, #34d399, #facc15);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero p.lead {
+    font-size: 1.02rem;
+    color: #cbd5e1;
+    line-height: 1.7;
+    max-width: 860px;
+    margin-bottom: 24px;
+  }
+
+  /* 進捗バーコンテナ */
+  .progress-container {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+  .progress-info span.count {
+    font-family: var(--font-mono);
+    color: #38bdf8;
+    font-size: 1.1rem;
+  }
+  .progress-bar-bg {
+    height: 10px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 9999px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #38bdf8, #34d399);
+    border-radius: 9999px;
+    transition: width 0.3s ease;
+  }
+
+  /* コントロールバー */
+  .control-bar {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 20px 24px;
+    margin-bottom: 32px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: sticky;
+    top: 16px;
+    z-index: 100;
+  }
+  .control-row-1 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .search-wrap {
+    flex: 1 1 320px;
+    position: relative;
+  }
+  .search-input {
+    width: 100%;
+    padding: 12px 18px 12px 42px;
+    border: 1.5px solid var(--border-strong);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    outline: none;
+    transition: all 0.2s ease;
+    background: #f8fafc;
+  }
+  .search-input:focus {
+    border-color: var(--tech-color);
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+  }
+  .search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1rem;
+    color: #94a3b8;
+    pointer-events: none;
+  }
+  .tool-btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .tool-btn {
+    background: #f1f5f9;
+    border: 1px solid var(--border-strong);
+    padding: 9px 14px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--text);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .tool-btn:hover {
+    background: #e2e8f0;
+  }
+  .tool-btn.active {
+    background: #0284c7;
+    color: #ffffff;
+    border-color: #0284c7;
+  }
+
+  .control-row-2 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+  }
+  .tab-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .tab-btn {
+    background: #f1f5f9;
+    border: 1px solid var(--border-strong);
+    padding: 7px 14px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--text-muted);
+  }
+  .tab-btn:hover {
+    background: #e2e8f0;
+    color: var(--text);
+  }
+  .tab-btn.active {
+    background: #0f172a;
+    color: #ffffff;
+    border-color: #0f172a;
+  }
+
+  /* 単語カード一覧グリッド */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 20px;
+  }
+  .vocab-card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 22px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+  .vocab-card:hover {
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-3px);
+  }
+  .vocab-card.mastered {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+    opacity: 0.75;
+  }
+  .vocab-card.mastered .vocab-title {
+    color: #64748b;
+  }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .card-tags {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .sys-badge {
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+  .sys-strat { background: var(--strat-light); color: var(--strat-color); border: 1px solid var(--strat-border); }
+  .sys-mgmt { background: var(--mgmt-light); color: var(--mgmt-color); border: 1px solid var(--mgmt-border); }
+  .sys-tech { background: var(--tech-light); color: var(--tech-color); border: 1px solid var(--tech-border); }
+
+  .cat-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #64748b;
+    background: #f1f5f9;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+  .stars {
+    font-size: 0.82rem;
+    color: #f59e0b;
+    white-space: nowrap;
+  }
+
+  /* 覚えたチェックボタン */
+  .master-btn {
+    background: transparent;
+    border: 1.5px solid var(--border-strong);
+    border-radius: 9999px;
+    padding: 4px 10px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #64748b;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .master-btn:hover {
+    border-color: #059669;
+    color: #059669;
+  }
+  .vocab-card.mastered .master-btn {
+    background: #059669;
+    border-color: #059669;
+    color: #ffffff;
+  }
+
+  .vocab-header {
+    margin-bottom: 12px;
+  }
+  .vocab-reading {
+    font-size: 0.78rem;
+    color: #64748b;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .vocab-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    line-height: 1.3;
+    color: var(--text);
+  }
+
+  /* 単語帳マスク領域 */
+  .card-body {
+    transition: all 0.25s ease;
+  }
+  .card-body.masked .answer-content {
+    display: none;
+  }
+  .mask-toggle-btn {
+    width: 100%;
+    background: #f1f5f9;
+    border: 1px dashed var(--border-strong);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #475569;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+  .mask-toggle-btn:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+  }
+
+  .answer-content {
+    animation: fadeIn 0.2s ease;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .vocab-summary {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text);
+    margin-bottom: 8px;
+    padding-left: 10px;
+    border-left: 3px solid #0284c7;
+    line-height: 1.5;
+  }
+  .vocab-desc {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+
+  /* 試験の急所BOX */
+  .point-box {
+    background: #fff7ed;
+    border: 1px solid #ffedd5;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 0.82rem;
+    color: #9a3412;
+    line-height: 1.5;
+  }
+  .point-box strong {
+    color: #c2410c;
+  }
+
+  footer {
+    text-align: center;
+    padding-top: 40px;
+    color: var(--text-faint);
+    font-size: 0.88rem;
+    border-top: 1px solid var(--border);
+    margin-top: 60px;
+  }
+
+  @media print {
+    body { background: #ffffff !important; color: #111827 !important; font-size: 10pt !important; }
+    .container { max-width: 100% !important; padding: 0 !important; }
+    .floating-print-btn, .hero-btn, .control-bar, .master-btn, .mask-toggle-btn { display: none !important; }
+    .hero { background: #f1f5f9 !important; color: #0f172a !important; box-shadow: none !important; padding: 16px !important; }
+    .hero h1 span.highlight { color: #0284c7 !important; -webkit-text-fill-color: #0284c7 !important; }
+    .vocab-card { box-shadow: none !important; border: 1px solid #cbd5e1 !important; page-break-inside: avoid !important; break-inside: avoid !important; }
+    .answer-content { display: block !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- フローティング印刷ボタン -->
+<button class="floating-print-btn" onclick="window.print()" title="単語帳をA4印刷またはPDF保存">
+  <span>🖨️</span> 単語帳を印刷 / PDF保存
+</button>
+
+<div class="container">
+
+  <!-- ヒーロー -->
+  <header class="hero">
+    <div class="hero-top-row">
+      <div class="hero-badge">📚 最新シラバス対応・試験頻出 全150語</div>
+      <div class="hero-actions">
+        <a href="index.html" class="hero-btn"><span>🏠</span> ポータルTOP</a>
+        <button class="hero-btn" onclick="window.print()"><span>🖨️</span> 印刷 / PDF保存</button>
+      </div>
+    </div>
+    <h1>最頻出キーワード完全網羅！<br><span class="highlight">ITパスポート 頻出単語帳</span></h1>
+    <p class="lead">
+      過去問・公開問題・最新シラバスを徹底分析し、合格に直結する重要単語を厳選収録！<br>
+      <strong>「覚えたチェック」</strong>で苦手単語を絞り込み、<strong>「ワンタップ・マスク」</strong>で実戦テストモードに切り替えて効率的に反復学習できます。
+    </p>
+
+    <!-- 進捗バー -->
+    <div class="progress-container">
+      <div class="progress-info">
+        <span>学習進捗度 (覚えた単語)</span>
+        <span><span class="count" id="mastered-count">0</span> / 150 語 (<span id="progress-percent">0</span>%)</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progress-fill"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- コントロールバー（検索・フィルター・ツール） -->
+  <div class="control-bar">
+    <div class="control-row-1">
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-box" class="search-input" placeholder="単語やキーワードで検索（例: 知的財産, アジャイル, 暗号...）" oninput="applyFilters()">
+      </div>
+      <div class="tool-btn-group">
+        <button class="tool-btn" id="btn-review-only" onclick="toggleReviewOnly()">
+          <span>🔄</span> 要復習のみ表示
+        </button>
+        <button class="tool-btn" id="btn-mask-all" onclick="toggleMaskAll()">
+          <span id="mask-all-icon">🙈</span> <span id="mask-all-text">すべて隠す</span>
+        </button>
+        <button class="tool-btn" onclick="shuffleCards()">
+          <span>🔀</span> シャッフル
+        </button>
+        <button class="tool-btn" onclick="resetProgress()" title="覚えたチェックを初期化">
+          <span>🧹</span> リセット
+        </button>
+      </div>
+    </div>
+
+    <div class="control-row-2">
+      <div class="tab-filters">
+        <button class="tab-btn active" onclick="setTab('all', this)">すべて (<span id="count-all">150</span>)</button>
+        <button class="tab-btn" onclick="setTab('strat', this)">ストラテジ系 (<span id="count-strat">50</span>)</button>
+        <button class="tab-btn" onclick="setTab('mgmt', this)">マネジメント系 (<span id="count-mgmt">35</span>)</button>
+        <button class="tab-btn" onclick="setTab('tech', this)">テクノロジ系 (<span id="count-tech">65</span>)</button>
+      </div>
+      <div style="font-size:0.85rem; color:#64748b; font-weight:600;">
+        表示中: <strong id="visible-count" style="color:#0f172a;">150</strong> 件
+      </div>
+    </div>
+  </div>
+
+  <!-- 単語カード一覧 -->
+  <div class="vocab-grid" id="vocab-grid">
+    <!-- JSで動的レンダリング -->
+  </div>
+
+  <footer>
+    <p>© IT-PASS STUDY HUB | ITパスポート 頻出単語帳</p>
+    <p style="margin-top:4px; font-size:0.8rem;">IPA IT Passport Syllabus Ver.6.x High-Frequency Vocabulary (150 Terms)</p>
+  </footer>
+
+</div>
+
+<script>
+  const rawTerms = [
+  {
+    "id": "s01",
+    "term": "コアコンピタンス",
+    "reading": "こあこんぴたんす",
+    "system": "strat",
+    "cat": "経営戦略",
+    "importance": 3,
+    "summary": "他社が真似できない、その企業独自の強み・中核技術",
+    "desc": "ホンダのエンジン技術やソニーの小型化技術のように、競合他社が容易に模倣できない圧倒的な競争力の源泉となる中核能力のこと。",
+    "point": "試験では「他社に真似できない中核能力」というフレーズがそのまま正解の目印になります。"
+  },
+  {
+    "id": "s02",
+    "term": "ベンチマーク",
+    "reading": "べんちまーく",
+    "system": "strat",
+    "cat": "経営戦略",
+    "importance": 2,
+    "summary": "業界最強の優良企業（ベストプラクティス）と比較して自社を改善する手法",
+    "desc": "自社の製品・サービス・業務プロセスを、業界トップ企業や先進企業のやり方（ベストプラクティス）と比較分析し、その差を埋める改善活動。",
+    "point": "「優れた競合他社の業務プロセスと比較・分析する」という記述が目印。"
+  },
+  {
+    "id": "s03",
+    "term": "アライアンス",
+    "reading": "あらいあんす",
+    "system": "strat",
+    "cat": "企業提携",
+    "importance": 2,
+    "summary": "複数の企業が協力関係を結ぶ「業務提携・戦略的提携」",
+    "desc": "資本の買収・合体（M&A）を伴わずに、お互いの強みを持ち寄って研究開発や販売などで協力する企業提携のこと。",
+    "point": "M&A（会社の買収・資本移動あり）とアライアンス（緩やかな業務提携・資本移動なし）の違いに注意。"
+  },
+  {
+    "id": "s04",
+    "term": "ブルーオーシャン戦略",
+    "reading": "ぶるーおーしゃんせんりゃく",
+    "system": "strat",
+    "cat": "経営戦略",
+    "importance": 3,
+    "summary": "競争相手のいない未開拓の新しい市場を切り拓く戦略",
+    "desc": "血みどろの競争が繰り広げられる既存市場（レッドオーシャン）を避け、差別化と低コストを両立させて新しい需要を創出する戦略（例: シルク・ドゥ・ソレイユ）。",
+    "point": "「競合が存在しない新たな市場を開拓する」＝ブルーオーシャン。"
+  },
+  {
+    "id": "s05",
+    "term": "ロングテール",
+    "reading": "ろんぐてーる",
+    "system": "strat",
+    "cat": "ビジネスモデル",
+    "importance": 3,
+    "summary": "売れ行きの鈍い大量のニッチ商品の売上合計が、ヒット商品の売上を上回る現象",
+    "desc": "ネット通販（Amazon等）では陳列棚の物理的制限がないため、年に数冊しか売れないマイナー本でも数万種類集まると巨大な売上になる現象。グラフの尻尾（テール）が長く伸びる形から命名。",
+    "point": "パレートの法則（売上の8割は上位2割の売れ筋が生む）の常識を覆したネットビジネスの特徴。"
+  },
+  {
+    "id": "s06",
+    "term": "フリーミアム",
+    "reading": "ふりーみあむ",
+    "system": "strat",
+    "cat": "ビジネスモデル",
+    "importance": 3,
+    "summary": "基本機能は無料で提供し、高度な機能や容量に課金するモデル",
+    "desc": "Free（無料）＋ Premium（割増）の造語。YouTubeやDropbox、スマホゲームのように、95%の無料ユーザーで認知を広げ、5%の有料課金ユーザーで収益を上げる仕組み。",
+    "point": "「基本機能は無料、高度な機能を有料化」が定番のキーワード。"
+  },
+  {
+    "id": "s07",
+    "term": "シェアリングエコノミー",
+    "reading": "しぇありんぐえこのみー",
+    "system": "strat",
+    "cat": "ビジネスモデル",
+    "importance": 3,
+    "summary": "個人が保有する遊休資産（空き部屋、車、スキル等）をネット仲介で貸し借りする経済",
+    "desc": "モノを「所有」するのではなく「共有（シェア）」する形態。Airbnb（民泊）やUber（ライドシェア）、カーシェアなどが代表例。",
+    "point": "CtoC（個人間取引）プラットフォームとして出題されます。"
+  },
+  {
+    "id": "s08",
+    "term": "サブスクリプション",
+    "reading": "さぶすくりぷしょん",
+    "system": "strat",
+    "cat": "ビジネスモデル",
+    "importance": 3,
+    "summary": "モノを買い取るのではなく、一定期間の利用権に対して定額料金を支払うモデル",
+    "desc": "音楽（Spotify）、動画（Netflix）、ソフトウェア（Microsoft 365）など、月額・年額の定額料金を支払って利用するビジネスモデル。",
+    "point": "「定額料金で一定期間利用できる権利」が正解キーワード。"
+  },
+  {
+    "id": "s09",
+    "term": "クラウドファンディング",
+    "reading": "くらうどふぁんでぃんぐ",
+    "system": "strat",
+    "cat": "資金調達",
+    "importance": 3,
+    "summary": "インターネットを通じて不特定多数の人々から少額ずつ資金を調達する手法",
+    "desc": "群衆（Crowd）＋ 資金調達（Funding）。新商品開発や社会貢献プロジェクトに対して、ネット上で支援者を募り、返礼品（購入型）や分配金（投資型）を提供する仕組み。",
+    "point": "「不特定多数からネット経由で少額の資金を集める」という記述が目印。"
+  },
+  {
+    "id": "s10",
+    "term": "インキュベータ",
+    "reading": "いんきゅべーた",
+    "system": "strat",
+    "cat": "起業支援",
+    "importance": 2,
+    "summary": "創業期・スタートアップの起業家に対し、オフィスや経営ノウハウを提供して育成する組織",
+    "desc": "元々は「未熟児の保育器・孵化器」という意味。立ち上げ直後のベンチャー企業に安価なオフィスや専門家のアドバイスを提供して成長を後押しする支援機関。",
+    "point": "ベンチャーキャピタル（VC＝主に投資資金を提供）とインキュベータ（総合的な育成・オフィス提供）の役割の違い。"
+  },
+  {
+    "id": "s11",
+    "term": "ベンチャーキャピタル (VC)",
+    "reading": "べんちゃーきゃぴたる",
+    "system": "strat",
+    "cat": "資金調達",
+    "importance": 3,
+    "summary": "未上場の有望なベンチャー企業に投資し、上場や売却時の値上がり益を狙う投資会社",
+    "desc": "高い成長性が見込める創業期の企業に資金を出資し、将来株式公開（IPO）やM&Aされた際に株式を売却して巨額のキャピタルゲインを得る投資専門会社。",
+    "point": "融資（借金＝返済義務あり）ではなく「出資（株式保有＝返済義務なし）」である点がポイント。"
+  },
+  {
+    "id": "s12",
+    "term": "オムニチャネル",
+    "reading": "おむにちゃねる",
+    "system": "strat",
+    "cat": "流通・販売",
+    "importance": 3,
+    "summary": "実店舗、ECサイト、アプリ、SNSなど全販売経路をシームレスに統合した顧客体験",
+    "desc": "「ネットで注文して実店舗で受け取る」「店舗の在庫をアプリで確認して取り寄せる」など、リアルとネットの境目をなくしてどこでも同じ買い物体験を提供する戦略。",
+    "point": "マルチチャネル（経路がバラバラに存在）とオムニチャネル（全経路が統合連携）の進化系。"
+  },
+  {
+    "id": "s13",
+    "term": "クロスセルとアップセル",
+    "reading": "くろすせるとあっぷせる",
+    "system": "strat",
+    "cat": "マーケティング",
+    "importance": 2,
+    "summary": "関連商品のついで買いを促す（クロスセル）／上位モデルの購入を促す（アップセル）",
+    "desc": "クロスセルは「ハンバーガーと一緒にポテトはいかがですか？」。アップセルは「プラス50円でポテトをLサイズにできます」。客単価を向上させるための基本手法。",
+    "point": "クロス＝別商品の追加、アップ＝より高額な上位品への乗り換え。"
+  },
+  {
+    "id": "s14",
+    "term": "ドミナント戦略",
+    "reading": "どみなんとせんりゃく",
+    "system": "strat",
+    "cat": "店舗戦略",
+    "importance": 2,
+    "summary": "特定地域に集中的に出店し、地域内のシェアと配送効率を一気に高める出店戦略",
+    "desc": "セブン-イレブン等のコンビニが特定エリアに集中的に出店する手法。配送トラックの移動距離が短くなり、看板効果で地域認知度も独占できる。",
+    "point": "「特定の地域に集中して多店舗出店する」がキーワード。"
+  },
+  {
+    "id": "s15",
+    "term": "規模の経済と範囲の経済",
+    "reading": "きぼのけいざいとはんいのけいざい",
+    "system": "strat",
+    "cat": "経営戦略",
+    "importance": 2,
+    "summary": "生産量を増やすと1個あたりコストが下がる（規模）／複数事業で設備を共有してコスト削減（範囲）",
+    "desc": "規模の経済（スケールメリット）は「同じ車を1万台まとめて作れば部品が安くなる」。範囲の経済は「自動車のエンジン技術をボートやバイクにも流用して開発費を浮かす」。",
+    "point": "規模＝同じモノを大量に作る、範囲＝異なる種類の製品で共通リソースを活用する。"
+  },
+  {
+    "id": "s16",
+    "term": "シナジー効果",
+    "reading": "しなじーこうか",
+    "system": "strat",
+    "cat": "経営戦略",
+    "importance": 2,
+    "summary": "複数の事業や企業が合体することで「1＋1＝3」以上の相乗効果を生むこと",
+    "desc": "M&Aや事業多角化の目的となる効果。お互いの顧客リストや技術を共有することで、単独でやるよりも大きな売上やコスト削減が生まれること。",
+    "point": "アナロジー（類推）と名前が似ているので注意。「相乗効果＝シナジー」。"
+  },
+  {
+    "id": "s17",
+    "term": "イノベーションのジレンマ",
+    "reading": "いのべーしょんのじれんま",
+    "system": "strat",
+    "cat": "経営戦略",
+    "importance": 3,
+    "summary": "優良大企業が既存顧客の声を真面目に聞きすぎるあまり、破壊的イノベーションに乗り遅れて没落する現象",
+    "desc": "フィルムカメラ大手（コダック等）が既存の高画質フィルムを磨き上げている間に、最初は画質が悪かったデジタルカメラが急速に進化して市場を奪われた例。",
+    "point": "「優良企業が既存顧客の要求に応えるあまり、破壊的技術の前に敗北する」というパラドックス。"
+  },
+  {
+    "id": "s18",
+    "term": "オープンイノベーション",
+    "reading": "おーぷんいのべーしょん",
+    "system": "strat",
+    "cat": "研究開発",
+    "importance": 3,
+    "summary": "自社の中だけで研究開発を完結させず、外部の大学やベンチャーと技術を融合させて新事業を創出すること",
+    "desc": "自前主義（クローズドイノベーション）の限界を打破するため、外部のスタートアップ、研究機関、他業種と共同開発や技術提携を行うこと。",
+    "point": "「自前主義を脱し、社外の技術やアイデアを取り込む」が目印。"
+  },
+  {
+    "id": "s19",
+    "term": "マーケティングの4P / 4C",
+    "reading": "まーけてぃんぐのよんぴーよんしー",
+    "system": "strat",
+    "cat": "マーケティング",
+    "importance": 3,
+    "summary": "企業目線の4P（製品・価格・流通・販促）と顧客目線の4C（価値・費用・利便性・対話）",
+    "desc": "4P: Product（製品）, Price（価格）, Place（流通・場所）, Promotion（販促）。4C: Customer Value（顧客価値）, Cost（顧客負担費用）, Convenience（利便性）, Communication（対話）。",
+    "point": "4Pは「売り手目線」、4Cは「買い手（顧客）目線」の対応関係が超頻出！"
+  },
+  {
+    "id": "s20",
+    "term": "STP分析",
+    "reading": "えすてぃーぴーぶんせき",
+    "system": "strat",
+    "cat": "マーケティング",
+    "importance": 2,
+    "summary": "市場を細分化(S)し、ターゲットを絞り(T)、自社の立ち位置を決定(P)する分析手法",
+    "desc": "Segmentation（市場を年齢や地域で分ける）➔ Targeting（どの層を狙うか決める）➔ Positioning（競合と差別化する自社の強みを定義する）。",
+    "point": "STPの3つのアルファベットの意味順序が出題されます。"
+  },
+  {
+    "id": "s21",
+    "term": "ペルソナ",
+    "reading": "ぺるそな",
+    "system": "strat",
+    "cat": "マーケティング",
+    "importance": 2,
+    "summary": "自社の商品やサービスを利用する典型的な「架空の顧客像（人物像）」",
+    "desc": "「30代女性」のような大雑把な属性ではなく、「都内在住の32歳独身女性、IT企業勤務、趣味はヨガで休日はカフェ巡り」のように具体的な1人の人物像を設定し、開発チーム全員で共有する手法。",
+    "point": "ターゲット顧客を極めてリアルに人物設計する手法。"
+  },
+  {
+    "id": "s22",
+    "term": "トリプルメディア",
+    "reading": "とりぷるめでぃあ",
+    "system": "strat",
+    "cat": "マーケティング",
+    "importance": 2,
+    "summary": "企業のマーケティングチャネルを構成する3つのメディア（オウンド・アーンド・ペイド）",
+    "desc": "①オウンドメディア（自社サイト・ブログ・自前発信） ②アーンドメディア（SNSの口コミ・第三者の評判） ③ペイドメディア（テレビCM・リスティング広告等の有料広告）。",
+    "point": "オウンド＝自社所有、アーンド＝信頼を獲得する口コミ、ペイド＝お金を払う広告。"
+  },
+  {
+    "id": "s23",
+    "term": "アフィリエイト",
+    "reading": "あふぃりえいと",
+    "system": "strat",
+    "cat": "ネット広告",
+    "importance": 2,
+    "summary": "ブログ等のリンク経由で商品が購入された場合に報酬が支払われる「成果報酬型広告」",
+    "desc": "広告主は無駄な広告費を払わずに済み、メディア運営者は購入成果に応じて紹介料（キックバック）を得られる広告手法。",
+    "point": "クリックだけで課金される「クリック課金型」と区別される。"
+  },
+  {
+    "id": "s24",
+    "term": "リスティング広告",
+    "reading": "りすてぃんぐこうこく",
+    "system": "strat",
+    "cat": "ネット広告",
+    "importance": 2,
+    "summary": "検索エンジンで特定のキーワードを検索した際、検索結果の上部に連動して表示される広告",
+    "desc": "Googleで「引越し 東京」と検索したときに、検索結果の1番上に「スポンサー」として出る広告。購入意欲が極めて高いユーザーを狙い撃ちできる。",
+    "point": "検索連動型広告とも呼ばれます。"
+  },
+  {
+    "id": "s25",
+    "term": "トレーサビリティ",
+    "reading": "とれーさびりてぃ",
+    "system": "strat",
+    "cat": "流通・品質管理",
+    "importance": 3,
+    "summary": "原材料の調達から製造、流通、販売、廃棄までの履歴を追跡・把握できる仕組み",
+    "desc": "「Trace（追跡）＋ Ability（能力）」。食品偽装や不良品の回収時、QRコードやロット番号から『どこの畑のどの原料か』を瞬時に遡って特定できる仕組み。",
+    "point": "「履歴を追跡可能にする」が絶対のキーワード。"
+  },
+  {
+    "id": "s26",
+    "term": "知的財産権（知的所有権）",
+    "reading": "ちてきざいさんけん",
+    "system": "strat",
+    "cat": "法務・知財",
+    "importance": 3,
+    "summary": "人間の知的な創作活動によって生み出されたアイデアや成果物を保護する権利の総称",
+    "desc": "大きく分けて「産業財産権（特許・実用新案・意匠・商標）」と「著作権」から構成される。試験の最頻出分野！",
+    "point": "産業財産権は特許庁への出願・登録が必要だが、著作権は登録不要（無方式主義）という違いが超重要。"
+  },
+  {
+    "id": "s27",
+    "term": "特許権",
+    "reading": "とっきょけん",
+    "system": "strat",
+    "cat": "法務・知財",
+    "importance": 3,
+    "summary": "高度な技術的アイデア（発明）を独占的に利用できる権利（保護期間: 出願から20年）",
+    "desc": "自然法則を利用した高度な技術的創作を保護する。特許庁に出願し審査に通ると認められる。医薬品や新素材、画期的な新技術が対象。",
+    "point": "保護期間は「出願の日から20年間」（一定の医薬品は最長25年）。"
+  },
+  {
+    "id": "s28",
+    "term": "実用新案権",
+    "reading": "じつようしんあんけん",
+    "system": "strat",
+    "cat": "法務・知財",
+    "importance": 3,
+    "summary": "物品の形状や構造に関するちょっとした工夫（考案）を保護する権利（保護期間: 出願から10年）",
+    "desc": "「持ちやすいハサミの柄」のように、高度な発明ではないが日用品の形状のちょっとした工夫を早期・簡易に保護する権利。無審査登録主義。",
+    "point": "「物品の形状・構造の考案」が対象。方法やプログラムは対象外！保護期間は「出願から10年」。"
+  },
+  {
+    "id": "s29",
+    "term": "意匠権",
+    "reading": "いしょうけん",
+    "system": "strat",
+    "cat": "法務・知財",
+    "importance": 3,
+    "summary": "製品の美しく独創的な外観デザインを保護する権利（保護期間: 出願から25年）",
+    "desc": "「意匠＝デザイン」。自動車の流線型ボディ、家具やスマートフォンの美しい外観形状など、視覚を通じて美感を起こさせるデザインを独占保護する。",
+    "point": "保護期間は「出願の日から25年」（法改正で20年から25年に延長された点が頻出）。"
+  },
+  {
+    "id": "s30",
+    "term": "商標権",
+    "reading": "しょうひょうけん",
+    "system": "strat",
+    "cat": "法務・知財",
+    "importance": 3,
+    "summary": "自社の商品やサービスを表すマーク・ロゴ・名称を保護する権利（保護期間: 登録から10年・更新可能）",
+    "desc": "会社のロゴマークや商品名（ブランド）。他社による偽物ブランドの販売を防ぎ、企業の業務上の信用を守る。",
+    "point": "最大の特徴: 「更新手続きをすれば半永久的に保有できる」（他の産業財産権は更新不可）。期間は「登録から10年」。"
+  },
+  {
+    "id": "s31",
+    "term": "著作権",
+    "reading": "ちょさくけん",
+    "system": "strat",
+    "cat": "法務・知財",
+    "importance": 3,
+    "summary": "思想や感情を創作的に表現した文芸・学術・美術・音楽・プログラムを保護する権利",
+    "desc": "小説、絵画、写真、音楽、映画、そして「コンピュータプログラム」も著作物に含まれる。出願・登録の手続きを一切必要としない「無方式主義」を採用。",
+    "point": "保護期間は「著作者の死後70年」（法改正前は50年）。【プログラムのアルゴリズム（手順・解法）やプロトコル（規約）は保護対象外】という引っかけが超頻出！"
+  },
+  {
+    "id": "s32",
+    "term": "職務著作",
+    "reading": "しょくむちょさく",
+    "system": "strat",
+    "cat": "法務・知財",
+    "importance": 3,
+    "summary": "社員が会社の業務として作成したプログラムや文書の著作権は、原則「会社」に帰属する原則",
+    "desc": "勤務時間中に会社の命令で開発したプログラムは、個々のプログラマではなく会社（法人）が著作者となること。",
+    "point": "契約書に別段の定めがない限り、著作権は会社のものになります。"
+  },
+  {
+    "id": "s33",
+    "term": "不正競争防止法",
+    "reading": "ふせいきょうそうぼうしほう",
+    "system": "strat",
+    "cat": "法務・知財",
+    "importance": 3,
+    "summary": "企業の「営業秘密」の不正取得や、他社の有名ブランドの模倣などの不当な競争を規制する法律",
+    "desc": "退職した元社員が顧客名簿や秘伝のソースコードを競合他社に売り飛ばす行為を刑事罰・損害賠償で処罰できる法律。",
+    "point": "営業秘密として認められるための【3要件】が超頻出: ①秘密管理性（部外秘と明示されている） ②有用性（役立つ情報） ③非公知性（公に知られていない）。"
+  },
+  {
+    "id": "s34",
+    "term": "労働者派遣法と偽装請負",
+    "reading": "ろうどうしゃはけんほうとぎそううけおい",
+    "system": "strat",
+    "cat": "法務・労働契約",
+    "importance": 3,
+    "summary": "派遣社員には「派遣先」が業務指示を出すが、請負（業務委託）では「注文主」が指示を出してはならない",
+    "desc": "派遣契約: 指揮命令権は「派遣先（常駐先）」。請負契約: 指揮命令権は「受託元（雇用主）」。請負契約なのに注文主が現場で直接あれこれ命令するのは違法な「偽装請負」！",
+    "point": "試験では「誰が指揮命令権を持つか」が100%出題されます。派遣先が直接命令できるのは「派遣契約」のみ！"
+  },
+  {
+    "id": "s35",
+    "term": "下請法（下請代金支払遅延等防止法）",
+    "reading": "したうけほう",
+    "system": "strat",
+    "cat": "法務・商取引",
+    "importance": 3,
+    "summary": "親事業者が優越的な立場を乱用し、下請業者への支払い遅延や買い叩きを行うことを禁止する法律",
+    "desc": "「納品から60日以内の支払い義務」「受領拒否の禁止」「不当な値引き（買い叩き）の禁止」「発注書面の即時交付義務」などを義務付ける。",
+    "point": "「親事業者の資本金」と「下請事業者の資本金」の規模差で適用されるかが決まります。"
+  },
+  {
+    "id": "s36",
+    "term": "製造物責任法 (PL法)",
+    "reading": "せいぞうぶつせきにんほう",
+    "system": "strat",
+    "cat": "法務・消費者保護",
+    "importance": 3,
+    "summary": "製品の欠陥によって生命・身体・財産に被害が出た場合、被害者が過失を立証しなくても製造者が損害賠償責任を負う法律",
+    "desc": "欠陥バッテリーの発火事故など。対象は「製造または加工された動産（ハードウェア）」。",
+    "point": "【重要引っかけ】: 「ソフトウェアそのもの（無形物）」や「サービス」はPL法の直接の対象外！ただしソフトウェアが組み込まれた家電製品（動産）は対象。"
+  },
+  {
+    "id": "s37",
+    "term": "特定商取引法とクーリングオフ",
+    "reading": "とくていしょうとりひきほうとくーりんぐおふ",
+    "system": "strat",
+    "cat": "法務・消費者保護",
+    "importance": 3,
+    "summary": "訪問販売などで一定期間内なら無条件で契約解除できる権利（※ネット通販はクーリングオフ適用外！）",
+    "desc": "強引な勧誘から消費者を守る制度。訪問販売や電話勧誘は8日間以内なら無条件解約できる。",
+    "point": "【超頻出引っかけ】: 「インターネット通信販売」には法律上のクーリングオフ制度は適用されません！（返品特約の表示義務があるのみ）。"
+  },
+  {
+    "id": "s38",
+    "term": "個人情報保護法と要配慮個人情報",
+    "reading": "こじんじょうほうほごほうとようはいりょこじんじょうほう",
+    "system": "strat",
+    "cat": "法務・プライバシー",
+    "importance": 3,
+    "summary": "個人の権利利益を保護する法律。病歴や犯罪歴などの「要配慮個人情報」は本人の事前同意が原則必須",
+    "desc": "特定の個人を識別できる情報（氏名・生年月日・顔写真・指紋データ・マイナンバー等）。病歴、信条、人種などのデリケートな情報は「要配慮個人情報」として厳格に保護される。",
+    "point": "要配慮個人情報の取得には「あらかじめ本人の同意」が必要（オプトアウト方式による第三者提供は禁止）。"
+  },
+  {
+    "id": "s39",
+    "term": "マイナンバー法（番号法）",
+    "reading": "まいなんばーほう",
+    "system": "strat",
+    "cat": "法務・公的制度",
+    "importance": 3,
+    "summary": "全国民に固有の12桁の番号を付番し、行政の効率化と公平・公正な社会を実現する法律",
+    "desc": "マイナンバーを利用できる範囲は法律で「社会保障」「税」「災害対策」の3分野に厳格に限定されている。",
+    "point": "試験では「利用可能範囲が社会保障・税・災害対策の3分野に限られる」ことが頻出。"
+  },
+  {
+    "id": "s40",
+    "term": "サイバーセキュリティ基本法",
+    "reading": "さいばーせきゅりてぃきほんほう",
+    "system": "strat",
+    "cat": "法務・セキュリティ",
+    "importance": 2,
+    "summary": "国のサイバーセキュリティに関する施策の基本理念と、国や重要インフラ事業者の責務を定めた法律",
+    "desc": "電力、通信、金融、交通などの重要インフラ事業者にセキュリティ確保の努力義務を課し、内閣にサイバーセキュリティ戦略本部を設置することを定めている。",
+    "point": "国の基本方針を定めた法律。"
+  },
+  {
+    "id": "s41",
+    "term": "公益通報者保護法",
+    "reading": "こうえきつうほうしゃほごほう",
+    "system": "strat",
+    "cat": "法務・企業統治",
+    "importance": 2,
+    "summary": "企業の法令違反を社内窓口や行政機関に通報（内部告発）した労働者を解雇や減給から守る法律",
+    "desc": "リコール隠しや食品偽装などの不正を通報した社員を保護する。解雇は無効となり、降格や減給などの不利益な取り扱いも禁止される。",
+    "point": "「内部告発を行った労働者の保護」がキーワード。"
+  },
+  {
+    "id": "s42",
+    "term": "GPLとコピーレフト",
+    "reading": "じーぴーえるところぴーれふと",
+    "system": "strat",
+    "cat": "ソフトウェア・著作権",
+    "importance": 3,
+    "summary": "OSSを利用・改変して再配布する場合、その派生ソフトウェアも同じGPL（ソース公開）で公開しなければならない原則",
+    "desc": "Linuxなどで採用されているライセンス。著作権（Copyright）に対抗して名付けられた「Copyleft（著作権の自由な共有）」。ソースコードを独占・非公開にさせない強力な感染性がある。",
+    "point": "「改変して再配布する場合、派生物も同じライセンスでソースコードを無償公開する義務がある」が正解。"
+  },
+  {
+    "id": "s43",
+    "term": "損益計算書 (P/L) の5つの利益",
+    "reading": "そんえきけいさんしょのいつつのりえき",
+    "system": "strat",
+    "cat": "財務・会計",
+    "importance": 3,
+    "summary": "売上総利益 ➔ 営業利益 ➔ 経常利益 ➔ 税引前当期純利益 ➔ 当期純利益",
+    "desc": "①売上総利益（売上－原価） ②営業利益（本業の儲け） ③経常利益（本業＋副業・為替などの日常的な儲け） ④税引前当期純利益（臨時損益を加減） ⑤当期純利益（税金を払った最終利益）。",
+    "point": "「本業の利益＝営業利益」「日常的な活動全体の利益＝経常利益」の区別が頻出！"
+  },
+  {
+    "id": "s44",
+    "term": "損益分岐点",
+    "reading": "そんえきぶんきてん",
+    "system": "strat",
+    "cat": "財務・会計",
+    "importance": 3,
+    "summary": "売上高と総費用（固定費＋変動費）がちょうど等しくなり、利益がゼロになる売上高",
+    "desc": "この売上高を超えれば「黒字」、下回れば「赤字」になる境目。家賃などの「固定費」と、売上に比例する「変動費」に分けて計算する。",
+    "point": "公式: 【損益分岐点売上高 ＝ 固定費 ÷ (1 － 変動費率)】。計算問題の鉄板！"
+  },
+  {
+    "id": "s45",
+    "term": "固定費と変動費",
+    "reading": "こていひとへんどうひ",
+    "system": "strat",
+    "cat": "財務・会計",
+    "importance": 3,
+    "summary": "売上に関係なく毎月一定額かかる費用（固定費）／売上や生産量に比例して増える費用（変動費）",
+    "desc": "固定費の例: オフィスの家賃、正社員の基本給、設備の減価償却費。変動費の例: 原材料費、仕入原価、外注加工費、販売手数料。",
+    "point": "どの費用が固定費か変動費かを見分ける問題がよく出ます。"
+  },
+  {
+    "id": "s46",
+    "term": "貸借対照表 (B/S)",
+    "reading": "たいしゃくたいしょうひょう",
+    "system": "strat",
+    "cat": "財務・会計",
+    "importance": 3,
+    "summary": "ある一時点における企業の「資産」「負債」「純資産」の状態を示す財務諸表",
+    "desc": "左側に「資産（お金をどう使っているか）」、右側に「負債（借金）」と「純資産（株主の出資金・過去の利益）」が並び、左右の合計額が必ず一致（バランス）する。",
+    "point": "「資産 ＝ 負債 ＋ 純資産」の等式。P/Lが『1年間の成績表（動画）』なら、B/Sは『期末の財産スナップ写真（静止画）』。"
+  },
+  {
+    "id": "s47",
+    "term": "キャッシュフロー計算書",
+    "reading": "きゃっしゅふろーけいさんしょ",
+    "system": "strat",
+    "cat": "財務・会計",
+    "importance": 2,
+    "summary": "一会計期間における実際のお金（現金・預金）の出入りを3つの活動に分類して表す書類",
+    "desc": "①営業活動CF（本業での現金の増減） ②投資活動CF（設備投資や株の売買） ③財務活動CF（借入や返済、配当）。黒字倒産を防ぐために不可欠。",
+    "point": "健全な企業は「営業CFがプラス、投資CFがマイナス（将来へ投資中）」になりやすい。"
+  },
+  {
+    "id": "s48",
+    "term": "減価償却",
+    "reading": "げんかしょうきゃく",
+    "system": "strat",
+    "cat": "財務・会計",
+    "importance": 2,
+    "summary": "建物やPCなどの高額設備を買った際、買った年に一括費用にせず耐用年数に分けて少しずつ費用計上する手続き",
+    "desc": "100万円のサーバー（寿命5年）を買った場合、初年度に100万円計上するのではなく、毎年20万円ずつ5年間にわたって費用にする仕組み（定額法の場合）。",
+    "point": "実際にお金が出ていくのは購入時だが、費用計上は分割されるためキャッシュフローとのズレが生じる。"
+  },
+  {
+    "id": "s49",
+    "term": "パレート図",
+    "reading": "ぱれーとず",
+    "system": "strat",
+    "cat": "QC七つ道具",
+    "importance": 3,
+    "summary": "項目を降順に並べた「棒グラフ」と、その累積比率を表す「折れ線グラフ」を重ねた複合図",
+    "desc": "不良品の原因分析などで使われる。「上位2〜3個の原因を潰せば、全体の不具合の8割を解決できる」という重点管理対象を見つけ出すための最強の図。",
+    "point": "ABC分析（商品を重要度A・B・Cにランク分けする手法）の元になる図。"
+  },
+  {
+    "id": "s50",
+    "term": "散布図と相関関係",
+    "reading": "さんぷずとそうかんかんけい",
+    "system": "strat",
+    "cat": "QC七つ道具",
+    "importance": 2,
+    "summary": "2つの変数の関係性を平面上に点を打って可視化する図（正の相関・負の相関）",
+    "desc": "横軸に「気温」、縦軸に「アイスの売上」をとると右上がりの点群（正の相関）になる。ただし相関関係があっても因果関係（原因と結果）があるとは限らない。",
+    "point": "右上がり＝正の相関、右下がり＝負の相関。"
+  },
+  {
+    "id": "m01",
+    "term": "ウォーターフォールモデル",
+    "reading": "うぉーたーふぉーるもでる",
+    "system": "mgmt",
+    "cat": "開発モデル",
+    "importance": 3,
+    "summary": "要件定義 ➔ 設計 ➔ 開発 ➔ テストと、滝のように上流から下流へ順に進める伝統的手法",
+    "desc": "各工程が完了してから次の工程へ進むため、進捗管理がしやすく大規模システムに向く。ただし前の工程に後戻り（手戻り）すると膨大なコストが発生するのが弱点。",
+    "point": "アジャイル開発（反復型・変更に強い）と対比されるクラシカルな開発手法。"
+  },
+  {
+    "id": "m02",
+    "term": "アジャイル開発",
+    "reading": "あじゃいるかいはつ",
+    "system": "mgmt",
+    "cat": "開発モデル",
+    "importance": 3,
+    "summary": "短い開発サイクル（1〜4週間）を繰り返しながら、機能単位で素早くリリースしていく柔軟な開発手法",
+    "desc": "「Agile＝俊敏な」。仕様変更があることを前提にし、動くソフトウェアを小まめにユーザーに見せてフィードバックを受けながら開発を進める。",
+    "point": "ウォーターフォールとの違い: 「後からの仕様変更に柔軟に対応できる」。"
+  },
+  {
+    "id": "m03",
+    "term": "スクラムとスプリント",
+    "reading": "すくらむとすぷりんと",
+    "system": "mgmt",
+    "cat": "アジャイル開発",
+    "importance": 3,
+    "summary": "少人数の自律的チームで開発を進める枠組み（スクラム）と、1〜4週間の反復開発単位（スプリント）",
+    "desc": "ラグビーのスクラムのようにチーム全員で連携する。スプリントと呼ばれる短い期間ごとに「動く製品」を完成させてレビューする。",
+    "point": "スプリント、プロダクトバックログ、デイリースクラム（朝会）、レトロスペクティブ（振り返り）の用語が出題されます。"
+  },
+  {
+    "id": "m04",
+    "term": "プロトタイピング",
+    "reading": "ぷろとたいぴんぐ",
+    "system": "mgmt",
+    "cat": "開発手法",
+    "importance": 3,
+    "summary": "開発の早い段階で画面や機能の「試作品（プロトタイプ）」を作り、ユーザーとイメージをすり合わせる手法",
+    "desc": "「百聞は一見にしかず」。仕様書（紙）だけでは伝わらないボタン配置や操作感を、実際に動く画面を見せることで、完成後の「こんなはずじゃなかった」を防ぐ。",
+    "point": "「要件の不一致を防ぐため、開発初期に試作品を作る」がキーワード。"
+  },
+  {
+    "id": "m05",
+    "term": "リファクタリング",
+    "reading": "りふぁくたりんぐ",
+    "system": "mgmt",
+    "cat": "開発技術",
+    "importance": 3,
+    "summary": "プログラムの外部から見た動作仕様を変えずに、内部のソースコードを読みやすく整理・改善すること",
+    "desc": "新機能を追加するのではなく、重複コードの排除や変数名の見直しを行い、将来の保守性や可読性を高める「コードの部屋掃除」。",
+    "point": "「外部から見た振る舞い・機能を変えずに、内部構造を改善する」が絶対の正解定義！"
+  },
+  {
+    "id": "m06",
+    "term": "ペアプログラミング",
+    "reading": "ぺあぷろぐらみんぐ",
+    "system": "mgmt",
+    "cat": "アジャイル開発",
+    "importance": 2,
+    "summary": "2人のエンジニアが1台のPCを使い、コードを書く役とチェックする役に分かれて開発する手法",
+    "desc": "ドライバー（キーボードを叩いてコードを書く人）とナビゲーター（全体構造やエラーを横から確認する人）が役割を交代しながら作業する。バグが減り知識共有が進む。",
+    "point": "XP（エクストリームプログラミング）の代表的プラクティス。"
+  },
+  {
+    "id": "m07",
+    "term": "DevOps",
+    "reading": "でぶおぷす",
+    "system": "mgmt",
+    "cat": "開発・運用",
+    "importance": 3,
+    "summary": "開発担当（Development）と運用担当（Operations）が密接に連携し、システムの価値を迅速に提供する文化・手法",
+    "desc": "「新機能をどんどん出したい開発」と「システムを安定させたい運用」の対立を解消し、自動化ツール（CI/CD）を駆使して高速リリースと高安定性を両立する。",
+    "point": "「開発と運用の連携・協力体制」が目印。"
+  },
+  {
+    "id": "m08",
+    "term": "V字モデル（テスト工程の対応）",
+    "reading": "ぶいじもでる",
+    "system": "mgmt",
+    "cat": "テスト手法",
+    "importance": 3,
+    "summary": "要件定義 ↔ 受け入れテスト、基本設計 ↔ システムテスト、詳細設計 ↔ 結合テスト、製造 ↔ 単体テスト",
+    "desc": "開発工程とテスト工程が左右対称に対応していることを表すモデル。上流の工程で決めた仕様を、対応する下流のテスト工程で検証する。",
+    "point": "どの設計書をどのテストで検証するかの組み合わせが頻出！"
+  },
+  {
+    "id": "m09",
+    "term": "単体テスト",
+    "reading": "たんたいてすと",
+    "system": "mgmt",
+    "cat": "テスト手法",
+    "importance": 3,
+    "summary": "プログラムを構成する個々の関数やモジュールが、単独で正しく動くかを検証するテスト",
+    "desc": "開発者が自分で書いたプログラム部品（モジュール）を個別にテストする工程。詳細設計書に基づいて実施される。",
+    "point": "最小単位のテスト。ホワイトボックステストが多用される。"
+  },
+  {
+    "id": "m10",
+    "term": "結合テスト",
+    "reading": "けつごうてすと",
+    "system": "mgmt",
+    "cat": "テスト手法",
+    "importance": 3,
+    "summary": "単体テストをパスした複数のモジュールを合体させ、データの受け渡し（インターフェース）が正常か検証するテスト",
+    "desc": "Aさんが作った部品とBさんが作った部品を繋げたとき、データのフォーマットややり取りでエラーが起きないかを確認する。",
+    "point": "内部設計書に基づいて実施され、インターフェースの整合性を検証する。"
+  },
+  {
+    "id": "m11",
+    "term": "システムテスト",
+    "reading": "しすてむてすと",
+    "system": "mgmt",
+    "cat": "テスト手法",
+    "importance": 3,
+    "summary": "ハード・ソフト・NWをすべて統合したシステム全体が、要件通りの性能や機能を発揮するか検証するテスト",
+    "desc": "負荷テスト（大量アクセスに耐えられるか）、障害回復テスト、セキュリティテスト、レスポンス速度などを本番に近い環境で総合的に検証する。",
+    "point": "基本設計書に基づいて開発側が実施する総合テスト。"
+  },
+  {
+    "id": "m12",
+    "term": "受け入れテスト",
+    "reading": "うけいれてすと",
+    "system": "mgmt",
+    "cat": "テスト手法",
+    "importance": 3,
+    "summary": "発注者（ユーザー）自身が、完成したシステムが実際の業務に使えるかを検証し、検収・引き取りを行うテスト",
+    "desc": "要件定義書で取り交わした仕様がすべて満たされているかを顧客側が確認する最終関門。合格すれば納品完了となる。",
+    "point": "【重要】開発ベンダーではなく「発注者（ユーザー側）」が主体となって行うテスト。"
+  },
+  {
+    "id": "m13",
+    "term": "ブラックボックステスト",
+    "reading": "ぶらっくぼっくすてすと",
+    "system": "mgmt",
+    "cat": "テスト手法",
+    "importance": 3,
+    "summary": "プログラムの内部構造（ソースコード）を見ずに、入力に対する出力結果だけに着目して行うテスト",
+    "desc": "箱の中身は見えない（ブラックボックス）。「入力した値に対して、仕様通りの正しい値が返ってくるか」だけを外部から検証する。",
+    "point": "同値分割や限界値分析（境界値分析）が代表的な設計技法。"
+  },
+  {
+    "id": "m14",
+    "term": "ホワイトボックステスト",
+    "reading": "ほわいとぼっくすてすと",
+    "system": "mgmt",
+    "cat": "テスト手法",
+    "importance": 3,
+    "summary": "プログラムの内部構造（ソースコードの分岐やループ）を熟知した上で、全ルートを通るか検証するテスト",
+    "desc": "箱の中身が透けて見える（ホワイトボックス）。すべてのif文の分岐（True/False）を最低1回は通過するテストケースを作成する。",
+    "point": "網羅率（カバレッジ）を測定する。単体テストで主に使われる。"
+  },
+  {
+    "id": "m15",
+    "term": "同値分割と限界値分析",
+    "reading": "どうちぶんかつとげんかいちぶんせき",
+    "system": "mgmt",
+    "cat": "テスト技法",
+    "importance": 3,
+    "summary": "代表値を1つ選んでテストする（同値分割）／バグが出やすい境界線の前後をテストする（限界値分析）",
+    "desc": "「18歳未満が子供、18歳以上が大人」の場合、同値分割は【10歳】と【25歳】をテスト。限界値分析（境界値分析）は境界ギリギリの【17歳】【18歳】【19歳】をテストする。",
+    "point": "バグは境界線（以上/以下、未満の記号ミス）に最も集中するため、限界値分析が極めて有効！"
+  },
+  {
+    "id": "m16",
+    "term": "回帰テスト（リグレッションテスト）",
+    "reading": "かいきてすと",
+    "system": "mgmt",
+    "cat": "テスト手法",
+    "importance": 3,
+    "summary": "プログラムの一部を修正した際、その修正によって過去に動いていた別の正常な部分にバグが発生していないか確認するテスト",
+    "desc": "「あっちを直したらこっちが壊れた（デグレ）」を防ぐための退行テスト。CI/CDの自動テストで過去の全テストを走らせるのが一般的。",
+    "point": "「修正の影響が他の部分に及んでいないか確認する」が正解定義。"
+  },
+  {
+    "id": "m17",
+    "term": "ファンクションポイント法 (FP法)",
+    "reading": "ふぁんくしょんぽいんとほう",
+    "system": "mgmt",
+    "cat": "工数見積り",
+    "importance": 3,
+    "summary": "画面数、帳票数、ファイル数など、ユーザーに見える「機能の数と複雑さ」から開発規模・工数を見積もる手法",
+    "desc": "ソースコードの行数（LOC）で見積もると使うプログラミング言語によってバラつきが出るが、FP法なら開発言語に依存せずユーザー目線の機能量で客観的に見積もれる。",
+    "point": "「機能の数と複雑さから見積もる」「開発言語に依存しない」が試験頻出ポイント。"
+  },
+  {
+    "id": "m18",
+    "term": "類推見積法と積算見積法",
+    "reading": "るいすいみつもりほうとせきさんみつもりほう",
+    "system": "mgmt",
+    "cat": "工数見積り",
+    "importance": 2,
+    "summary": "過去の似たプロジェクトの実績から類推する（類推）／WBSの各作業工数を積み上げて計算する（積算）",
+    "desc": "類推見積法（トップダウン）は初期のざっくり見積もりに便利。積算見積法（ボトムアップ）はWBSで細分化した作業ごとに工数を計算して足し合わせるため精度が高い。",
+    "point": "初期段階＝類推見積、詳細決定後＝積算見積。"
+  },
+  {
+    "id": "m19",
+    "term": "マイルストーン",
+    "reading": "まいるすとーん",
+    "system": "mgmt",
+    "cat": "日程管理",
+    "importance": 3,
+    "summary": "プロジェクトの進捗における「重要な節目・通過点」（期間ではなく期日を表す）",
+    "desc": "「要件定義完了」「ハードウェア納品」「ユーザー承認」など、プロジェクトの成否に関わる重要ポイント。ガントチャート上ではダイヤマーク（◆）で示されることが多い。",
+    "point": "作業期間（所要日数）ではなく「特定の時点・節目」を表す。"
+  },
+  {
+    "id": "m20",
+    "term": "ガントチャート",
+    "reading": "がんとちゃーと",
+    "system": "mgmt",
+    "cat": "日程管理",
+    "importance": 3,
+    "summary": "縦軸に作業項目、横軸に時間をとり、作業期間を横棒（バー）の長さで表した進捗管理図",
+    "desc": "作業の予定と実績を一目で比較できる最もポピュラーな工程管理図。誰がいつからいつまで作業するかが直感的に把握できる。",
+    "point": "弱点: 「作業同士の前後関係や、どれが遅れると全体が遅れるか（クリティカルパス）は把握しにくい」。"
+  },
+  {
+    "id": "m21",
+    "term": "クラッシングとファストトラッキング",
+    "reading": "くらっしんぐとふぁすととらっきんぐ",
+    "system": "mgmt",
+    "cat": "日程短縮",
+    "importance": 2,
+    "summary": "追加人員や残業などのリソースを投入して短縮する（クラッシング）／順番に行う作業を並行して同時に行う（ファストトラッキング）",
+    "desc": "納期に遅れそうなときの短縮技法。クラッシングはコストが増える。ファストトラッキングは手戻り（やり直し）のリスクが増える。",
+    "point": "クラッシング＝費用追加投入、ファストトラッキング＝並行同時実施。"
+  },
+  {
+    "id": "m22",
+    "term": "サービスデスク",
+    "reading": "さーびすですく",
+    "system": "mgmt",
+    "cat": "サービスマネジメント",
+    "importance": 3,
+    "summary": "ユーザーからの問い合わせや障害報告をすべて受け付ける「単一の窓口 (SPOC)」",
+    "desc": "「Single Point of Contact」。ユーザーが困ったときに『あっちの部署、こっちの部署』とたらい回しにせず、すべての相談を一本化して受け付ける専用窓口。",
+    "point": "「ユーザーに対する単一の窓口」が目印。"
+  },
+  {
+    "id": "m23",
+    "term": "インシデント管理と問題管理",
+    "reading": "いんしでんとかんりともんだいかんり",
+    "system": "mgmt",
+    "cat": "サービスマネジメント",
+    "importance": 3,
+    "summary": "インシデント管理＝とにかくサービスを迅速に復旧／問題管理＝根本原因を突き止め再発防止",
+    "desc": "インシデント管理は『PC再起動でひとまず復旧させる（応急処置）』。問題管理は『なぜ再起動が必要なバグが起きたのか根本原因を突き止め、パッチを当てて二度と起きなくする』。",
+    "point": "【過去問超頻出】インシデント管理の目的は「迅速な復旧」、問題管理の目的は「根本原因の究明と再発防止」。"
+  },
+  {
+    "id": "m24",
+    "term": "変更管理とリリース管理",
+    "reading": "へんこうかんりとりりーすかんり",
+    "system": "mgmt",
+    "cat": "サービスマネジメント",
+    "importance": 2,
+    "summary": "変更管理＝システムの修正が安全か審査・承認／リリース管理＝本番環境へ安全に反映・展開",
+    "desc": "勝手にサーバー設定を変更して障害が起きないよう、変更管理委員会（CAB）が影響を審査。承認された変更をリリース管理が夜間に安全に本番適用する。",
+    "point": "変更管理は「審査と承認」、リリース管理は「本番への安全な展開作業」。"
+  },
+  {
+    "id": "m25",
+    "term": "可用性管理とキャパシティ管理",
+    "reading": "かようせいかんりときゃぱしてぃかんり",
+    "system": "mgmt",
+    "cat": "サービスマネジメント",
+    "importance": 2,
+    "summary": "可用性管理＝システムを止めず稼働率を高める／キャパシティ管理＝サーバーの性能や容量が不足しないよう予測管理",
+    "desc": "可用性管理はMTBFやMTTRを改善してSLAの稼働率99.9%を守る。キャパシティ管理はディスク残量やCPU使用率を監視し、アクセス急増でパンクする前に対処する。",
+    "point": "可用性＝止まらないこと、キャパシティ＝容量・性能がパンクしないこと。"
+  },
+  {
+    "id": "m26",
+    "term": "システム監査人の独立性と客観性",
+    "reading": "しすてむかんさにんのどくりつせいときゃっかんせい",
+    "system": "mgmt",
+    "cat": "システム監査",
+    "importance": 3,
+    "summary": "システム監査人は、監査対象の部門から独立した第三者の立場で公平に評価しなければならない",
+    "desc": "自分で作ったシステムを自分で監査して「問題なし」とするのはNG（身内びいき）。監査人は社長直轄など独立した立場にあり、客観的な証拠に基づいて判定しなければならない。",
+    "point": "「監査対象の業務に関与していない独立した立場の者が行う」が鉄板の正解基準！"
+  },
+  {
+    "id": "m27",
+    "term": "監査証拠と監査調書",
+    "reading": "かんさしょうことかんさちょうしょ",
+    "system": "mgmt",
+    "cat": "システム監査",
+    "importance": 2,
+    "summary": "監査証拠＝監査人が集めた客観的な裏付けデータ／監査調書＝監査の手続きや結果を記録した文書",
+    "desc": "監査人は自分の思い込みで判定してはならず、操作ログや契約書などの「監査証拠」を集め、監査の手順や結論に至った理由を「監査調書」として記録・保存する。",
+    "point": "監査意見を裏付けるための客観的証拠が必要。"
+  },
+  {
+    "id": "m28",
+    "term": "監査報告書とフォローアップ",
+    "reading": "かんさほうこくしょとふぉろーあっぷ",
+    "system": "mgmt",
+    "cat": "システム監査",
+    "importance": 3,
+    "summary": "監査人が経営者に提出する報告書。改善勧告が出た場合、後日改善状況を確認する（フォローアップ）",
+    "desc": "監査人はシステムを「直接修正・改善する権限」は持たない！経営者に報告書を提出して改善を勧告し、後日指摘事項が直ったかを「フォローアップ」で確認する。",
+    "point": "【超頻出引っかけ】: 監査人は「自分で欠陥を修正する」のではなく、「経営者に報告し、改善を勧告する」だけ！"
+  },
+  {
+    "id": "m29",
+    "term": "内部統制の4目的と6基本的要素",
+    "reading": "ないぶとうせいのよんもくてきとろくきほんてきようそ",
+    "system": "mgmt",
+    "cat": "内部統制",
+    "importance": 3,
+    "summary": "企業の不正を防ぎ、健全な経営を行うための社内ルールや体制の枠組み",
+    "desc": "4つの目的: ①業務の有効性と効率性 ②財務報告の信頼性 ③法令遵守（コンプライアンス） ④資産の保全。6つの要素: 統制環境、リスクの評価と対応、統制活動、情報と伝達、モニタリング、ITへの対応。",
+    "point": "日本の内部統制基準には「ITへの対応」が明確に盛り込まれているのが特徴。"
+  },
+  {
+    "id": "m30",
+    "term": "職務分掌",
+    "reading": "しょくむぶんしょう",
+    "system": "mgmt",
+    "cat": "内部統制",
+    "importance": 3,
+    "summary": "不正やミスを防ぐため、1人の社員に過剰な権限を集中させず、業務を複数の担当者に分散させること",
+    "desc": "「商品の発注担当者」と「届いた商品の検収担当者」を同じ人が兼任すると架空発注の横領ができるため、別々の人に担当させること（牽制機能）。",
+    "point": "「権限の集中を避け、相互牽制を働かせる」が正解。"
+  },
+  {
+    "id": "m31",
+    "term": "ベンチマークテスト",
+    "reading": "べんちまーくてすと",
+    "system": "mgmt",
+    "cat": "性能評価",
+    "importance": 2,
+    "summary": "標準的なテストプログラムを実行させ、コンピュータシステムの処理速度や性能を客観的に比較測定すること",
+    "desc": "新しいPCやサーバーを購入する際、実機で専用の計測ソフトを走らせて「どっちが何%高速か」を数値化して評価する手法。",
+    "point": "ストラテジのベンチマーキング（経営比較）と区別。"
+  },
+  {
+    "id": "m32",
+    "term": "要件定義",
+    "reading": "ようけんていぎ",
+    "system": "mgmt",
+    "cat": "開発プロセス",
+    "importance": 3,
+    "summary": "システム開発の最上流工程で、ユーザーがシステムに求める業務機能や性能を明確にする作業",
+    "desc": "「業務要件（何をしたいか）」「機能要件（どんなボタンや計算が必要か）」「非機能要件（稼働率、セキュリティ、応答速度）」を文章化する。",
+    "point": "機能要件と非機能要件（セキュリティやバックアップ等の裏方性能）の区別がよく出ます。"
+  },
+  {
+    "id": "m33",
+    "term": "ステークホルダー",
+    "reading": "すてーくほるだー",
+    "system": "mgmt",
+    "cat": "プロジェクト管理",
+    "importance": 2,
+    "summary": "プロジェクトの意思決定や成果によって影響を受ける、または影響を与える「すべての利害関係者」",
+    "desc": "顧客、経営者、プロジェクトメンバーだけでなく、将来の利用ユーザー、外注ベンダー、株主、近隣住民なども含まれる。",
+    "point": "「利害関係者全体」を指す。"
+  },
+  {
+    "id": "m34",
+    "term": "スコープ",
+    "reading": "すこーぷ",
+    "system": "mgmt",
+    "cat": "プロジェクト管理",
+    "importance": 2,
+    "summary": "プロジェクトで「どこまでやるか（作業範囲や成果物の範囲）」の境界線",
+    "desc": "スコープが曖昧なままだと、後から顧客の要望が無限に膨らんで納期遅延・赤字炎上（スコープクリープ）を引き起こす。",
+    "point": "「成果物の範囲および必要な作業の範囲」のこと。"
+  },
+  {
+    "id": "m35",
+    "term": "コンカレントエンジニアリング",
+    "reading": "こんかれんとえんじにありんぐ",
+    "system": "mgmt",
+    "cat": "開発手法",
+    "importance": 2,
+    "summary": "設計・製造・購買などの複数工程を並行して同時に進めることで、開発期間を大幅に短縮する手法",
+    "desc": "自動車開発などで、ボディ設計が終わるのを待たずにエンジン設計や金型製造を同時並行で進めること。",
+    "point": "「複数工程の並行進行による期間短縮」がキーワード。"
+  },
+  {
+    "id": "t01",
+    "term": "基数変換（2進数・10進数・16進数）",
+    "reading": "きすうへんかん",
+    "system": "tech",
+    "cat": "基礎理論",
+    "importance": 3,
+    "summary": "コンピュータ内部の0と1（2進数）と、人間が使う10進数、簡潔に表す16進数の相互変換",
+    "desc": "2進数は「0と1」、16進数は「0〜9とA〜F」で表現。16進数の1桁は2進数の4ビット（0000〜1111）にちょうど対応する。",
+    "point": "16進数のA=10, B=11, C=12, D=13, E=14, F=15。重み付け（8, 4, 2, 1）の掛け算・足し算で変換。"
+  },
+  {
+    "id": "t02",
+    "term": "論理演算（AND, OR, NOT, XOR）",
+    "reading": "ろんりえんざん",
+    "system": "tech",
+    "cat": "基礎理論",
+    "importance": 3,
+    "summary": "0と1の真偽値を計算する基本演算。AND（両方1）、OR（どちらか1）、XOR（異なる場合1）",
+    "desc": "排他的論理和（XOR）は「2つの入力が異なるときだけ1になる（0と1➔1、1と1➔0）」。暗号やパリティチェックで大活躍する。",
+    "point": "真理値表の空欄穴埋め問題が毎年出題されます。"
+  },
+  {
+    "id": "t03",
+    "term": "スタックとキュー",
+    "reading": "すたっくときゅー",
+    "system": "tech",
+    "cat": "データ構造",
+    "importance": 3,
+    "summary": "スタック＝LIFO（後入れ先出し・積読本）／キュー＝FIFO（先入れ先出し・レジの順番待ち）",
+    "desc": "スタックは机に積み上げた本（最後に置いた本を最初に取り出す: Push/Pop）。キューは電車の改札の列（最初に並んだ人が最初に出る: Enqueue/Dequeue）。",
+    "point": "スタック＝後入れ先出し(LIFO)、キュー＝先入れ先出し(FIFO)。この2つの対比は試験の超鉄板！"
+  },
+  {
+    "id": "t04",
+    "term": "2分探索木",
+    "reading": "にぶんたんさくき",
+    "system": "tech",
+    "cat": "データ構造・アルゴリズム",
+    "importance": 3,
+    "summary": "各ノードにおいて「左の子 ＜ 親 ＜ 右の子」の大小関係が必ず成り立つ木構造",
+    "desc": "左側には自分より小さい値、右側には自分より大きい値を配置する。探す値と親を比較するだけで、探索範囲を半分ずつ絞り込める。",
+    "point": "「左 ＜ 親 ＜ 右」のルールを覚えていれば確実に解けます。"
+  },
+  {
+    "id": "t05",
+    "term": "線形探索と2分探索",
+    "reading": "せんけいたんさくとにぶんたんさく",
+    "system": "tech",
+    "cat": "アルゴリズム",
+    "importance": 3,
+    "summary": "線形探索＝先頭から順にしらみつぶしに探す／2分探索＝ソート済み配列の真ん中と比較して半分ずつ絞り込む",
+    "desc": "線形探索はバラバラのデータでも使えるが平均N/2回かかる。2分探索はあらかじめ昇順・降順に並んでいる必要（ソート済み）があるが、超高速（log2 N回）で見つかる。",
+    "point": "2分探索の前提条件は「データがあらかじめ整列（ソート）されていること」。"
+  },
+  {
+    "id": "t06",
+    "term": "仮想記憶とページング方式",
+    "reading": "かそうきおくところぺーじんぐほうしき",
+    "system": "tech",
+    "cat": "OS・メモリ管理",
+    "importance": 3,
+    "summary": "主記憶（RAM）の容量不足を補うため、ハードディスクの一部を仮想的なメモリとして使う仕組み",
+    "desc": "プログラムを「ページ」という固定サイズに分割し、使うページだけ主記憶に読み込む。容量が足りなくなると使っていないページを外部記憶に追い出す（ページアウト）。",
+    "point": "メモリ不足でページの出し入れが頻発し、PCがフリーズ状態になる現象を【スラッシング】と呼ぶ。"
+  },
+  {
+    "id": "t07",
+    "term": "排他制御とデッドロック",
+    "reading": "はいたせいぎょとでっどろっく",
+    "system": "tech",
+    "cat": "データベース・OS",
+    "importance": 3,
+    "summary": "データの矛盾を防ぐため書き込み中は他者を待たせる仕組み（排他制御）と、お互いが相手のロック解除を待ち合って永遠に止まる状態（デッドロック）",
+    "desc": "残高照会中に同時に引き出されないよう「鍵（ロック）」をかけるのが排他制御。プロセスAが資源1を持ち資源2を要求、プロセスBが資源2を持ち資源1を要求すると共倒れになるのがデッドロック。",
+    "point": "デッドロックの発生原因と、未然防止策が出題されます。"
+  },
+  {
+    "id": "t08",
+    "term": "クロック周波数",
+    "reading": "くろっくしゅうはすう",
+    "system": "tech",
+    "cat": "ハードウェア",
+    "importance": 2,
+    "summary": "CPUが処理のタイミングを合わせるための信号（パルス）が1秒間に繰り返される回数（単位: Hz）",
+    "desc": "オーケストラの指揮者のテンポ。3.0GHzなら1秒間に30億回のテンポを刻む。一般にクロック周波数が高いほどCPUは高速に命令を実行できる。",
+    "point": "1GHz ＝ 10の9乗Hz（1秒間に10億回）。"
+  },
+  {
+    "id": "t09",
+    "term": "デバイスドライバ",
+    "reading": "でばいすどらいば",
+    "system": "tech",
+    "cat": "OS・周辺機器",
+    "importance": 3,
+    "summary": "プリンタやマウスなどの周辺機器をOSが正しく制御するための専用ソフトウェア",
+    "desc": "OSと周辺機器の間を取り持つ通訳ソフト。新しいプリンタをPCに繋いだ時、これをインストールしないと印刷できない。",
+    "point": "OSとハードウェアの仲介役。「プラグアンドプレイ」は挿すだけで自動認識・自動設定してくれる機能。"
+  },
+  {
+    "id": "t10",
+    "term": "パケット通信",
+    "reading": "ぱけっとつうしん",
+    "system": "tech",
+    "cat": "ネットワーク",
+    "importance": 3,
+    "summary": "送信データを小さな塊（パケット）に分割し、宛先アドレスを付けてネットワークを共有利用する方式",
+    "desc": "データを小分けにすることで、1本の通信回線を複数人で同時に効率よくシェアできる。途中でパケットが壊れても、壊れたパケットだけ再送すれば済む。",
+    "point": "電話のように回線を1本の専用線で占有する「回線交換方式」と対比される。"
+  },
+  {
+    "id": "t11",
+    "term": "デフォルトゲートウェイ",
+    "reading": "でふぉるとげーとうぇい",
+    "system": "tech",
+    "cat": "ネットワーク",
+    "importance": 3,
+    "summary": "社内LANや家庭内から、外部のインターネットへ出ていく際の「唯一の出入口（ルーター）」",
+    "desc": "「Gateway＝門・玄関」。社内LANに宛先がいない場合、とりあえずすべてのパケットをデフォルトゲートウェイ（ルーター）へ送れば、ルーターが外の世界へ送り届けてくれる。",
+    "point": "外の世界（他のネットワーク）へパケットを送り出す出入口。"
+  },
+  {
+    "id": "t12",
+    "term": "サブネットマスク",
+    "reading": "さぶねっとますく",
+    "system": "tech",
+    "cat": "ネットワーク",
+    "importance": 3,
+    "summary": "IPアドレスのどこまでが「ネットワーク番号（町名）」で、どこからが「ホスト番号（家番号）」かを区切るマスク値",
+    "desc": "例: 「255.255.255.0」。255の部分がネットワーク識別用、0の部分が個々のパソコンを識別する番号を表す。",
+    "point": "同一ネットワーク内にあるか、外のネットワークへ転送すべきかを判定するために使用される。"
+  },
+  {
+    "id": "t13",
+    "term": "グローバルIPとプライベートIP",
+    "reading": "ぐろーばるあいぴーとぷらいべーとあいぴー",
+    "system": "tech",
+    "cat": "ネットワーク",
+    "importance": 3,
+    "summary": "インターネット上で世界中で一意の公的アドレス（グローバル）／家庭や社内LANだけで自由に使える内線アドレス（プライベート）",
+    "desc": "プライベートIP（192.168.x.xなど）は外のインターネットには直接出られないため、NAT/NAPTルーターでグローバルIPに変換して通信する。",
+    "point": "プライベートIPは社内内線番号、グローバルIPは世界共通の公的電話番号。"
+  },
+  {
+    "id": "t14",
+    "term": "ポート番号",
+    "reading": "ぽーとばんごう",
+    "system": "tech",
+    "cat": "ネットワーク",
+    "importance": 3,
+    "summary": "同一コンピュータ内で動作している「どのアプリケーションにパケットを届けるか」を識別するサブ番号",
+    "desc": "IPアドレスが「マンションの住所」なら、ポート番号は「部屋番号（または担当窓口）」。Web通信は80番(HTTP)や443番(HTTPS)、メール送信は25番や587番(SMTP)。",
+    "point": "「どのアプリケーション・サービス宛てか」を特定するための番号（0〜65535）。"
+  },
+  {
+    "id": "t15",
+    "term": "プロキシサーバ",
+    "reading": "ぷろきしさーば",
+    "system": "tech",
+    "cat": "ネットワーク・セキュリティ",
+    "importance": 3,
+    "summary": "社内PCの代わりにインターネットのWebサイトへアクセスを代行する「中継代理サーバー」",
+    "desc": "「Proxy＝代理人」。①Web閲覧を高速化するキャッシュ機能 ②有害サイトへのアクセスを遮断するURLフィルタリング機能 ③社内PCのIPアドレスを隠す匿名化機能を持つ。",
+    "point": "代理アクセスによるキャッシュ、セキュリティ制限、ログ記録。"
+  },
+  {
+    "id": "t16",
+    "term": "Cookieとセッション",
+    "reading": "くっきーとせっしょん",
+    "system": "tech",
+    "cat": "Web技術",
+    "importance": 3,
+    "summary": "Cookie＝ユーザーのブラウザ側に保存されるログイン情報やカート情報／セッション＝サーバー側で一連の操作を管理する仕組み",
+    "desc": "ネット通販でログイン状態を保ったり、買い物かごの中身を保持できるのはCookieのおかげ。プライバシー保護の観点からサードパーティCookieの規制が進んでいる。",
+    "point": "Cookieは「ブラウザ（端末）側」、セッション情報は「サーバー側」に保存される違い。"
+  },
+  {
+    "id": "t17",
+    "term": "マルウェア",
+    "reading": "まるうぇあ",
+    "system": "tech",
+    "cat": "セキュリティ脅威",
+    "importance": 3,
+    "summary": "ウイルス、ワーム、トロイの木馬、ランサムウェアなど「悪意のある不正ソフトウェア全般」の総称",
+    "desc": "Malicious（悪意のある）＋ Software（ソフトウェア）。コンピュータに損害を与えたり、情報を盗み出すプログラム全般を指す包括的用語。",
+    "point": "ウイルス（宿主が必要・自己増殖）、ワーム（単独で動作・自己増殖）、トロイの木馬（無害なふり・自己増殖しない）。"
+  },
+  {
+    "id": "t18",
+    "term": "ランサムウェア",
+    "reading": "らんさむうぇあ",
+    "system": "tech",
+    "cat": "セキュリティ脅威",
+    "importance": 3,
+    "summary": "感染したPC内のファイルを勝手に暗号化して開けなくし、元に戻す身代金（Ransom）を仮想通貨で要求する凶悪マルウェア",
+    "desc": "病院や企業の業務を麻痺させる近年の最大脅威。「身代金を払っても復号される保証はない」ため、オフラインでの定期バックアップが最強の予防策。",
+    "point": "「ファイルを暗号化して身代金を要求する」が絶対のキーワード。"
+  },
+  {
+    "id": "t19",
+    "term": "スパイウェアとキーロガー",
+    "reading": "すぱいうぇあときーろがー",
+    "system": "tech",
+    "cat": "セキュリティ脅威",
+    "importance": 3,
+    "summary": "ユーザーに気付かれないようPC内に潜み、入力したキー情報や個人情報を外部にこっそり送信するマルウェア",
+    "desc": "キーロガーはキーボードの打鍵履歴（キーストローク）を全て記録するツール。ネットバンキングのID・パスワードを盗み出すために悪用される。",
+    "point": "画面上のソフトウェアキーボード（マウスでクリック入力）を使うとキーロガー対策になる。"
+  },
+  {
+    "id": "t20",
+    "term": "ボットとボットネット",
+    "reading": "ぼっととぼっとねっと",
+    "system": "tech",
+    "cat": "セキュリティ脅威",
+    "importance": 3,
+    "summary": "外部の攻撃者（C&Cサーバ）から遠隔操作される感染PC（ボット）と、それが束ねられた巨大なゾンビ軍団ネットワーク",
+    "desc": "持ち主が知らない間に遠隔操作の奴隷にされる。攻撃者の合図ひとつで、世界中の何十万台ものボットから一斉に標的へDDoS攻撃を仕掛ける。",
+    "point": "DDoS攻撃やスパムメール送信の踏み台として利用される。"
+  },
+  {
+    "id": "t21",
+    "term": "ソーシャルエンジニアリング",
+    "reading": "そーしゃるえんじにありんぐ",
+    "system": "tech",
+    "cat": "人的攻撃手法",
+    "importance": 3,
+    "summary": "技術的なハッキングではなく、人間の心理的隙や不注意につけ込んでパスワードや機密情報を盗み出す手法",
+    "desc": "後ろから画面を盗み見する「ショルダーハッキング」、ゴミ箱を漁る「トラッシング」、システム管理者を装って電話でパスワードを聞き出す「なりすまし電話」など。",
+    "point": "「コンピュータ技術を使わず、人間の心理的弱みや行動を利用する」が正解。"
+  },
+  {
+    "id": "t22",
+    "term": "フィッシング詐欺とスピアフィッシング",
+    "reading": "ふぃっしんぐさぎとすぴあふぃっしんぐ",
+    "system": "tech",
+    "cat": "サイバー攻撃",
+    "importance": 3,
+    "summary": "銀行やカード会社を装った偽メールで本物そっくりの偽サイトへ誘導し、IDや暗証番号を入力させて詐取する手口",
+    "desc": "不特定多数にバラ撒くのが通常のフィッシング。特定の企業や担当者の名前を騙ってピンポイントに狙い撃ちするのが「スピアフィッシング（標的型攻撃）」。",
+    "point": "Phishing（魚釣りFishingと洗練Sophisticatedの造語）。偽サイトへ誘導して認証情報を盗む。"
+  },
+  {
+    "id": "t23",
+    "term": "SQLインジェクション",
+    "reading": "えすきゅーえるいんじぇくしょん",
+    "system": "tech",
+    "cat": "Web脆弱性攻撃",
+    "importance": 3,
+    "summary": "Webサイトの入力フォームに不正なSQL文を注入（Injection）し、背後のデータベースを不正操作・全件窃盗する攻撃",
+    "desc": "パスワード欄に「' OR '1'='1」などを入力し、パスワード認証を回避したり全顧客データを抜き取る。対策は「プレースホルダの利用」や特殊文字の無力化（エスケープ処理）。",
+    "point": "Web入力フォームからデータベースを改ざん・窃盗する攻撃。WAFで防御可能。"
+  },
+  {
+    "id": "t24",
+    "term": "クロスサイトスクリプティング (XSS)",
+    "reading": "くろすさいとすくりぷてぃんぐ",
+    "system": "tech",
+    "cat": "Web脆弱性攻撃",
+    "importance": 3,
+    "summary": "掲示板などの入力フォームに悪意あるJavaScriptコードを投稿し、それを閲覧した一般ユーザーのブラウザ上で不正スクリプトを実行させる攻撃",
+    "desc": "閲覧者のCookie（セッションID）を盗み出してアカウントを乗っ取ったり、偽の入力画面を表示してパスワードを詐取する。",
+    "point": "対策: 入力されたHTML特殊文字（<や>等）を安全な文字列に変換する【サニタイジング（エスケープ処理）】。"
+  },
+  {
+    "id": "t25",
+    "term": "クロスサイトリクエストフォージェリ (CSRF)",
+    "reading": "くろすさいとりくえすとふぉーじぇり",
+    "system": "tech",
+    "cat": "Web脆弱性攻撃",
+    "importance": 3,
+    "summary": "ログイン中のユーザーに罠リンクを踏ませ、本人の意図しない投稿や商品購入、パスワード変更を勝手に実行させる攻撃",
+    "desc": "ネットバンキングにログイン中の状態で悪意あるサイトを開くと、本人の権限を使って勝手に送金リクエストが送信されてしまう。",
+    "point": "「ログイン中のユーザーの権限を悪用し、意図しないリクエストを送信させる」攻撃。"
+  },
+  {
+    "id": "t26",
+    "term": "パスワードリスト攻撃",
+    "reading": "ぱすわーどりすとこうげき",
+    "system": "tech",
+    "cat": "認証攻撃",
+    "importance": 3,
+    "summary": "別のサイトから漏洩したIDとパスワードのリストを使い、他の有名サイトでも同じパスワードを使い回しているユーザーを狙って不正ログインする手口",
+    "desc": "ユーザーが複数サイトで同じパスワードを使い回す心理を悪用。サイト側のセキュリティが強固でも、別の脆弱なサイトから漏れたリストで突破されてしまう。",
+    "point": "最大の対策は「パスワードの使い回しをやめる」「多要素認証(MFA)を導入する」。"
+  },
+  {
+    "id": "t27",
+    "term": "ブルートフォース攻撃とリバースブルートフォース",
+    "reading": "ぶるーとふぉーすこうげき",
+    "system": "tech",
+    "cat": "認証攻撃",
+    "importance": 3,
+    "summary": "ブルートフォース＝特定のIDに対しパスワードを総当たり／リバース＝よくあるパスワード（123456等）を固定し多数のIDを試す",
+    "desc": "ブルートフォースは「数回失敗でアカウントロック」されるため、攻撃者は固定パスワードで別々のIDを順番に試す「リバースブルートフォース」を使う。",
+    "point": "総当たり攻撃。パスワードの桁数を長く（12桁以上）することが有効な防御策。"
+  },
+  {
+    "id": "t28",
+    "term": "ゼロデイ攻撃",
+    "reading": "ぜろでいこうげき",
+    "system": "tech",
+    "cat": "サイバー攻撃",
+    "importance": 3,
+    "summary": "ソフトウェアの脆弱性が発見されてから、修正パッチが開発・配布されるまでの「無防備な期間」を突いて行われるサイバー攻撃",
+    "desc": "対策パッチが世の中に存在しない「Day 0（0日目）」に攻撃されるため、防ぐのが極めて困難。EDRや振る舞い検知で対抗する。",
+    "point": "「セキュリティ修正プログラム（パッチ）が提供される前に攻撃する」が正解。"
+  },
+  {
+    "id": "t29",
+    "term": "標的型攻撃メールとビジネスメール詐欺 (BEC)",
+    "reading": "ひょうてきがたこうげきめーるとびじねすめーるさぎ",
+    "system": "tech",
+    "cat": "サイバー攻撃",
+    "importance": 3,
+    "summary": "不特定多数ではなく、特定の企業や部署の業務内容に合わせて本物そっくりに作成された騙しのメール",
+    "desc": "BEC（Business E-mail Compromise）は取引先や自社の経営幹部になりすまし、偽の振込先口座へ大金を送金させる詐欺手口。",
+    "point": "業務連絡の請求書や納品書に偽装した悪意ある添付ファイルやリンクが特徴。"
+  },
+  {
+    "id": "t30",
+    "term": "サプライチェーン攻撃",
+    "reading": "さぷらいちぇーんこうげき",
+    "system": "tech",
+    "cat": "サイバー攻撃",
+    "importance": 3,
+    "summary": "セキュリティが強固な大企業を直接狙わず、取引先である中小企業や委託先を侵入の足がかりとして攻める攻撃",
+    "desc": "大企業のネットワークに直結している部品サプライヤーや保守管理会社を乗っ取り、そこを経由して大企業の中枢システムへ侵入する。",
+    "point": "「セキュリティ対策が手薄な下請企業や関連会社を踏み台にする」がキーワード。"
+  },
+  {
+    "id": "t31",
+    "term": "共通鍵暗号方式と公開鍵暗号方式",
+    "reading": "きょうつうかぎあんごうほうしきとこうかいかぎあんごうほうしき",
+    "system": "tech",
+    "cat": "暗号化技術",
+    "importance": 3,
+    "summary": "共通鍵＝暗号化と復号に同じ鍵を使う（高速・鍵の配送が困難）／公開鍵＝異なる2つの鍵のペアを使う（安全・計算が重い）",
+    "desc": "共通鍵（AES等）は南京錠。鍵を相手にどう届けるかが問題。公開鍵（RSA等）は誰でも閉められるポスト（公開鍵）と受取人専用の鍵（秘密鍵）。両者を組み合わせた「ハイブリッド暗号方式」がHTTPSで使われる。",
+    "point": "【鉄板】共通鍵は「高速だが鍵配送問題がある」、公開鍵は「鍵配送は安全だが処理が遅い」。"
+  },
+  {
+    "id": "t32",
+    "term": "ハッシュ関数とメッセージダイジェスト",
+    "reading": "はっしゅかんすうとめっせーじだいじぇすと",
+    "system": "tech",
+    "cat": "暗号化技術",
+    "importance": 3,
+    "summary": "どんな長さのデータからも、固定長の固有値（ハッシュ値）を算出する不可逆な一方向関数",
+    "desc": "①元のデータを1文字でも変えるとハッシュ値が激変する ②ハッシュ値から元のデータを逆算・復元することは不可能（不可逆性）。SHA-256などが代表。",
+    "point": "「改ざんの検知」や「パスワードの安全な保管」に必須の技術。"
+  },
+  {
+    "id": "t33",
+    "term": "デジタル署名",
+    "reading": "でじたるしょめい",
+    "system": "tech",
+    "cat": "セキュリティ技術",
+    "importance": 3,
+    "summary": "電子文書が「本人が作成したこと（なりすまし防止）」と「途中で改ざんされていないこと（改ざん検知）」を証明する仕組み",
+    "desc": "送信者は文書のハッシュ値を【送信者の秘密鍵】で暗号化して署名を作る。受信者は【送信者の公開鍵】で復号して検証する。",
+    "point": "【超頻出の急所】署名の作成には「送信者の秘密鍵」、検証には「送信者の公開鍵」を使う！"
+  },
+  {
+    "id": "t34",
+    "term": "バイオメトリクス認証（本人拒否率と他人受入率）",
+    "reading": "ばいおめとりくすにんしょう",
+    "system": "tech",
+    "cat": "生体認証",
+    "importance": 3,
+    "summary": "指紋、顔、虹彩、静脈などの生体情報で認証する技術。本人拒否率(FRR)と他人受入率(FAR)はトレードオフの関係",
+    "desc": "厳しくしすぎると「本人が入れなくなる（本人拒否率が上がる）」。緩くしすぎると「他人が通過してしまう（他人受入率が上がる）」。両者のバランス調整が重要。",
+    "point": "本人拒否率（偽拒否率）と他人受入率（偽一致率）のシーソー関係。"
+  },
+  {
+    "id": "t35",
+    "term": "情報セキュリティの3要素 (CIA)",
+    "reading": "じょうほうせきゅりてぃのさんようそ",
+    "system": "tech",
+    "cat": "セキュリティ原則",
+    "importance": 3,
+    "summary": "機密性（Confidentiality）＋ 完全性（Integrity）＋ 可用性（Availability）",
+    "desc": "機密性: 許可された人だけが見られる。完全性: 改ざんや欠落がなく正確。可用性: 必要なときにいつでも使える。新要素として真正性、責任追跡性、信頼性、否認防止が追加。",
+    "point": "CIAの3つの頭文字と意味の組み合わせは試験の超基本問題。"
+  },
+  {
+    "id": "t36",
+    "term": "ハルシネーション",
+    "reading": "はるしねーしょん",
+    "system": "tech",
+    "cat": "生成AI",
+    "importance": 3,
+    "summary": "生成AIが、事実に基づかない「もっともらしい嘘（誤情報）」を堂々と出力してしまう現象",
+    "desc": "「幻覚」という意味。AIは事実を理解しているのではなく「確率的に自然な単語」を繋いでいるだけなので、知らないことでもあたかも真実のように語ってしまう最大の弱点。",
+    "point": "最新シラバス重要用語。ハルシネーションの抑制策としてRAG（検索拡張生成）が有効。"
+  },
+  {
+    "id": "t37",
+    "term": "プロンプトエンジニアリング",
+    "reading": "ぷろんぷとえんじにありんぐ",
+    "system": "tech",
+    "cat": "生成AI",
+    "importance": 3,
+    "summary": "生成AIから精度の高い望ましい回答を引き出すために、入力指示文（プロンプト）の書き方を工夫・最適化する技術",
+    "desc": "「前提条件、役割（あなたは税理士です）、出力形式（表形式で）、具体例（Few-shot）」をプロンプトに含めることで、回答の質を劇的に向上させる。",
+    "point": "プロンプトインジェクション（悪意あるプロンプトでAIの制約を突破する攻撃）と対比。"
+  },
+  {
+    "id": "t38",
+    "term": "ファインチューニング",
+    "reading": "ふぁいんちゅーにんぐ",
+    "system": "tech",
+    "cat": "生成AI・機械学習",
+    "importance": 3,
+    "summary": "既に学習済みの既存AIモデルに対し、特定の業界や専門分野の独自データを追加学習させて特化させる手法",
+    "desc": "一般的な会話ができるLLMに、医療専門のカルテデータや法律文書を追加学習させ、「医療専門AI」や「弁護士AI」にチューニングすること。",
+    "point": "ゼロから巨大モデルを作るのではなく「既存モデルに追加学習させて微調整する」手法。"
+  },
+  {
+    "id": "t39",
+    "term": "機械学習の3分類（教師あり・教師なし・強化学習）",
+    "reading": "きかいがくしゅうのさんぶんるい",
+    "system": "tech",
+    "cat": "AI・データサイエンス",
+    "importance": 3,
+    "summary": "教師あり＝正解ラベル付きデータで学習／教師なし＝データのグループ分け／強化学習＝報酬最大化の試行錯誤",
+    "desc": "教師あり学習（スパム判定、売上予測）、教師なし学習（クラスタリング、顧客セグメント分け）、強化学習（囲碁AIのAlphaGo、自動運転の走行制御）。",
+    "point": "「正解データがあるか」「報酬を与えるか」で3分類を見分ける問題が頻出。"
+  },
+  {
+    "id": "t40",
+    "term": "ビッグデータの3V",
+    "reading": "びっぐでーたのさんぶい",
+    "system": "tech",
+    "cat": "データサイエンス",
+    "importance": 3,
+    "summary": "Volume（膨大な量）＋ Velocity（高速性・発生頻度）＋ Variety（多様性・非構造データ）",
+    "desc": "従来のRDBに収まらない巨大なデータ群。テキスト、動画、SNSの投稿、GPSの位置情報、IoTセンサーログなど多種多様なデータを含む。",
+    "point": "3つのVの意味とスペリングが問われます。"
+  },
+  {
+    "id": "t41",
+    "term": "データウェアハウス (DWH) とデータマイニング",
+    "reading": "でーたうぇあはうすとでーたまいにんぐ",
+    "system": "tech",
+    "cat": "データサイエンス",
+    "importance": 3,
+    "summary": "DWH＝意思決定のために過去から時系列で蓄積した巨大倉庫／データマイニング＝そこから隠れた法則を掘り出す技術",
+    "desc": "「Warehouse＝倉庫、Mining＝採掘」。全社データをDWHに一元蓄積し、データマイニング（統計や機械学習）で「おむつとビールが一緒に買われる」といった未知の相関を発見する。",
+    "point": "DWHは「時系列データの保管庫」、マイニングは「知識・パターンの発掘」。"
+  },
+  {
+    "id": "t42",
+    "term": "エッジコンピューティング",
+    "reading": "えっじこんぴゅーてぃんぐ",
+    "system": "tech",
+    "cat": "先端アーキテクチャ",
+    "importance": 3,
+    "summary": "すべてのデータを遠くのクラウドに送らず、端末に近い場所（エッジ側）で分散処理して超低遅延を実現する技術",
+    "desc": "「Edge＝端っこ・現場」。自動運転車や工場の産業ロボットなど、1ミリ秒の遅れも許されないシステムにおいて、現場の機器側で即座にAI判断を行う仕組み。",
+    "point": "クラウド集中処理の弱点（通信遅延、ネットワーク帯域の圧迫）を解消する。"
+  },
+  {
+    "id": "t43",
+    "term": "ブロックチェーンとスマートコントラクト",
+    "reading": "ぶろっくちぇーんとすまーとこんとらくと",
+    "system": "tech",
+    "cat": "先端技術",
+    "importance": 3,
+    "summary": "取引履歴をブロック単位で鎖状に繋ぎ分散管理する耐改ざん台帳技術（ブロックチェーン）と、契約の自動執行プログラム（スマートコントラクト）",
+    "desc": "中央の管理サーバーを持たずに参加者全員（P2P）でデータを相互検証するため、過去のデータを改ざんすることが極めて困難。ビットコインやNFTの基盤技術。",
+    "point": "「分散型台帳」「データの改ざんが極めて困難」「中央管理者が不要」がキーワード。"
+  },
+  {
+    "id": "t44",
+    "term": "エクスプロイトコード",
+    "reading": "えくすぷろいとこーど",
+    "system": "tech",
+    "cat": "セキュリティ脅威",
+    "importance": 2,
+    "summary": "ソフトウェアの脆弱性を実証・検証、または悪用して攻撃を実行するために作成されたプログラムコード",
+    "desc": "脆弱性が本当に危険かを検証するための実証コード（PoCコード）。攻撃者に悪用されると深刻なサイバー攻撃の武器になる。",
+    "point": "脆弱性を突く攻撃プログラムのこと。"
+  },
+  {
+    "id": "t45",
+    "term": "バッファオーバーフロー",
+    "reading": "ばっふぁおーばーふろー",
+    "system": "tech",
+    "cat": "脆弱性",
+    "importance": 2,
+    "summary": "用意されたメモリ領域（バッファ）の容量を超える過大なデータを送り込み、隣のメモリを破壊して不正なコードを実行させる攻撃",
+    "desc": "コップから水が溢れるように、メモリの境界をはみ出させてCPUの制御を奪う伝統的な脆弱性。",
+    "point": "「確保したメモリ領域を超えるデータを書き込ませて誤作動を起こさせる」が正解。"
+  },
+  {
+    "id": "t46",
+    "term": "クロスサイトリクエストフォージェリ (CSRF) 対策",
+    "reading": "しーえすあーるえふたいさく",
+    "system": "tech",
+    "cat": "Webセキュリティ",
+    "importance": 2,
+    "summary": "正規のリクエストであることを証明するため、フォームに毎回一意の「ワンタイムトークン」を埋め込む対策",
+    "desc": "攻撃者の偽サイトからは秘密のトークン値が推測できないため、サーバー側でトークンが一致するかチェックすることで不正リクエストを遮断する。",
+    "point": "「ワンタイムトークン（秘密の合言葉）による検証」が基本対策。"
+  },
+  {
+    "id": "t47",
+    "term": "ブルートフォース攻撃の対策",
+    "reading": "ぶるーとふぉーすこうげきのたいさく",
+    "system": "tech",
+    "cat": "認証セキュリティ",
+    "importance": 2,
+    "summary": "アカウントロック（連続失敗で一時凍結）、CAPTCHA（画像認証）、多要素認証(MFA)",
+    "desc": "機械的に1秒間に何千回も試行されるのを防ぐため、文字認証画像（歪んだ文字を読ませる）やログイン試行回数の制限を設ける。",
+    "point": "「アカウントロック」「ログイン失敗時の遅延」「CAPTCHA」が有効。"
+  },
+  {
+    "id": "t48",
+    "term": "シングルサインオン (SSO)",
+    "reading": "しんぐるさいんおん",
+    "system": "tech",
+    "cat": "認証システム",
+    "importance": 3,
+    "summary": "一度のユーザー認証（ログイン）を行うだけで、連携する複数の業務システムやWebサービスに利用可能となる仕組み",
+    "desc": "GoogleアカウントでYouTubeやGmail、外部アプリにもログインできるような仕組み。パスワードを何十個も覚える負担が減り、退職時のアクセス遮断も一括でできる。",
+    "point": "「1度の認証で複数の異なるサービスにログインできる」がキーワード。"
+  },
+  {
+    "id": "t49",
+    "term": "ゼロトラスト",
+    "reading": "ぜろとらすと",
+    "system": "tech",
+    "cat": "セキュリティ概念",
+    "importance": 3,
+    "summary": "「社内ネットワークだから安全」という境界防御の考え方を捨て、「すべてを信用せず、毎回検証する」新しいセキュリティ理念",
+    "desc": "テレワークやクラウド普及により社内と社外の境界が消滅した現代の標準理念。「Never Trust, Always Verify（決して信頼せず、常に確認せよ）」。",
+    "point": "従来の境界防御型（ファイアウォールで内と外を分ける）の限界を克服する最新シラバス重要用語。"
+  },
+  {
+    "id": "t50",
+    "term": "ランサムウェア対策としての3-2-1ルール",
+    "reading": "さんにおーるーる",
+    "system": "tech",
+    "cat": "バックアップ",
+    "importance": 2,
+    "summary": "データを3部保持し、2種類の異なるメディアに保存し、1部はオフラインまたは遠隔地に保管するバックアップ原則",
+    "desc": "ランサムウェアは社内LANに繋がったバックアップサーバーまで暗号化するため、ネットワークから物理的に切り離された（オフライン・テープ等）コピーが1つ絶対に必要。",
+    "point": "「1つはオフライン（ネットワークから隔離）または遠隔地」がランサムウェア対策の要。"
+  },
+  {
+    "id": "t51",
+    "term": "マルウェアの動的解析と静的解析",
+    "reading": "どうてきかいせきとせいてきかいせき",
+    "system": "tech",
+    "cat": "セキュリティ解析",
+    "importance": 2,
+    "summary": "プログラムを実行せずにソースコードや逆コンパイルで調べる（静的）／サンドボックス等の隔離環境で実際に動かして挙動を見る（動的）",
+    "desc": "未知のウイルスを安全に調査する手法。サンドボックス（砂場）という使い捨ての隔離PC内で実際にウイルスを実行させて通信先を特定するのが動的解析。",
+    "point": "サンドボックス（隔離環境）は動的解析で使われる。"
+  },
+  {
+    "id": "t52",
+    "term": "DNSキャッシュポイズニング",
+    "reading": "でぃーえぬえすきゃっしゅぽいずにんぐ",
+    "system": "tech",
+    "cat": "ネットワーク攻撃",
+    "importance": 2,
+    "summary": "DNSサーバーに偽のIPアドレス情報を注入（毒入れ）し、ユーザーを本物そっくりのフィッシングサイトへ誘導する攻撃",
+    "desc": "ブラウザに正しいURL「bank.com」を入力したのに、汚染されたDNSサーバーが犯人のサーバーのIPアドレスを返してしまう恐ろしい手口。",
+    "point": "DNSSEC（DNS応答のデジタル署名による真正性確認）が有効な防御策。"
+  },
+  {
+    "id": "t53",
+    "term": "IPスプーフィング",
+    "reading": "あいぴーすぷーふぃんぐ",
+    "system": "tech",
+    "cat": "ネットワーク攻撃",
+    "importance": 2,
+    "summary": "送信元のIPアドレスを信頼できる別のIPアドレスに偽装（Spoofing＝なりすまし）してパケットを送りつける攻撃",
+    "desc": "IPパケットのヘッダーの送信元アドレスを書き換える。社内LANからの通信に見せかけてファイアウォールをすり抜けたり、DDoS攻撃の跳ね返り増幅（アンプ攻撃）に使われる。",
+    "point": "「送信元IPアドレスの偽装・なりすまし」がキーワード。"
+  },
+  {
+    "id": "t54",
+    "term": "辞書攻撃",
+    "reading": "じしょこうげき",
+    "system": "tech",
+    "cat": "認証攻撃",
+    "importance": 2,
+    "summary": "辞書に載っている英単語や人名、よく使われるパスワードの単語帳を使って機械的にパスワード解読を試みる手口",
+    "desc": "「password」「admin」「tokyo2024」などの単語リストを高速で入力していく。総当たり（ブルートフォース）より圧倒的に短時間で突破される。",
+    "point": "単語と記号・数字を無作為に組み合わせたパスワードで防御する。"
+  },
+  {
+    "id": "t55",
+    "term": "ダークウェブ",
+    "reading": "だーくうぇぶ",
+    "system": "tech",
+    "cat": "インターネット技術",
+    "importance": 2,
+    "summary": "通常の検索エンジンには登録されず、Torなどの特殊な専用ブラウザを使わないとアクセスできない匿名性の高いWeb空間",
+    "desc": "軍用の通信秘匿技術から発展したが、現在は漏洩した個人情報やクレジットカード番号、マルウェアや違法薬物の売買取引に使われる温床となっている。",
+    "point": "サーフェスウェブ（普通の検索可能Web）➔ ディープウェブ（会員専用ページ等）➔ ダークウェブ（特殊な暗号通信が必要）。"
+  },
+  {
+    "id": "t56",
+    "term": "マルチモーダルAI",
+    "reading": "まるちもーだるえーあい",
+    "system": "tech",
+    "cat": "生成AI",
+    "importance": 3,
+    "summary": "テキストだけでなく、画像、音声、動画などの複数の異なる種類のデータを統合して理解・処理できるAI",
+    "desc": "写真を撮影して「この植物の育て方を教えて」と質問すると、画像を認識してテキストで解説してくれるような最新のAIモデル（GPT-4oやGeminiなど）。",
+    "point": "最新シラバスの注目キーワード。複数のモダリティ（形式）を横断処理する。"
+  },
+  {
+    "id": "t57",
+    "term": "シンギュラリティ（技術的特異点）",
+    "reading": "しんぎゅらりてぃ",
+    "system": "tech",
+    "cat": "AIの未来予測",
+    "importance": 2,
+    "summary": "人工知能が自らより優れたAIを作り出し、人類全体の知性を超越する歴史的な転換点",
+    "desc": "レイ・カーツワイル氏が提唱。2045年頃に到来すると予測されており、技術進歩のスピードが爆発的に加速するとされる。",
+    "point": "「AIの能力が人類全体の知性を超える転換点」のこと。"
+  },
+  {
+    "id": "t58",
+    "term": "説明可能なAI (XAI)",
+    "reading": "せつめいかのうなえーあい",
+    "system": "tech",
+    "cat": "AI倫理・信頼性",
+    "importance": 2,
+    "summary": "ディープラーニングの「判断プロセスがブラックボックスで見えない」弱点を克服し、なぜその予測に至ったかの根拠を人間が理解できる形で説明する技術",
+    "desc": "医療の診断やローンの審査など、人命や権利に関わる分野で「AIがダメと言ったからダメ」では納得されないため、判断根拠を可視化する重要性が高まっている。",
+    "point": "AI倫理・ブラックボックス問題の解決策。"
+  },
+  {
+    "id": "t59",
+    "term": "スマート農業とスマートシティ",
+    "reading": "すまーとのうぎょうとすまーとしてぃ",
+    "system": "tech",
+    "cat": "Society 5.0",
+    "importance": 2,
+    "summary": "ドローン、IoTセンサー、AI、自動運転トラクターなどを活用して省力化・超効率化を図る産業技術",
+    "desc": "勘と経験に頼っていた農業をデータ駆動型に変革。スマートシティは都市全体のエネルギー、交通、医療データを統合管理する未来都市。",
+    "point": "Society 5.0（サイバー空間とフィジカル空間の高度な融合）の具体例。"
+  },
+  {
+    "id": "t60",
+    "term": "FinTech（フィンテック）",
+    "reading": "ふぃんてっく",
+    "system": "tech",
+    "cat": "IT融合産業",
+    "importance": 2,
+    "summary": "Finance（金融）＋ Technology（技術）。ITを活用した革新的な金融サービスの総称",
+    "desc": "スマホ決済（PayPay等）、オンライン送金、AIによるロボアドバイザー投資、クラウド家計簿、仮想通貨などが含まれる。",
+    "point": "金融×ITの融合サービス。"
+  },
+  {
+    "id": "t61",
+    "term": "NFT（非代替性トークン）",
+    "reading": "えぬえふてぃー",
+    "system": "tech",
+    "cat": "ブロックチェーン",
+    "importance": 2,
+    "summary": "ブロックチェーンを用いて、デジタルアートやゲーム内アイテムに「世界で唯一の原本・所有権」を証明する技術",
+    "desc": "コピーが容易だったデジタルデータに対して、偽造不可能な鑑定書・所有証明書を付与することで、資産価値を持たせる仕組み。",
+    "point": "「Non-Fungible Token」。代替ができない唯一無二のトークン。"
+  },
+  {
+    "id": "t62",
+    "term": "量子コンピュータ",
+    "reading": "りょうしこんぴゅーた",
+    "system": "tech",
+    "cat": "最先端計算技術",
+    "importance": 2,
+    "summary": "量子力学の「重ね合わせ」や「量子もつれ」を利用し、従来のスーパーコンピュータを圧倒する超並列計算を行う次世代計算機",
+    "desc": "従来のビット（0か1）ではなく「量子ビット（0であり1でもある状態）」を用いて、新薬開発や組合せ最適化問題を一瞬で解く可能性を秘めている。",
+    "point": "現在の公開鍵暗号（RSA等）を解読してしまう恐れがあるため、耐量子暗号の開発が進められている。"
+  },
+  {
+    "id": "t63",
+    "term": "メタバース",
+    "reading": "めたばーす",
+    "system": "tech",
+    "cat": "仮想空間",
+    "importance": 2,
+    "summary": "インターネット上に構築された、アバターを使って他者と交流・経済活動ができる3次元の仮想空間",
+    "desc": "Meta（超越）＋ Universe（宇宙）。VRゴーグル等を通じて仮想世界に入り込み、会議を行ったりデジタルアイテムを売買する。",
+    "point": "3次元仮想空間でのコミュニケーションと経済活動。"
+  },
+  {
+    "id": "t64",
+    "term": "ウェアラブル端末",
+    "reading": "うえあらぶるたんまつ",
+    "system": "tech",
+    "cat": "スマートデバイス",
+    "importance": 2,
+    "summary": "スマートウォッチやスマートリング、スマートグラスなど、身につけて利用する情報端末",
+    "desc": "心拍数や歩数、睡眠などのヘルスケアデータを常時計測し、スマホと連携して通知を受け取る。",
+    "point": "「身につけて持ち歩くコンピュータ」のこと。"
+  },
+  {
+    "id": "t65",
+    "term": "シャドーIT",
+    "reading": "しゃどーあいてぃー",
+    "system": "tech",
+    "cat": "セキュリティ管理",
+    "importance": 3,
+    "summary": "会社の情シス部門の許可を得ずに、社員が私用のスマホやクラウドサービスを業務に無断利用すること",
+    "desc": "「会社のメールよりLINEの方が早いから」「無料のファイル共有サイトで社外秘データを送ろう」など。情報漏洩や不正アクセス、ウイルス感染の温床となる。",
+    "point": "許可を得て私用端末を業務利用する「BYOD」と対比される。無断利用＝シャドーIT。"
+  }
+];
+  let currentTerms = [...rawTerms];
+  let currentTab = 'all';
+  let reviewOnly = false;
+  let allMasked = false;
+
+  // localStorageから習得済みIDリストを取得
+  const STORAGE_KEY = 'itpass_vocab_mastered_v1';
+  function getMasteredIds() {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    } catch(e) {
+      return [];
+    }
+  }
+  function saveMasteredIds(ids) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(ids));
+    updateProgress();
+  }
+
+  function toggleMastered(id) {
+    const ids = getMasteredIds();
+    const idx = ids.indexOf(id);
+    if (idx >= 0) {
+      ids.splice(idx, 1);
+    } else {
+      ids.push(id);
+    }
+    saveMasteredIds(ids);
+    applyFilters();
+  }
+
+  function resetProgress() {
+    if (confirm('覚えた単語のチェックをすべてリセットしますか？')) {
+      localStorage.removeItem(STORAGE_KEY);
+      updateProgress();
+      applyFilters();
+    }
+  }
+
+  function updateProgress() {
+    const mastered = getMasteredIds();
+    const count = mastered.length;
+    const total = rawTerms.length;
+    const pct = Math.round((count / total) * 100);
+
+    document.getElementById('mastered-count').textContent = count;
+    document.getElementById('progress-percent').textContent = pct;
+    document.getElementById('progress-fill').style.width = pct + '%';
+  }
+
+  function toggleReviewOnly() {
+    reviewOnly = !reviewOnly;
+    const btn = document.getElementById('btn-review-only');
+    if (reviewOnly) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+    applyFilters();
+  }
+
+  function toggleMaskAll() {
+    allMasked = !allMasked;
+    const icon = document.getElementById('mask-all-icon');
+    const text = document.getElementById('mask-all-text');
+    if (allMasked) {
+      icon.textContent = '👁️';
+      text.textContent = 'すべて表示';
+      document.querySelectorAll('.card-body').forEach(el => el.classList.add('masked'));
+      document.querySelectorAll('.mask-toggle-btn').forEach(btn => btn.innerHTML = '<span>👁️</span> 答えを見る');
+    } else {
+      icon.textContent = '🙈';
+      text.textContent = 'すべて隠す';
+      document.querySelectorAll('.card-body').forEach(el => el.classList.remove('masked'));
+      document.querySelectorAll('.mask-toggle-btn').forEach(btn => btn.innerHTML = '<span>🙈</span> 答えを隠す');
+    }
+  }
+
+  function toggleCardMask(btn) {
+    const body = btn.closest('.card-body');
+    const isMasked = body.classList.contains('masked');
+    if (isMasked) {
+      body.classList.remove('masked');
+      btn.innerHTML = '<span>🙈</span> 答えを隠す';
+    } else {
+      body.classList.add('masked');
+      btn.innerHTML = '<span>👁️</span> 答えを見る';
+    }
+  }
+
+  function shuffleCards() {
+    for (let i = currentTerms.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [currentTerms[i], currentTerms[j]] = [currentTerms[j], currentTerms[i]];
+    }
+    applyFilters();
+  }
+
+  function setTab(tab, btn) {
+    currentTab = tab;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    applyFilters();
+  }
+
+  function applyFilters() {
+    const q = document.getElementById('search-box').value.trim().toLowerCase();
+    const masteredIds = getMasteredIds();
+
+    const filtered = currentTerms.filter(t => {
+      // 系統タブ
+      if (currentTab !== 'all' && t.system !== currentTab) return false;
+      // 要復習フィルター
+      if (reviewOnly && masteredIds.includes(t.id)) return false;
+      // 検索
+      if (q) {
+        const searchTarget = (t.term + ' ' + t.reading + ' ' + t.summary + ' ' + t.desc + ' ' + t.cat + ' ' + t.point).toLowerCase();
+        if (!searchTarget.includes(q)) return false;
+      }
+      return true;
+    });
+
+    renderCards(filtered);
+  }
+
+  function renderCards(list) {
+    const grid = document.getElementById('vocab-grid');
+    grid.innerHTML = '';
+    document.getElementById('visible-count').textContent = list.length;
+
+    const masteredIds = getMasteredIds();
+
+    list.forEach(t => {
+      const isMastered = masteredIds.includes(t.id);
+      const sysClass = t.system === 'strat' ? 'sys-strat' : (t.system === 'mgmt' ? 'sys-mgmt' : 'sys-tech');
+      const sysName = t.system === 'strat' ? 'ストラテジ' : (t.system === 'mgmt' ? 'マネジメント' : 'テクノロジ');
+      const stars = '★'.repeat(t.importance) + '☆'.repeat(3 - t.importance);
+
+      const card = document.createElement('div');
+      card.className = `vocab-card ${isMastered ? 'mastered' : ''}`;
+      card.id = `card-${t.id}`;
+
+      card.innerHTML = `
+        <div>
+          <div class="card-top">
+            <div class="card-tags">
+              <span class="sys-badge ${sysClass}">${sysName}</span>
+              <span class="cat-tag">${t.cat}</span>
+              <span class="stars" title="出題重要度">${stars}</span>
+            </div>
+            <button class="master-btn" onclick="toggleMastered('${t.id}')" title="覚えたらチェック">
+              ${isMastered ? '✓ 覚えた！' : '○ 未習得'}
+            </button>
+          </div>
+
+          <div class="vocab-header">
+            <div class="vocab-reading">${t.reading}</div>
+            <div class="vocab-title">${t.term}</div>
+          </div>
+
+          <div class="card-body ${allMasked ? 'masked' : ''}">
+            <button class="mask-toggle-btn" onclick="toggleCardMask(this)">
+              ${allMasked ? '<span>👁️</span> 答えを見る' : '<span>🙈</span> 答えを隠す'}
+            </button>
+            <div class="answer-content">
+              <div class="vocab-summary">${t.summary}</div>
+              <div class="vocab-desc">${t.desc}</div>
+              <div class="point-box">
+                <strong>🎯 試験対策のツボ:</strong> ${t.point}
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      grid.appendChild(card);
+    });
+
+    if (list.length === 0) {
+      grid.innerHTML = `
+        <div style="grid-column: 1 / -1; text-align:center; padding:60px 20px; color:#64748b; background:#ffffff; border-radius:16px; border:1px solid #e2e8f0;">
+          <div style="font-size:2.5rem; margin-bottom:12px;">🔍</div>
+          <div style="font-size:1.1rem; font-weight:700;">条件に一致する単語がありません</div>
+          <p style="font-size:0.9rem; margin-top:6px;">検索キーワードを変更するか、「要復習のみ」フィルターを解除してみてください。</p>
+        </div>
+      `;
+    }
+  }
+
+  // 初期実行
+  updateProgress();
+  applyFilters();
+</script>
+
+</body>
+</html>
