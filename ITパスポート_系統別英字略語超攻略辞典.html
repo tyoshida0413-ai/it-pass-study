@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>【系統別】ITパスポート 頻出英字略語「超」攻略辞典 | 覚え方のツボ付き</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f8fafc;
+    --surface: #ffffff;
+    --border: #e2e8f0;
+    --border-strong: #cbd5e1;
+    --text: #0f172a;
+    --text-muted: #475569;
+    --text-faint: #64748b;
+    
+    --strat-primary: #7c3aed;
+    --strat-light: #f3e8ff;
+    --strat-border: #ddd6fe;
+
+    --mgmt-primary: #059669;
+    --mgmt-light: #d1fae5;
+    --mgmt-border: #a7f3d0;
+
+    --tech-primary: #0284c7;
+    --tech-light: #e0f2fe;
+    --tech-border: #bae6fd;
+    
+    --radius-lg: 20px;
+    --radius-md: 12px;
+    --radius-sm: 8px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+    --shadow: 0 6px 18px -3px rgba(15,23,42,0.06), 0 2px 6px -1px rgba(15,23,42,0.03);
+    --shadow-hover: 0 12px 26px -4px rgba(15,23,42,0.12);
+    --font-mono: "JetBrains Mono", Menlo, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--bg);
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(243, 232, 255, 0.6) 0px, transparent 45%),
+      radial-gradient(at 100% 0%, rgba(224, 242, 254, 0.6) 0px, transparent 40%),
+      radial-gradient(at 50% 100%, rgba(209, 250, 229, 0.5) 0px, transparent 45%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--text);
+    font-family: 'Noto Sans JP', 'Inter', -apple-system, sans-serif;
+    line-height: 1.8;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 32px 20px 100px;
+  }
+
+  /* フローティング印刷ボタン */
+  .floating-print-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1000;
+    background: linear-gradient(135deg, #7c3aed, #6d28d9);
+    color: #ffffff;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 9999px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    box-shadow: 0 8px 24px rgba(124, 58, 237, 0.4);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+  }
+  .floating-print-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(124, 58, 237, 0.5);
+  }
+
+  /* ヒーロー */
+  .hero {
+    background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 60%, #0c4a6e 100%);
+    border-radius: var(--radius-lg);
+    padding: 48px 40px;
+    color: #ffffff;
+    margin-bottom: 36px;
+    box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.4);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .hero-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    color: #c084fc;
+    border: 1px solid rgba(192, 132, 252, 0.4);
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .hero-btn {
+    background: #ffffff;
+    color: #0f172a;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: all 0.2s ease;
+  }
+  .hero-btn:hover {
+    background: #f1f5f9;
+    transform: translateY(-2px);
+  }
+  .hero h1 {
+    font-size: 2.3rem;
+    font-weight: 800;
+    line-height: 1.35;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 span.highlight {
+    background: linear-gradient(90deg, #c084fc, #38bdf8, #34d399);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero p.lead {
+    font-size: 1.05rem;
+    color: #cbd5e1;
+    line-height: 1.75;
+    max-width: 840px;
+    margin-bottom: 24px;
+  }
+
+  /* 検索＆コントロールバー */
+  .control-bar {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 20px 24px;
+    margin-bottom: 32px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .search-wrap {
+    flex: 1 1 300px;
+    position: relative;
+  }
+  .search-input {
+    width: 100%;
+    padding: 12px 18px 12px 42px;
+    border: 1.5px solid var(--border-strong);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    outline: none;
+    transition: all 0.2s ease;
+    background: #f8fafc;
+  }
+  .search-input:focus {
+    border-color: var(--strat-primary);
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+  }
+  .search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1rem;
+    color: #94a3b8;
+    pointer-events: none;
+  }
+  .tab-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .tab-btn {
+    background: #f1f5f9;
+    border: 1px solid var(--border-strong);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--text-muted);
+  }
+  .tab-btn:hover {
+    background: #e2e8f0;
+    color: var(--text);
+  }
+  .tab-btn.active {
+    background: #0f172a;
+    color: #ffffff;
+    border-color: #0f172a;
+  }
+
+  /* セクションカード */
+  .system-section {
+    margin-bottom: 48px;
+  }
+  .system-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2.5px solid var(--border);
+  }
+  .system-tag {
+    font-size: 0.8rem;
+    font-weight: 800;
+    padding: 4px 14px;
+    border-radius: 9999px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .tag-strat { background: var(--strat-light); color: var(--strat-primary); border: 1px solid var(--strat-border); }
+  .tag-mgmt { background: var(--mgmt-light); color: var(--mgmt-primary); border: 1px solid var(--mgmt-border); }
+  .tag-tech { background: var(--tech-light); color: var(--tech-primary); border: 1px solid var(--tech-border); }
+  .system-header h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text);
+  }
+
+  /* 略語カードグリッド */
+  .terms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 20px;
+  }
+  .term-card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .term-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: #cbd5e1;
+  }
+  .term-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .term-badge {
+    font-family: var(--font-mono);
+    font-size: 1.6rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  .badge-strat { color: #7c3aed; }
+  .badge-mgmt { color: #059669; }
+  .badge-tech { color: #0284c7; }
+
+  .term-category {
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: #f1f5f9;
+    color: #64748b;
+  }
+  .term-full {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  .term-full span.keyword {
+    color: #0f172a;
+    font-weight: 700;
+    border-bottom: 1.5px solid #cbd5e1;
+  }
+  .term-jp {
+    font-size: 0.96rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* 覚え方のツボ・たとえ話ボックス */
+  .hook-box {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    font-size: 0.88rem;
+    color: #92400e;
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  .hook-header {
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 4px;
+    color: #b45309;
+  }
+
+  /* 混同注意バッジ */
+  .confuse-tag {
+    background: #fee2e2;
+    border: 1px solid #fecdd3;
+    color: #991b1b;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  footer {
+    text-align: center;
+    padding-top: 40px;
+    color: var(--text-faint);
+    font-size: 0.88rem;
+    border-top: 1px solid var(--border);
+    margin-top: 60px;
+  }
+
+  @media print {
+    body { background: #ffffff !important; color: #111827 !important; font-size: 10pt !important; }
+    .container { max-width: 100% !important; padding: 0 !important; }
+    .floating-print-btn, .hero-btn, .control-bar { display: none !important; }
+    .hero { background: #f1f5f9 !important; color: #0f172a !important; box-shadow: none !important; padding: 20px !important; }
+    .hero h1 span.highlight { color: #7c3aed !important; -webkit-text-fill-color: #7c3aed !important; }
+    .term-card { box-shadow: none !important; border: 1px solid #cbd5e1 !important; page-break-inside: avoid !important; break-inside: avoid !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- フローティング印刷ボタン -->
+<button class="floating-print-btn" onclick="window.print()" title="この略語辞典を印刷またはPDF保存">
+  <span>🖨️</span> 略語辞典を印刷 / PDF保存
+</button>
+
+<div class="container">
+
+  <!-- ヒーロー -->
+  <header class="hero">
+    <div class="hero-top-row">
+      <div class="hero-badge">📖 試験頻出 3文字・4文字略語</div>
+      <div style="display:flex; gap:10px;">
+        <a href="index.html" class="hero-btn"><span>🏠</span> ポータルTOP</a>
+        <button class="hero-btn" onclick="window.print()"><span>🖨️</span> 印刷 / PDF保存</button>
+      </div>
+    </div>
+    <h1>丸暗記から脱却する！<br><span class="highlight">系統別 英字略語「超」攻略辞典</span></h1>
+    <p class="lead">
+      「アルファベット3〜4文字が多すぎてどれがどれだか混乱する…」「丸暗記しても試験本番で思い出せない…」そんな受験生のために、<strong>【英語の直訳（フルスペル）】＋【記憶に残る身近なたとえ話】＋【混同しやすい略語の比較】</strong>で一発整理！試験に出る重要略語を完全網羅しました。
+    </p>
+  </header>
+
+  <!-- コントロールバー（検索 ＆ タブ切り替え） -->
+  <div class="control-bar">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-box" class="search-input" placeholder="略語やキーワードで検索（例: KGI, 顧客, 監視...）" oninput="filterTerms()">
+    </div>
+    <div class="tab-filters">
+      <button class="tab-btn active" onclick="setTab('all', this)">すべて (<span id="count-all">0</span>)</button>
+      <button class="tab-btn" onclick="setTab('strat', this)">ストラテジ系 (<span id="count-strat">0</span>)</button>
+      <button class="tab-btn" onclick="setTab('mgmt', this)">マネジメント系 (<span id="count-mgmt">0</span>)</button>
+      <button class="tab-btn" onclick="setTab('tech', this)">テクノロジ系 (<span id="count-tech">0</span>)</button>
+    </div>
+  </div>
+
+  <!-- コンテンツ領域 -->
+  <div id="terms-container">
+    <!-- JavaScriptで動的描画 -->
+  </div>
+
+  <footer>
+    <p>© IT-PASS STUDY HUB | 系統別 英字略語「超」攻略辞典</p>
+    <p style="margin-top:4px; font-size:0.8rem;">IPA IT Passport Syllabus Ver.6.x Compliant Reference</p>
+  </footer>
+
+</div>
+
+<script>
+  // 略語データマスター
+  const termData = [
+    // ==========================================
+    // 【ストラテジ系】（経営戦略・ビジネス・法務）
+    // ==========================================
+    {
+      abbr: "KGI",
+      system: "strat",
+      cat: "経営・目標管理",
+      full: "Key Goal Indicator",
+      fullHighlight: "<strong>Key</strong>（鍵となる）<strong>Goal</strong>（最終ゴール）<strong>Indicator</strong>（指標）",
+      jp: "重要目標達成指標",
+      hook: "💡 売上高10億円や利益率20%など、<strong>「最終的にたどり着くべき山の頂上（結果）」</strong>を表す数値！",
+      confuse: "⚠️ KPIとの違い：KGIが最終ゴール（頂上）なら、KPIはそこに至る途中経過（○合目）！"
+    },
+    {
+      abbr: "KPI",
+      system: "strat",
+      cat: "経営・目標管理",
+      full: "Key Performance Indicator",
+      fullHighlight: "<strong>Key</strong>（鍵となる）<strong>Performance</strong>（実績・活動）<strong>Indicator</strong>（指標）",
+      jp: "重要業績評価指標",
+      hook: "💡 最終ゴール（KGI）に届くために、<strong>「毎日・毎月どれだけ行動できたか（プロセス）」</strong>を測る中間指標（例: 新規アポ数50件）。",
+      confuse: "⚠️ KGIが結果、KPIが行動・プロセス。"
+    },
+    {
+      abbr: "CSF",
+      system: "strat",
+      cat: "経営・戦略策定",
+      full: "Critical Success Factor",
+      fullHighlight: "<strong>Critical</strong>（決定的な）<strong>Success</strong>（成功の）<strong>Factor</strong>（要因）",
+      jp: "重要成功要因",
+      hook: "💡 経営目標を達成するために、<strong>「絶対にこれだけは譲れない成功のカギ」</strong>（例: 圧倒的なスピード配送、徹底した低価格）。",
+      confuse: "⚠️ KSF（Key Success Factor）と全く同じ意味です。"
+    },
+    {
+      abbr: "BSC",
+      system: "strat",
+      cat: "経営・業績評価",
+      full: "Balanced Scorecard",
+      fullHighlight: "<strong>Balanced</strong>（バランスの取れた）<strong>Scorecard</strong>（採点表）",
+      jp: "バランスト・スコアカード",
+      hook: "💡 「財務（お金）」の数字だけでなく、<strong>「財務」「顧客」「業務プロセス」「学習と成長」の4つの視点</strong>から会社を多面的に評価するツール！",
+      confuse: "⚠️ 4つの視点（財務・顧客・業務プロセス・学習と成長）が超頻出！"
+    },
+    {
+      abbr: "ERP",
+      system: "strat",
+      cat: "基幹・統合管理",
+      full: "Enterprise Resource Planning",
+      fullHighlight: "<strong>Enterprise</strong>（全社の）<strong>Resource</strong>（資源を）<strong>Planning</strong>（統合計画）",
+      jp: "統合基幹業務システム",
+      hook: "💡 人事・会計・購買・生産などをバラバラのソフトで作らず、<strong>全社のヒト・モノ・カネ・情報を一元管理してムダをなくす巨大システム</strong>！",
+      confuse: "⚠️ 会社全体の土台。CRM（顧客）やSCM（調達・物流）を束ねる中心！"
+    },
+    {
+      abbr: "CRM",
+      system: "strat",
+      cat: "顧客・マーケティング",
+      full: "Customer Relationship Management",
+      fullHighlight: "<strong>Customer</strong>（顧客との）<strong>Relationship</strong>（関係を）<strong>Management</strong>（管理）",
+      jp: "顧客関係管理",
+      hook: "💡 顧客の購買履歴や問い合わせを記録し、<strong>「顧客満足度を高めて生涯のリピーター（優良顧客）になってもらう」</strong>手法！",
+      confuse: "⚠️ C = Customer（顧客）。キーワードは「顧客満足」「リピーター」「LTV向上」。"
+    },
+    {
+      abbr: "SCM",
+      system: "strat",
+      cat: "流通・調達",
+      full: "Supply Chain Management",
+      fullHighlight: "<strong>Supply</strong>（供給の）<strong>Chain</strong>（鎖・連鎖を）<strong>Management</strong>（最適化）",
+      jp: "供給連鎖管理",
+      hook: "💡 原材料の仕入れ ➔ 工場での製造 ➔ 倉庫保管 ➔ 店舗販売までの<strong>「モノの流れ（一本の鎖）」を全体で情報共有し、在庫のムダや欠品をゼロにする</strong>！",
+      confuse: "⚠️ S = Supply（供給）。キーワードは「在庫削減」「納期短縮」。"
+    },
+    {
+      abbr: "SFA",
+      system: "strat",
+      cat: "営業・セールス",
+      full: "Sales Force Automation",
+      fullHighlight: "<strong>Sales</strong>（営業）<strong>Force</strong>（部隊を）<strong>Automation</strong>（自動化・支援）",
+      jp: "営業支援システム",
+      hook: "💡 営業担当者の頭の中にあった「商談状況」や「顧客の反応」「営業日報」をシステムに入力し、<strong>チーム全体で共有して成約率を高める</strong>！",
+      confuse: "⚠️ S = Sales（営業）。営業マンの活動支援に特化。"
+    },
+    {
+      abbr: "BPR",
+      system: "strat",
+      cat: "業務改革",
+      full: "Business Process Re-engineering",
+      fullHighlight: "<strong>Business Process</strong>（業務手順を）<strong>Re-engineering</strong>（根本から再設計）",
+      jp: "業務プロセス再構築",
+      hook: "💡 従来のやり方を少し改善するのではなく、<strong>「ゼロベースで根本的・抜本的に仕事の進め方をぶっ壊して作り直す」</strong>こと！",
+      confuse: "⚠️ キーワードは「抜本的な見直し」「ゼロベース」。BPO（外部委託）と混同注意！"
+    },
+    {
+      abbr: "BPO",
+      system: "strat",
+      cat: "業務委託",
+      full: "Business Process Outsourcing",
+      fullHighlight: "<strong>Business Process</strong>（業務プロセスを）<strong>Outsourcing</strong>（丸ごと外部委託）",
+      jp: "ビジネスプロセス・アウトソーシング",
+      hook: "💡 人事、総務、経理、コールセンターなどの定型業務を、<strong>業務丸ごと専門の外部業者に委託して、自社はコア業務（商品開発など）に集中する</strong>！",
+      confuse: "⚠️ O = Outsourcing（外部委託）。BPR（再構築）と混同注意！"
+    },
+    {
+      abbr: "RPA",
+      system: "strat",
+      cat: "自動化ツール",
+      full: "Robotic Process Automation",
+      fullHighlight: "<strong>Robotic</strong>（ソフトロボットで）<strong>Process</strong>（定型作業を）<strong>Automation</strong>（自動化）",
+      jp: "ロボティック・プロセス・オートメーション",
+      hook: "💡 Excelのデータを社内システムへコピペしたり、請求書メールを自動送信するなど、<strong>PC上の単純なルーチンワークをロボットソフトに代行させる</strong>！",
+      confuse: "⚠️ 人間の代わりにキーボードやマウス操作を自動で再現。"
+    },
+    {
+      abbr: "BCP",
+      system: "strat",
+      cat: "リスク・危機管理",
+      full: "Business Continuity Plan",
+      fullHighlight: "<strong>Business</strong>（事業の）<strong>Continuity</strong>（継続）<strong>Plan</strong>（計画書）",
+      jp: "事業継続計画",
+      hook: "💡 大地震やテロ、パンデミックなどの不測の事態が起きても、<strong>「絶対に止められない中核事業を継続し、最短で復旧させるための事前計画書」</strong>！",
+      confuse: "⚠️ BCM（マネジメント）は、このBCPを定期的に見直し運用する「活動全般」のこと。"
+    },
+    {
+      abbr: "RFI",
+      system: "strat",
+      cat: "システム調達",
+      full: "Request For Information",
+      fullHighlight: "<strong>Request</strong>（依頼書）<strong>For Information</strong>（情報の提供を）",
+      jp: "情報提供依頼書",
+      hook: "💡 システム開発を発注する前に、ベンダー各社に対して<strong>「御社はどんな技術や実績がありますか？最新トレンドを教えてください」と情報収集する</strong>文書！",
+      confuse: "⚠️ I = Information（情報）。RFP（提案依頼）の前段階に行う！"
+    },
+    {
+      abbr: "RFP",
+      system: "strat",
+      cat: "システム調達",
+      full: "Request For Proposal",
+      fullHighlight: "<strong>Request</strong>（依頼書）<strong>For Proposal</strong>（具体的な提案を）",
+      jp: "提案依頼書",
+      hook: "💡 発注企業が「うちのシステム要件はこれです。<strong>具体的なシステム構成・開発期間・費用の提案書を出してください</strong>」と正式に頼む文書！",
+      confuse: "⚠️ P = Proposal（提案）。RFI（情報）の後にRFP（提案）を出す！"
+    },
+    {
+      abbr: "ROE",
+      system: "strat",
+      cat: "財務・投資指標",
+      full: "Return On Equity",
+      fullHighlight: "<strong>Return</strong>（リターン・利益）<strong>On Equity</strong>（株主の自己資本に対する）",
+      jp: "自己資本利益率",
+      hook: "💡 <strong>「株主から預かった元手（自己資本）を使って、どれだけ効率よく稼いだか？」</strong>を示す数値（当期純利益 ÷ 自己資本 × 100）。株主が最重視！",
+      confuse: "⚠️ E = Equity（株主資本）。ROA（総資産）と分母が違う！"
+    },
+    {
+      abbr: "ROA",
+      system: "strat",
+      cat: "財務・経営指標",
+      full: "Return On Assets",
+      fullHighlight: "<strong>Return</strong>（リターン・利益）<strong>On Assets</strong>（借金を含むすべての総資産に対する）",
+      jp: "総資産利益率",
+      hook: "💡 <strong>「借入金も含めた会社全体のすべての資産をフル活用して、どれだけ稼いだか？」</strong>を示す指標（当期純利益 ÷ 総資産 × 100）。",
+      confuse: "⚠️ A = Assets（総資産＝負債＋純資産）。"
+    },
+    {
+      abbr: "M&A",
+      system: "strat",
+      cat: "経営戦略",
+      full: "Mergers and Acquisitions",
+      fullHighlight: "<strong>Mergers</strong>（合併）<strong>and Acquisitions</strong>（買収）",
+      jp: "企業の合併・買収",
+      hook: "💡 ゼロから新規事業を立ち上げる時間を買い、<strong>他社を吸収・買収して一気に規模拡大や新技術を手に入れる</strong>手法！",
+      confuse: "⚠️ 時間を買う経営手法。"
+    },
+    {
+      abbr: "DX",
+      system: "strat",
+      cat: "最新ビジネストレンド",
+      full: "Digital Transformation",
+      fullHighlight: "<strong>Digital</strong>（IT技術による）<strong>Transformation</strong>（社会・事業の根本変革）",
+      jp: "デジタルトランスフォーメーション",
+      hook: "💡 単に「紙をPDFにする（IT化）」だけでなく、<strong>「デジタル技術を使って製品やビジネスモデル、企業風土そのものを根本から変革すること」</strong>！",
+      confuse: "⚠️ Transが交差を意味するため「X」と略されます。"
+    },
+
+    // ==========================================
+    // 【マネジメント系】（工程管理・サービス運用・監査）
+    // ==========================================
+    {
+      abbr: "WBS",
+      system: "mgmt",
+      cat: "プロジェクト管理",
+      full: "Work Breakdown Structure",
+      fullHighlight: "<strong>Work</strong>（作業を）<strong>Breakdown</strong>（細かく分解した）<strong>Structure</strong>（階層構造図）",
+      jp: "作業分解構成図",
+      hook: "💡 プロジェクトの作業全体を、<strong>「大項目 ➔ 中項目 ➔ 小項目」へと木の枝のように細分化し、担当者や所要時間を明確にするツリー図</strong>！",
+      confuse: "⚠️ スケジュールを引く前に、まずやるべき作業を漏れなく洗い出す図。"
+    },
+    {
+      abbr: "PERT",
+      system: "mgmt",
+      cat: "日程・工程管理",
+      full: "Program Evaluation and Review Technique",
+      fullHighlight: "<strong>Program Evaluation</strong>（日程計画を評価し）<strong>Review Technique</strong>（分析する手法）",
+      jp: "アローダイアグラム（日程管理手法）",
+      hook: "💡 矢印と丸で作業の順序を書き表し、<strong>「どこが最も時間がかかるルート（クリティカルパス）か」を計算する図</strong>！",
+      confuse: "⚠️ クリティカルパス＝最長所要時間の経路＝全体の最短完了日数。"
+    },
+    {
+      abbr: "EVM",
+      system: "mgmt",
+      cat: "プロジェクト管理",
+      full: "Earned Value Management",
+      fullHighlight: "<strong>Earned Value</strong>（獲得した価値・出来高）<strong>Management</strong>（による進捗管理）",
+      jp: "出来高実績管理",
+      hook: "💡 プロジェクトの進み具合を「予定金額」と「完了した作業の金額（出来高）」に<strong>お金（コスト）換算して、予算オーバーや遅れを早期発見する</strong>手法！",
+      confuse: "⚠️ 「予定（PV）」「出来高（EV）」「実績コスト（AC）」の3つの金額で分析。"
+    },
+    {
+      abbr: "ITIL",
+      system: "mgmt",
+      cat: "サービスマネジメント",
+      full: "Information Technology Infrastructure Library",
+      fullHighlight: "<strong>IT Infrastructure</strong>（ITサービス運営の）<strong>Library</strong>（成功事例の教科書集）",
+      jp: "ITサービスマネジメントのベストプラクティス集",
+      hook: "💡 世界中のIT運用のプロたちが「システムを安定稼働させるにはこうすればいい」とまとめた<strong>ITサービスの運用マニュアル・成功ノウハウの教科書</strong>！",
+      confuse: "⚠️ 規格ではなく「ベストプラクティス集（事例集）」。"
+    },
+    {
+      abbr: "SLA",
+      system: "mgmt",
+      cat: "サービスマネジメント",
+      full: "Service Level Agreement",
+      fullHighlight: "<strong>Service Level</strong>（サービスの品質レベル）<strong>Agreement</strong>（についての合意書）",
+      jp: "サービス水準合意書",
+      hook: "💡 クラウドやITサービスを契約するときに、<strong>「稼働率99.9%以上を保証します」「障害復旧は2時間以内に行います」と定めた約束文書</strong>！",
+      confuse: "⚠️ A = Agreement（合意書・文書）。SLMはその品質を維持する「管理活動」。"
+    },
+    {
+      abbr: "SLM",
+      system: "mgmt",
+      cat: "サービスマネジメント",
+      full: "Service Level Management",
+      fullHighlight: "<strong>Service Level</strong>（サービス水準を）<strong>Management</strong>（継続的に管理・改善）",
+      jp: "サービス水準管理",
+      hook: "💡 SLAで決めた約束がちゃんと守られているかを測定し、<strong>PDCAサイクルを回してサービスの品質を維持・改善し続ける活動</strong>！",
+      confuse: "⚠️ M = Management（活動）。SLAが「文書」、SLMが「活動」。"
+    },
+    {
+      abbr: "CI/CD",
+      system: "mgmt",
+      cat: "開発手法",
+      full: "Continuous Integration / Continuous Delivery",
+      fullHighlight: "<strong>Continuous Integration</strong>（継続的統合）/ <strong>Continuous Delivery</strong>（継続的デリバリー）",
+      jp: "継続的インテグレーション／継続的デリバリー",
+      hook: "💡 エンジニアが書いたコードを、<strong>自動でテストし、自動で本番環境に反映（リリース）する仕組み</strong>！バグを素早く見つけて即座に公開できる。",
+      confuse: "⚠️ DevOpsやアジャイル開発とセットで登場します。"
+    },
+    {
+      abbr: "NDA",
+      system: "mgmt",
+      cat: "法務・契約",
+      full: "Non-Disclosure Agreement",
+      fullHighlight: "<strong>Non-Disclosure</strong>（開示しない）<strong>Agreement</strong>（秘密保持の合意書）",
+      jp: "秘密保持契約",
+      hook: "💡 取引や商談を始める前に、<strong>「お互いに知り得た営業秘密や顧客データを他人に漏らさない」と約束する契約書</strong>！",
+      confuse: "⚠️ 情報漏洩を防ぐビジネスの基本契約。"
+    },
+
+    // ==========================================
+    // 【テクノロジ系】（ネットワーク・セキュリティ・AI・ハード）
+    // ==========================================
+    {
+      abbr: "DNS",
+      system: "tech",
+      cat: "ネットワーク",
+      full: "Domain Name System",
+      fullHighlight: "<strong>Domain Name</strong>（ドメイン名と）<strong>System</strong>（IPアドレスを変換する電話帳）",
+      jp: "ドメインネームシステム（名前解決）",
+      hook: "💡 人間がわかりやすいドメイン名（`google.com`）を、機械がわかるIPアドレス（`142.250.xxx`）へ変換する<strong>「インターネットの電話帳」</strong>！",
+      confuse: "⚠️ 「名前解決」という言葉が出たら100%これ！"
+    },
+    {
+      abbr: "DHCP",
+      system: "tech",
+      cat: "ネットワーク",
+      full: "Dynamic Host Configuration Protocol",
+      fullHighlight: "<strong>Dynamic</strong>（自動・動的に）<strong>Host Configuration</strong>（機器のIPアドレスを設定）",
+      jp: "動的ホスト設定プロトコル",
+      hook: "💡 PCやスマホをWi-Fiにつないだ瞬間に、<strong>「空いているIPアドレスを自動的に貸し出してくれるホテルのフロント係」</strong>！手動入力の手間を省く。",
+      confuse: "⚠️ IPアドレスの「自動割り当て」。"
+    },
+    {
+      abbr: "NAT",
+      system: "tech",
+      cat: "ネットワーク",
+      full: "Network Address Translation",
+      fullHighlight: "<strong>Network Address</strong>（IPアドレスを）<strong>Translation</strong>（変換する技術）",
+      jp: "ネットワークアドレス変換",
+      hook: "💡 自宅や会社内の<strong>「プライベートIPアドレス」と、世界で唯一の「グローバルIPアドレス」を1対1で相互変換</strong>して通信させる仕組み！",
+      confuse: "⚠️ ポート番号を使って1対多で共有するのがNAPT（IPマスカレード）。"
+    },
+    {
+      abbr: "VPN",
+      system: "tech",
+      cat: "ネットワーク・セキュリティ",
+      full: "Virtual Private Network",
+      fullHighlight: "<strong>Virtual</strong>（仮想的な）<strong>Private Network</strong>（専用線）",
+      jp: "仮想専用線",
+      hook: "💡 一般のインターネット回線の中に、<strong>暗号化された秘密のトンネル（トンネリング）を作り、あたかも専用線のように安全に通信する</strong>仕組み！",
+      confuse: "⚠️ テレワークで自宅から社内LANに安全に接続するときに必須。"
+    },
+    {
+      abbr: "WAF",
+      system: "tech",
+      cat: "セキュリティ",
+      full: "Web Application Firewall",
+      fullHighlight: "<strong>Web Application</strong>（Webアプリの）<strong>Firewall</strong>（専用防火壁）",
+      jp: "Webアプリケーションファイアウォール",
+      hook: "💡 通常のファイアウォールをすり抜ける<strong>「SQLインジェクション」や「XSS（クロスサイトスクリプティング）」などのWebアプリ攻撃を通信内容から検知してブロックする門番</strong>！",
+      confuse: "⚠️ Webアプリ層（レイヤ7）を守るのがWAF。"
+    },
+    {
+      abbr: "EDR",
+      system: "tech",
+      cat: "セキュリティ",
+      full: "Endpoint Detection and Response",
+      fullHighlight: "<strong>Endpoint</strong>（端末を監視し）<strong>Detection</strong>（侵入を検知して）<strong>Response</strong>（即座に対処）",
+      jp: "エンドポイント検知・対処",
+      hook: "💡 ウイルス対策ソフトをすり抜けてPCに侵入されたことを前提に、<strong>怪しい挙動を即座に検知し、ネットワークから隔離して被害拡大を防ぐ仕組み</strong>！",
+      confuse: "⚠️ 「侵入を防ぐ」ではなく「侵入された後の被害を抑える」エンドポイント（端末）対策。"
+    },
+    {
+      abbr: "SOC",
+      system: "tech",
+      cat: "セキュリティ組織",
+      full: "Security Operation Center",
+      fullHighlight: "<strong>Security</strong>（セキュリティを）<strong>Operation</strong>（24時間運用・監視する）<strong>Center</strong>（指令センター）",
+      jp: "セキュリティ運用監視センター",
+      hook: "💡 24時間365日体制で、社内のファイアウォールやサーバーのログを監視し、<strong>「サイバー攻撃が起きていないかを見張り続ける専門チーム・部屋」</strong>！",
+      confuse: "⚠️ 見張るのが「SOC」、事故が起きたときに駆けつける救急隊が「CSIRT」。"
+    },
+    {
+      abbr: "CSIRT",
+      system: "tech",
+      cat: "セキュリティ組織",
+      full: "Computer Security Incident Response Team",
+      fullHighlight: "<strong>Incident</strong>（インシデント・事故に）<strong>Response</strong>（即座に対応する）<strong>Team</strong>（チーム）",
+      jp: "セキュリティ事故対応チーム（シーサート）",
+      hook: "💡 ウイルス感染や情報漏洩などの事故が起きたときに、<strong>真っ先に駆けつけて復旧を指揮し、原因調査や外部への報告を取りまとめる救急隊組織</strong>！",
+      confuse: "⚠️ 監視するのがSOC、初動対応・復旧指揮するのがCSIRT。"
+    },
+    {
+      abbr: "SBOM",
+      system: "tech",
+      cat: "セキュリティ・サプライチェーン",
+      full: "Software Bill of Materials",
+      fullHighlight: "<strong>Software</strong>（ソフトウェアの）<strong>Bill of Materials</strong>（部品構成表）",
+      jp: "ソフトウェア部品表",
+      hook: "💡 ソフトウェアが「どんなオープンソースやライブラリを使って作られているか」を一覧化した<strong>成分表（原材料リスト）</strong>！脆弱性が見つかったときにすぐ影響を追跡できる。",
+      confuse: "⚠️ 製造業の部品表（BOM）をソフトウェアに応用したもの。"
+    },
+    {
+      abbr: "RAG",
+      system: "tech",
+      cat: "AI・最新技術",
+      full: "Retrieval-Augmented Generation",
+      fullHighlight: "<strong>Retrieval</strong>（外部情報を検索して）<strong>Augmented</strong>（強化した）<strong>Generation</strong>（文章生成）",
+      jp: "検索拡張生成",
+      hook: "💡 生成AIが知ったかぶりの嘘（ハルシネーション）をつかないよう、<strong>外部の最新文書や社内マニュアルを検索し、その根拠をカンニングさせながら回答させる技術</strong>！",
+      confuse: "⚠️ ハルシネーション対策の切り札。"
+    },
+    {
+      abbr: "LLM",
+      system: "tech",
+      cat: "AI・最新技術",
+      full: "Large Language Model",
+      fullHighlight: "<strong>Large</strong>（超巨大なデータで学んだ）<strong>Language</strong>（言語の）<strong>Model</strong>（モデル）",
+      jp: "大規模言語モデル",
+      hook: "💡 インターネット上の膨大なテキストを学習し、<strong>人間のように自然な文章の対話、要約、翻訳、プログラミングを行えるAIモデル</strong>（ChatGPT等の基盤技術）！",
+      confuse: "⚠️ パラメータ数が数千億規模に達する。"
+    },
+    {
+      abbr: "SaaS",
+      system: "tech",
+      cat: "クラウドサービス",
+      full: "Software as a Service",
+      fullHighlight: "<strong>Software</strong>（ソフトウェアを）<strong>as a Service</strong>（ネットのサービスとして提供）",
+      jp: "サース（ソフトウェア提供サービス）",
+      hook: "💡 自分のPCにソフトをインストールせず、<strong>Webブラウザ経由で利用するアプリケーション</strong>（例: Gmail, Slack, Salesforce, Googleスプレッドシート）！",
+      confuse: "⚠️ PaaSは開発プラットフォーム、IaaSはサーバーインフラを提供。"
+    },
+    {
+      abbr: "PaaS",
+      system: "tech",
+      cat: "クラウドサービス",
+      full: "Platform as a Service",
+      fullHighlight: "<strong>Platform</strong>（アプリ開発の基盤・土台を）<strong>as a Service</strong>（ネットで提供）",
+      jp: "パース（プラットフォーム提供サービス）",
+      hook: "💡 OS、データベース、プログラミング実行環境など、<strong>「開発に必要な土台（プラットフォーム）」をネット経由で提供するサービス</strong>！",
+      confuse: "⚠️ 開発者はインフラ管理を気にせずプログラム開発だけに専念できる。"
+    },
+    {
+      abbr: "IaaS",
+      system: "tech",
+      cat: "クラウドサービス",
+      full: "Infrastructure as a Service",
+      fullHighlight: "<strong>Infrastructure</strong>（サーバー・仮想マシンを）<strong>as a Service</strong>（ネットで提供）",
+      jp: "アイアース／イアース（インフラ提供サービス）",
+      hook: "💡 仮想CPU、メモリ、ハードディスク、ネットワークなど、<strong>「サーバーマシンそのものの箱（インフラ）」をネット経由で借りるサービス</strong>（例: AWS EC2）！",
+      confuse: "⚠️ OSのインストールからすべて自前で設定できる自由度がある。"
+    },
+    {
+      abbr: "SRAM",
+      system: "tech",
+      cat: "ハードウェア・メモリ",
+      full: "Static Random Access Memory",
+      fullHighlight: "<strong>Static</strong>（静的・リフレッシュ不要な）<strong>RAM</strong>（高速メモリ）",
+      jp: "エスラム（静的メモリ）",
+      hook: "💡 フリップフロップ回路を使い、<strong>超高速だが容量が小さく高価！主にCPUの「キャッシュメモリ」として使われる</strong>！",
+      confuse: "⚠️ リフレッシュ（再充電）が不要。主記憶に使うDRAMと対比。"
+    },
+    {
+      abbr: "DRAM",
+      system: "tech",
+      cat: "ハードウェア・メモリ",
+      full: "Dynamic Random Access Memory",
+      fullHighlight: "<strong>Dynamic</strong>（動的・定期充電が必要な）<strong>RAM</strong>（大容量メモリ）",
+      jp: "ディーラム（動的メモリ）",
+      hook: "💡 コンデンサに電気を蓄えて記憶するため、<strong>安価で大容量だが時間が経つと放電してしまう！そのため定期的な再充電（リフレッシュ）が必要で、PCの「主記憶（メインメモリ）」に使われる</strong>！",
+      confuse: "⚠️ 「リフレッシュ動作が必要」＝ DRAM！"
+    }
+  ];
+
+  let currentTab = 'all';
+
+  function renderTerms(filteredList) {
+    const container = document.getElementById('terms-container');
+    container.innerHTML = '';
+
+    const systems = [
+      { id: 'strat', name: 'ストラテジ系（経営・戦略・ビジネス・財務）', tagClass: 'tag-strat', badgeClass: 'badge-strat' },
+      { id: 'mgmt', name: 'マネジメント系（プロジェクト管理・サービス運用・監査）', tagClass: 'tag-mgmt', badgeClass: 'badge-mgmt' },
+      { id: 'tech', name: 'テクノロジ系（ネットワーク・セキュリティ・AI・ハード）', tagClass: 'tag-tech', badgeClass: 'badge-tech' }
+    ];
+
+    systems.forEach(sys => {
+      if (currentTab !== 'all' && currentTab !== sys.id) return;
+
+      const items = filteredList.filter(t => t.system === sys.id);
+      if (items.length === 0) return;
+
+      const sec = document.createElement('section');
+      sec.className = 'system-section';
+      sec.id = `sec-${sys.id}`;
+
+      let cardsHtml = '';
+      items.forEach(t => {
+        cardsHtml += `
+          <div class="term-card">
+            <div>
+              <div class="term-top">
+                <div class="term-badge ${sys.badgeClass}">${t.abbr}</div>
+                <div class="term-category">${t.cat}</div>
+              </div>
+              <div class="term-full">${t.fullHighlight}</div>
+              <div class="term-jp">📌 ${t.jp}</div>
+              <div class="hook-box">
+                <div class="hook-header">覚え方のツボ</div>
+                ${t.hook}
+              </div>
+            </div>
+            ${t.confuse ? `<div class="confuse-tag">${t.confuse}</div>` : ''}
+          </div>
+        `;
+      });
+
+      sec.innerHTML = `
+        <div class="system-header">
+          <span class="system-tag ${sys.tagClass}">${sys.id.toUpperCase()}</span>
+          <h2>${sys.name} (${items.length})</h2>
+        </div>
+        <div class="terms-grid">${cardsHtml}</div>
+      `;
+
+      container.appendChild(sec);
+    });
+
+    if (container.children.length === 0) {
+      container.innerHTML = `
+        <div style="text-align:center; padding:60px 20px; color:#64748b; background:#ffffff; border-radius:16px; border:1px solid #e2e8f0;">
+          <div style="font-size:2.5rem; margin-bottom:12px;">🔍</div>
+          <div style="font-size:1.1rem; font-weight:700;">一致する略語が見つかりませんでした</div>
+          <p style="font-size:0.9rem; margin-top:6px;">別のキーワードやアルファベットで検索してみてください。</p>
+        </div>
+      `;
+    }
+  }
+
+  function filterTerms() {
+    const q = document.getElementById('search-box').value.trim().toLowerCase();
+    const filtered = termData.filter(t => {
+      const matchText = (t.abbr + ' ' + t.full + ' ' + t.jp + ' ' + t.cat + ' ' + t.hook).toLowerCase();
+      return matchText.includes(q);
+    });
+    renderTerms(filtered);
+  }
+
+  function setTab(tab, btn) {
+    currentTab = tab;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterTerms();
+  }
+
+  function updateCounts() {
+    document.getElementById('count-all').textContent = termData.length;
+    document.getElementById('count-strat').textContent = termData.filter(t => t.system === 'strat').length;
+    document.getElementById('count-mgmt').textContent = termData.filter(t => t.system === 'mgmt').length;
+    document.getElementById('count-tech').textContent = termData.filter(t => t.system === 'tech').length;
+  }
+
+  // 初期実行
+  updateCounts();
+  renderTerms(termData);
+</script>
+
+</body>
+</html>
