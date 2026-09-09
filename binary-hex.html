@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>【完全図解】初学者のための「2進数・16進数」超入門 ＆ ITパスポート試験対策</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f8fafc;
+    --bg-gradient: linear-gradient(180deg, #f0f7ff 0%, #f8fafc 300px);
+    --surface: #ffffff;
+    --surface-alt: #f1f7fd;
+    --surface-card: #ffffff;
+    --border: #e2eaf2;
+    --border-strong: #cbd8e6;
+    --text: #1e293b;
+    --text-muted: #475569;
+    --text-faint: #64748b;
+    --primary: #0284c7;
+    --primary-light: #e0f2fe;
+    --primary-hover: #0369a1;
+    --secondary: #7c3aed;
+    --secondary-light: #f3e8ff;
+    --success: #059669;
+    --success-light: #d1fae5;
+    --danger: #dc2626;
+    --danger-light: #fee2e2;
+    --amber: #d97706;
+    --amber-light: #fef3c7;
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.03);
+    --shadow: 0 4px 12px -2px rgba(2, 132, 199, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+    --shadow-lg: 0 12px 28px -4px rgba(2, 132, 199, 0.10), 0 6px 12px -3px rgba(0, 0, 0, 0.04);
+    --radius: 14px;
+    --radius-sm: 8px;
+    --font-mono: "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: #f8fafc;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(224, 242, 254, 0.7) 0px, transparent 40%),
+      radial-gradient(at 100% 0%, rgba(243, 232, 255, 0.6) 0px, transparent 40%),
+      radial-gradient(at 50% 100%, rgba(236, 253, 245, 0.5) 0px, transparent 40%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--text);
+    font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.85;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 36px 20px 120px;
+  }
+
+  /* Header / Hero */
+  .hero {
+    background: linear-gradient(135deg, #e0f2fe 0%, #ede9fe 60%, #f0fdf4 100%);
+    border: 1.5px solid #bae6fd;
+    border-radius: 24px;
+    padding: 48px 36px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 12px 30px -6px rgba(2, 132, 199, 0.12);
+  }
+  .badge-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #0284c7;
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 9999px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
+  }
+  .hero h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.35;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+    color: #0f172a;
+  }
+  .hero p.lead {
+    color: #334155;
+    font-size: 1.08rem;
+    line-height: 1.75;
+    margin-bottom: 24px;
+  }
+  .nav-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .nav-pills a {
+    color: #0369a1;
+    background: #ffffff;
+    border: 1.5px solid #bae6fd;
+    text-decoration: none;
+    font-size: 0.86rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(2, 132, 199, 0.08);
+  }
+  .nav-pills a:hover {
+    border-color: #0284c7;
+    background: #f0f9ff;
+    color: #0284c7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.15);
+  }
+
+  /* Sections (Cards) */
+  section {
+    background: #ffffff;
+    border: 1.5px solid #e2eaf2;
+    border-radius: var(--radius);
+    padding: 38px 32px;
+    margin-bottom: 36px;
+    box-shadow: 0 6px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
+  }
+  section h2 {
+    font-size: 1.55rem;
+    font-weight: 800;
+    border-left: 6px solid #0284c7;
+    padding-left: 14px;
+    margin-bottom: 26px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #0f172a;
+  }
+  section h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 32px 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #1e293b;
+  }
+
+  p { margin-bottom: 18px; color: #334155; }
+  strong { font-weight: 700; color: #0f172a; }
+
+  /* Cards & Callouts */
+  .callout {
+    background: #f0f9ff;
+    border: 1.5px solid #bae6fd;
+    border-left: 5px solid #0284c7;
+    padding: 20px 22px;
+    border-radius: var(--radius-sm);
+    margin: 22px 0;
+  }
+  .callout-title {
+    font-weight: 700;
+    color: #0369a1;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 1rem;
+  }
+  .callout.warn {
+    border-left-color: #d97706;
+    background: #fefce8;
+    border-color: #fef08a;
+  }
+  .callout.warn .callout-title { color: #b45309; }
+
+  /* Interactive Bit Switcher (Tool) */
+  .interactive-box {
+    background: linear-gradient(180deg, #f0f9ff 0%, #ffffff 100%);
+    border: 2px solid #7dd3fc;
+    border-radius: 18px;
+    padding: 26px;
+    margin: 28px 0;
+    box-shadow: 0 10px 25px -4px rgba(2, 132, 199, 0.12);
+  }
+  .interactive-box-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0284c7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+  }
+  .bit-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 600px) {
+    .bit-grid { gap: 4px; }
+  }
+  .bit-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .bit-weight {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+  .bit-btn {
+    width: 100%;
+    aspect-ratio: 1;
+    max-width: 70px;
+    background: #ffffff;
+    border: 2px solid #cbd5e1;
+    border-radius: 12px;
+    color: #475569;
+    font-family: var(--font-mono);
+    font-size: 1.55rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+  }
+  .bit-btn:hover {
+    transform: translateY(-2px);
+    border-color: #0284c7;
+    background: #f0f9ff;
+  }
+  .bit-btn.active {
+    background: #0284c7;
+    border-color: #0284c7;
+    color: #ffffff;
+    box-shadow: 0 6px 16px rgba(2, 132, 199, 0.35);
+  }
+  .calc-display {
+    background: #ffffff;
+    border: 1.5px solid #bae6fd;
+    border-radius: 12px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 2px 6px rgba(2, 132, 199, 0.05);
+  }
+  .display-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #e2e8f0;
+  }
+  .display-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .display-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #475569;
+  }
+  .display-value {
+    font-family: var(--font-mono);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0284c7;
+  }
+
+  /* Paper Fold Metaphor Card */
+  .fold-metaphor {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+    gap: 14px;
+    margin: 22px 0;
+  }
+  .fold-card {
+    background: #f8fafc;
+    border: 1.5px solid #e2eaf2;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  }
+  .fold-card:hover {
+    transform: translateY(-3px);
+    border-color: #0284c7;
+    background: #ffffff;
+    box-shadow: 0 6px 14px rgba(2, 132, 199, 0.1);
+  }
+  .fold-step {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 4px;
+  }
+  .fold-result {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0284c7;
+    margin-bottom: 4px;
+  }
+  .fold-math {
+    font-size: 0.78rem;
+    color: #94a3b8;
+    font-weight: 600;
+  }
+
+  /* Tables */
+  .table-responsive {
+    overflow-x: auto;
+    margin: 20px 0 28px;
+    border-radius: 12px;
+    border: 1.5px solid #e2eaf2;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    text-align: left;
+    background: #ffffff;
+  }
+  th {
+    background: #f1f7fd;
+    color: #0f172a;
+    font-weight: 700;
+    padding: 14px 18px;
+    border-bottom: 2px solid #cbd8e6;
+    white-space: nowrap;
+  }
+  td {
+    padding: 13px 18px;
+    border-bottom: 1px solid #e2eaf2;
+    color: #334155;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #f8fafc; }
+  .code-val {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    background: #f0f9ff;
+    color: #0369a1;
+    padding: 3px 8px;
+    border-radius: 6px;
+    border: 1px solid #bae6fd;
+  }
+
+  /* Diagrams & Step boxes */
+  .step-box {
+    display: flex;
+    gap: 16px;
+    margin: 16px 0;
+    align-items: flex-start;
+  }
+  .step-num {
+    width: 34px;
+    height: 34px;
+    background: #0284c7;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(2, 132, 199, 0.3);
+  }
+  .step-body { flex: 1; font-size: 0.98rem; }
+
+  /* Quiz Area */
+  .quiz-card {
+    background: #f8fafc;
+    border: 1.5px solid #e2eaf2;
+    border-radius: 16px;
+    padding: 26px;
+    margin: 24px 0;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  }
+  .quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  .quiz-tag {
+    font-size: 0.8rem;
+    font-weight: 700;
+    background: #f3e8ff;
+    color: #7c3aed;
+    padding: 4px 12px;
+    border-radius: 8px;
+    border: 1px solid #e9d5ff;
+  }
+  .quiz-q {
+    font-weight: 800;
+    font-size: 1.08rem;
+    margin-bottom: 18px;
+    line-height: 1.6;
+    color: #0f172a;
+  }
+  .quiz-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  @media (max-width: 640px) {
+    .quiz-options { grid-template-columns: 1fr; }
+  }
+  .quiz-opt {
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 13px 18px;
+    font-size: 0.96rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.15s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #1e293b;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  }
+  .quiz-opt:hover {
+    border-color: #0284c7;
+    background: #f0f9ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(2, 132, 199, 0.12);
+  }
+  .quiz-opt.selected-correct {
+    background: #ecfdf5;
+    border-color: #10b981;
+    color: #065f46;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+  }
+  .quiz-opt.selected-wrong {
+    background: #fef2f2;
+    border-color: #ef4444;
+    color: #991b1b;
+  }
+  .quiz-opt.disabled {
+    pointer-events: none;
+    opacity: 0.75;
+  }
+  .quiz-explain {
+    display: none;
+    background: #ffffff;
+    border: 1.5px solid #bae6fd;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 16px;
+    animation: fadeIn 0.3s ease;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.08);
+  }
+  .quiz-explain.show { display: block; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .ans-badge {
+    display: inline-block;
+    font-weight: 800;
+    font-size: 0.88rem;
+    padding: 5px 14px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  .ans-badge.correct { background: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
+  .ans-badge.wrong { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+
+  /* Superscript Styling for Powers */
+  sup {
+    font-size: 0.74em;
+    font-weight: 700;
+    vertical-align: super;
+    line-height: 0;
+    color: #0284c7;
+    margin-left: 1px;
+    padding: 0 1px;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 40px 0;
+    color: var(--text-faint);
+    font-size: 0.88rem;
+  }
+
+  /* ========================================================
+     Print & PDF Optimization Styles (A4 Standard)
+     ======================================================== */
+  @page {
+    size: A4 portrait;
+    margin: 12mm 10mm 12mm 10mm;
+  }
+
+  @media print {
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    body {
+      background: #ffffff !important;
+      background-image: none !important;
+      color: #0f172a !important;
+      font-size: 13px !important;
+      line-height: 1.6 !important;
+    }
+
+    .container {
+      max-width: 100% !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    /* 印刷時に非表示にするUI要素 */
+    .no-print,
+    .nav-pills,
+    #resetBitsBtn,
+    .print-bar {
+      display: none !important;
+    }
+
+    /* ヒーローセクション */
+    .hero {
+      padding: 20px 22px !important;
+      margin-bottom: 20px !important;
+      border-radius: 10px !important;
+      box-shadow: none !important;
+      border: 1.5px solid #bae6fd !important;
+      background: #f0f9ff !important;
+      break-inside: avoid;
+    }
+    .hero h1 {
+      font-size: 1.6rem !important;
+      margin-bottom: 8px !important;
+    }
+    .hero p.lead {
+      font-size: 0.95rem !important;
+      margin-bottom: 0 !important;
+      line-height: 1.6 !important;
+    }
+
+    /* 各章のカード */
+    section {
+      background: #ffffff !important;
+      border: 1px solid #cbd5e1 !important;
+      box-shadow: none !important;
+      padding: 20px 22px !important;
+      margin-bottom: 22px !important;
+      border-radius: 10px !important;
+      break-inside: auto;
+    }
+
+    /* 改ページの制御（見出しだけ取り残されるのを防止） */
+    h2, h3 {
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+    section h2 {
+      font-size: 1.35rem !important;
+      margin-bottom: 14px !important;
+      padding-left: 10px !important;
+      border-left-width: 5px !important;
+    }
+    section h3 {
+      font-size: 1.1rem !important;
+      margin: 18px 0 8px !important;
+    }
+
+    p {
+      margin-bottom: 12px !important;
+    }
+
+    .callout {
+      padding: 12px 16px !important;
+      margin: 14px 0 !important;
+      border-radius: 8px !important;
+      break-inside: avoid;
+    }
+
+    /* 8ビット・シミュレータ */
+    .interactive-box {
+      box-shadow: none !important;
+      padding: 16px !important;
+      margin: 16px 0 !important;
+      border: 1.5px solid #bae6fd !important;
+      background: #f8fafc !important;
+      break-inside: avoid;
+    }
+    .bit-btn {
+      box-shadow: none !important;
+      font-size: 1.25rem !important;
+      border-width: 1.5px !important;
+      border-color: #cbd5e1 !important;
+      background: #ffffff !important;
+      color: #334155 !important;
+    }
+
+    /* クイズカード：途中で切れないようにし、印刷時は最初から正解・解説を表示 */
+    .quiz-card {
+      box-shadow: none !important;
+      padding: 18px 20px !important;
+      margin: 16px 0 !important;
+      border: 1.5px solid #cbd5e1 !important;
+      background: #ffffff !important;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .quiz-q {
+      font-size: 1rem !important;
+      margin-bottom: 12px !important;
+    }
+    .quiz-options {
+      gap: 8px !important;
+      margin-bottom: 12px !important;
+    }
+    .quiz-opt {
+      padding: 8px 14px !important;
+      font-size: 0.9rem !important;
+      box-shadow: none !important;
+      border-width: 1.5px !important;
+    }
+
+    /* 印刷時に正解の選択肢をハイライト */
+    .quiz-card[data-ans="A"] .quiz-opt[data-opt="A"],
+    .quiz-card[data-ans="B"] .quiz-opt[data-opt="B"],
+    .quiz-card[data-ans="C"] .quiz-opt[data-opt="C"],
+    .quiz-card[data-ans="D"] .quiz-opt[data-opt="D"] {
+      background: #ecfdf5 !important;
+      border-color: #10b981 !important;
+      color: #065f46 !important;
+      font-weight: 700 !important;
+    }
+
+    /* 解説欄を常時表示 */
+    .quiz-explain {
+      display: block !important;
+      box-shadow: none !important;
+      padding: 12px 16px !important;
+      margin-top: 10px !important;
+      background: #f0fdf4 !important;
+      border: 1px solid #86efac !important;
+    }
+
+    /* テーブル・早見表 */
+    .table-responsive {
+      box-shadow: none !important;
+      margin: 14px 0 !important;
+      border: 1px solid #cbd5e1 !important;
+      overflow: visible !important;
+    }
+    table {
+      font-size: 0.86rem !important;
+    }
+    th, td {
+      padding: 7px 10px !important;
+    }
+
+    /* 折り紙カード */
+    .fold-metaphor {
+      gap: 8px !important;
+      margin: 14px 0 !important;
+    }
+    .fold-card {
+      padding: 10px 8px !important;
+      box-shadow: none !important;
+      border-width: 1px !important;
+    }
+    .fold-result {
+      font-size: 1.25rem !important;
+    }
+
+    footer {
+      padding: 16px 0 0 !important;
+      font-size: 0.75rem !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Print Action Bar (Hidden when printing) -->
+  <div class="print-bar no-print" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+    <a href="index.html" style="display: inline-flex; align-items: center; gap: 8px; background: #ffffff; color: #0369a1; border: 1.5px solid #bae6fd; padding: 8px 18px; border-radius: 10px; font-weight: 700; font-size: 0.92rem; text-decoration: none; box-shadow: 0 2px 8px rgba(2, 132, 199, 0.08); transition: all 0.2s ease;">
+      <span>🏠</span> ポータルTOP
+    </a>
+    <button onclick="window.print()" style="display: inline-flex; align-items: center; gap: 8px; background: #ffffff; color: #0369a1; border: 1.5px solid #bae6fd; padding: 8px 18px; border-radius: 10px; font-weight: 700; font-size: 0.92rem; cursor: pointer; box-shadow: 0 2px 8px rgba(2, 132, 199, 0.08); transition: all 0.2s ease;">
+      <span>🖨️</span> A4印刷 / PDFとして保存
+    </button>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <span class="badge-tag">ITパスポート・基本情報対策</span>
+    <h1>2進数・16進数 超入門ガイド</h1>
+    <p class="lead">
+      「なぜ英字のA〜Fが出てくるの？」「2<sup>4</sup>（2の4乗）ってどういうこと？」<br>
+      数学やPCの事前知識がなくても、図解と体験ツールでスッキリ腑に落ちる学習テキストです。
+    </p>
+    <div class="nav-pills">
+      <a href="#sec1">第1章：なぜ2進数を使うのか</a>
+      <a href="#sec2">第2章：なぜ16進数が必要なのか</a>
+      <a href="#sec3">第3章：基数変換マスター術</a>
+      <a href="#interactive">体験ツール</a>
+      <a href="#sec4">第4章：過去問演習（全7問）</a>
+      <a href="#sec5">第5章：暗記早見表</a>
+    </div>
+  </div>
+
+  <!-- Chapter 1 -->
+  <section id="sec1">
+    <h2>第1章：なぜコンピュータは「2進数」を使うのか？</h2>
+
+    <h3>1.1 人間の10進数 vs コンピュータの2進数</h3>
+    <p>
+      私たちが普段使っているのは <strong>10進数</strong> です。指が10本あることから自然と定着し、「9」の次は桁が繰り上がって「10」になります。<br>
+      一方、コンピュータが使うのは <strong>2進数</strong> です。使える数字は <code>0</code> と <code>1</code> の2種類しかありません。
+    </p>
+
+    <div class="callout">
+      <div class="callout-title">
+        <span>💡</span> なぜ「0」と「1」だけなの？
+      </div>
+      コンピュータの内部は微細な電子回路でできています。回路にとって一番シンプルで絶対に誤作動が起きないのは、<strong>「電気がOFFか（0）、ONか（1）」</strong> の2つの状態だけを識別することだからです。
+    </div>
+
+    <h3>1.2 ビット（bit）とバイト（Byte）の超基本</h3>
+    <p>ITパスポート試験で真っ先に出題される最重要単位です。</p>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 16px;">
+      <div style="background: #f0f9ff; padding: 22px; border-radius: 14px; border: 1.5px solid #bae6fd; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.05);">
+        <strong style="color: #0284c7; font-size: 1.1rem;">① ビット（bit）</strong>
+        <p style="font-size: 0.94rem; margin: 10px 0 0; color: #334155;">
+          情報量の最小単位（スイッチ1個分）。<br>
+          ・1ビット：<strong>2<sup>1</sup> ＝ 2通り</strong>（0か1）<br>
+          ・2ビット：<strong>2<sup>2</sup> ＝ 4通り</strong>（2 × 2）<br>
+          ・3ビット：<strong>2<sup>3</sup> ＝ 8通り</strong>（2 × 2 × 2）<br>
+          ・<strong>n ビット：2<sup>n</sup> 通り（2を n 回かけた数）</strong>
+        </p>
+      </div>
+      <div style="background: #fdf4ff; padding: 22px; border-radius: 14px; border: 1.5px solid #f5d0fe; box-shadow: 0 4px 12px rgba(124, 58, 237, 0.05);">
+        <strong style="color: #7c3aed; font-size: 1.1rem;">② バイト（Byte）</strong>
+        <p style="font-size: 0.94rem; margin: 10px 0 0; color: #334155;">
+          ビットを8個まとめた箱（<strong>1 Byte = 8 bit</strong>）。<br>
+          ・8ビットで表せる情報の数：<br>
+          <strong>2<sup>8</sup> ＝ 256通り</strong>（2を8回かける：2×2×2×2×2×2×2×2）<br>
+          ※半角英数字1文字を記録するのにちょうど1バイト使います。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chapter 2 -->
+  <section id="sec2">
+    <h2>第2章：なぜ「16進数」が必要なのか？</h2>
+
+    <h3>2.1 2進数は人間には「長すぎる」問題</h3>
+    <p>
+      コンピュータにとって2進数は都合が良いですが、人間が見ると桁数が多すぎて読み間違いが起きます。<br>
+      たとえば普段の「250」という数字は、2進数だと <strong><code>11111010</code></strong> となり、ひと目で理解できません。
+    </p>
+
+    <h3>2.2 そこで登場するのが「16進数」！</h3>
+    <p>
+      16進数は <strong>「16集まったら桁が上がる」</strong> 数え方です。<br>
+      数字は0〜9の10個しかないため、足りない分を <strong>A 〜 F のアルファベット</strong> を借りて補います。
+    </p>
+
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>10進数</th>
+            <th>0 〜 9</th>
+            <th>10</th>
+            <th>11</th>
+            <th>12</th>
+            <th>13</th>
+            <th>14</th>
+            <th>15</th>
+            <th style="color: var(--primary);">16（桁上がり）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>16進数</strong></td>
+            <td>0 〜 9</td>
+            <td><strong class="code-val">A</strong></td>
+            <td><strong class="code-val">B</strong></td>
+            <td><strong class="code-val">C</strong></td>
+            <td><strong class="code-val">D</strong></td>
+            <td><strong class="code-val">E</strong></td>
+            <td><strong class="code-val">F</strong></td>
+            <td><strong class="code-val" style="color: var(--primary);">10</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>2.3 魔法のルール：「2進数4桁」＝「16進数1桁」</h3>
+    
+    <div class="callout" style="border-left-color: #7c3aed; background: #faf5ff; border-color: #e9d5ff;">
+      <div class="callout-title" style="color: #7c3aed;">
+        <span>✨</span> なぜ8進数ではなく「16進数」が使われるのか？
+      </div>
+      <p style="margin: 0; font-size: 0.96rem; color: #334155;">
+        <strong style="font-size: 1.05rem; color: #0f172a;">2<sup>4</sup> ＝ 16（2を4回かけると16！）</strong><br>
+        2進数を4つ並べると（<code>0000</code>〜<code>1111</code>）、パターンはちょうど <strong>16通り</strong> できます。<br>
+        この16通りが、<strong>16進数のちょうど1桁（0〜F）にピッタリ1対1で変換できる</strong> のです。
+      </p>
+    </div>
+
+    <div style="background: linear-gradient(135deg, #f0f9ff 0%, #f5f3ff 100%); border: 2px solid #bae6fd; padding: 24px; border-radius: 16px; text-align: center; font-family: var(--font-mono); margin: 24px 0; box-shadow: 0 6px 18px rgba(2, 132, 199, 0.08);">
+      <div style="color: #64748b; font-size: 0.88rem; font-weight: 600; margin-bottom: 8px;">2進数 8桁（人間には長くて読めない）</div>
+      <div style="font-size: 1.5rem; letter-spacing: 5px; font-weight: 800; color: #0f172a;">
+        <span style="color: #0284c7;">1 1 1 1</span> &nbsp; <span style="color: #7c3aed;">1 0 1 0</span>
+      </div>
+      <div style="font-size: 1.2rem; margin: 6px 0; color: #94a3b8;">↓ 4桁ずつスッキリ変換 ↓</div>
+      <div style="font-size: 2rem; font-weight: 800;">
+        <span style="color: #0284c7;">F</span> &nbsp; <span style="color: #7c3aed;">A</span>
+      </div>
+      <div style="color: var(--success); font-size: 0.88rem; font-weight: 700; margin-top: 6px;">
+        16進数なら「FA」のたった2文字でスッキリ！
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Experience Tool -->
+  <section id="interactive">
+    <h2>🎯 ポチポチ触って覚える！「ビット変換シミュレータ」</h2>
+    <p style="color: var(--text-muted); font-size: 0.95rem;">
+      ボタンをクリックしてスイッチを ON (1) / OFF (0) に切り替えてみてください。<br>
+      2進数、10進数、16進数がどう連動して変化するかリアルタイムで実感できます！
+    </p>
+
+    <div class="interactive-box">
+      <div class="interactive-box-title">
+        <span>8ビット・スイッチングパネル</span>
+        <button id="resetBitsBtn" style="background: none; border: 1px solid var(--border); padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; cursor: pointer; color: var(--text-muted);">全リセット</button>
+      </div>
+
+      <div class="bit-grid">
+        <div class="bit-item">
+          <span class="bit-weight">128</span>
+          <button class="bit-btn" data-val="128">0</button>
+        </div>
+        <div class="bit-item">
+          <span class="bit-weight">64</span>
+          <button class="bit-btn" data-val="64">0</button>
+        </div>
+        <div class="bit-item">
+          <span class="bit-weight">32</span>
+          <button class="bit-btn" data-val="32">0</button>
+        </div>
+        <div class="bit-item">
+          <span class="bit-weight">16</span>
+          <button class="bit-btn" data-val="16">0</button>
+        </div>
+        <div class="bit-item">
+          <span class="bit-weight">8</span>
+          <button class="bit-btn" data-val="8">0</button>
+        </div>
+        <div class="bit-item">
+          <span class="bit-weight">4</span>
+          <button class="bit-btn" data-val="4">0</button>
+        </div>
+        <div class="bit-item">
+          <span class="bit-weight">2</span>
+          <button class="bit-btn" data-val="2">0</button>
+        </div>
+        <div class="bit-item">
+          <span class="bit-weight">1</span>
+          <button class="bit-btn" data-val="1">0</button>
+        </div>
+      </div>
+
+      <div class="calc-display">
+        <div class="display-row">
+          <span class="display-label">2進数表記 (8bit)</span>
+          <span class="display-value" id="binOutput" style="letter-spacing: 2px;">0000 0000</span>
+        </div>
+        <div class="display-row">
+          <span class="display-label">10進数の計算式</span>
+          <span class="display-value" id="calcOutput" style="font-size: 1rem; color: var(--text-muted);">0</span>
+        </div>
+        <div class="display-row">
+          <span class="display-label">10進数の答え</span>
+          <span class="display-value" id="decOutput" style="color: var(--success); font-size: 1.5rem;">0</span>
+        </div>
+        <div class="display-row">
+          <span class="display-label">16進数表記</span>
+          <span class="display-value" id="hexOutput" style="color: var(--secondary); font-size: 1.5rem;">0x00</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chapter 3 -->
+  <section id="sec3">
+    <h2>第3章：試験で絶対迷わない！「基数変換」マスター術</h2>
+
+    <h3>3.1 「位の重み（8421ルール）」を覚えよう</h3>
+    <p>
+      2進数は、右端の「1」からスタートして、<strong>左へ行くたびに2倍、2倍、2倍…</strong> と増えていきます。
+    </p>
+
+    <div style="background: #f0fdf4; border: 1.5px solid #bbf7d0; padding: 22px; border-radius: 14px; font-family: var(--font-mono); text-align: center; margin: 20px 0; overflow-x: auto; box-shadow: 0 4px 12px rgba(5, 150, 105, 0.05);">
+      <div style="font-size: 1.25rem; font-weight: 800; color: #059669; letter-spacing: 2px;">
+        128 &nbsp; 64 &nbsp; 32 &nbsp; 16 &nbsp; | &nbsp; 8 &nbsp; 4 &nbsp; 2 &nbsp; 1
+      </div>
+      <div style="font-size: 0.85rem; color: #166534; font-weight: 600; margin-top: 8px;">
+        ← ← ← 左へ行くたびに2倍ずつ増える ← ← ← （特に「8・4・2・1」は暗記必須！）
+      </div>
+    </div>
+
+    <h3>3.2 変換パターン別 テクニック</h3>
+
+    <div class="step-box">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>2進数 → 10進数：1がある場所の重みを足すだけ！</strong><br>
+        例：<code>1101</code> の場合 → 8 + 4 + 0 + 1 ＝ <strong>13</strong>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>10進数 → 2進数：大きい重みから引き算していく（引き算方式）</strong><br>
+        例：<code>25</code> の場合<br>
+        ・25から16を引く（残9）→ 16の位は「1」<br>
+        ・9から8を引く（残1）→ 8の位は「1」<br>
+        ・4と2は引けない → 4と2の位は「0」<br>
+        ・1から1を引く（残0）→ 1の位は「1」<br>
+        答え：<strong>11001</strong>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>2進数 ⇔ 16進数：4桁ずつ区切るだけで瞬殺！</strong><br>
+        例：<code>1011 0110</code> の場合<br>
+        ・前半 <code>1011</code> = 8+2+1 = 11（16進数で <strong>B</strong>）<br>
+        ・後半 <code>0110</code> = 4+2 = 6（16進数で <strong>6</strong>）<br>
+        答え：<strong>B6</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chapter 4: Quiz -->
+  <section id="sec4">
+    <h2>第4章：ITパスポート試験 頻出問題演習（全7問）</h2>
+    <p style="color: var(--text-muted);">
+      選択肢をクリックすると、その場で正解・不正解の判定と詳しい解説が表示されます。
+    </p>
+
+    <!-- Q1 -->
+    <div class="quiz-card" data-ans="B">
+      <div class="quiz-header">
+        <span class="quiz-tag">問1：基本の基数変換</span>
+        <span style="font-size: 0.85rem; color: var(--text-faint);">2進数 → 10進数</span>
+      </div>
+      <div class="quiz-q">【問題】2進数「10110」を10進数で表したものはどれか。</div>
+      <div class="quiz-options">
+        <button class="quiz-opt" data-opt="A"><span>ア</span> 18</button>
+        <button class="quiz-opt" data-opt="B"><span>イ</span> 22</button>
+        <button class="quiz-opt" data-opt="C"><span>ウ</span> 24</button>
+        <button class="quiz-opt" data-opt="D"><span>エ</span> 26</button>
+      </div>
+      <div class="quiz-explain">
+        <span class="ans-badge">正解：イ（22）</span>
+        <p style="font-size: 0.92rem; margin: 0;">
+          各桁に「16, 8, 4, 2, 1」の重みを当てはめます。<br>
+          1があるところは 16, 4, 2 なので、<strong>16 + 4 + 2 = 22</strong> となります。
+        </p>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="quiz-card" data-ans="A">
+      <div class="quiz-header">
+        <span class="quiz-tag">問2：基本の基数変換</span>
+        <span style="font-size: 0.85rem; color: var(--text-faint);">10進数 → 2進数</span>
+      </div>
+      <div class="quiz-q">【問題】10進数「43」を2進数で表したものはどれか。</div>
+      <div class="quiz-options">
+        <button class="quiz-opt" data-opt="A"><span>ア</span> 101011</button>
+        <button class="quiz-opt" data-opt="B"><span>イ</span> 101101</button>
+        <button class="quiz-opt" data-opt="C"><span>ウ</span> 110011</button>
+        <button class="quiz-opt" data-opt="D"><span>エ</span> 110101</button>
+      </div>
+      <div class="quiz-explain">
+        <span class="ans-badge">正解：ア（101011）</span>
+        <p style="font-size: 0.92rem; margin: 0;">
+          大きい重み（32, 16, 8, 4, 2, 1）から引き算します。<br>
+          43 - 32 = 11（32の位: 1）<br>
+          11 - 8 = 3（8の位: 1、16の位は0）<br>
+          3 - 2 = 1（2の位: 1、4の位は0）<br>
+          1 - 1 = 0（1の位: 1）<br>
+          並べると <strong>101011</strong> になります。
+        </p>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="quiz-card" data-ans="B">
+      <div class="quiz-header">
+        <span class="quiz-tag">問3：超頻出テクニック</span>
+        <span style="font-size: 0.85rem; color: var(--text-faint);">2進数 → 16進数</span>
+      </div>
+      <div class="quiz-q">【問題】2進数「11010111」を16進数で表したものはどれか。</div>
+      <div class="quiz-options">
+        <button class="quiz-opt" data-opt="A"><span>ア</span> C7</button>
+        <button class="quiz-opt" data-opt="B"><span>イ</span> D7</button>
+        <button class="quiz-opt" data-opt="C"><span>ウ</span> E6</button>
+        <button class="quiz-opt" data-opt="D"><span>エ</span> F7</button>
+      </div>
+      <div class="quiz-explain">
+        <span class="ans-badge">正解：イ（D7）</span>
+        <p style="font-size: 0.92rem; margin: 0;">
+          4桁ずつ真っ二つに区切ります：「1101」と「0111」<br>
+          ・前半 1101 = 8+4+1 = 13 → 13は16進数で <strong>D</strong><br>
+          ・後半 0111 = 4+2+1 = 7 → 16進数でも <strong>7</strong><br>
+          つなげると <strong>D7</strong> と一瞬で求まります！
+        </p>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="quiz-card" data-ans="A">
+      <div class="quiz-header">
+        <span class="quiz-tag">問4：逆変換</span>
+        <span style="font-size: 0.85rem; color: var(--text-faint);">16進数 → 2進数</span>
+      </div>
+      <div class="quiz-q">【問題】16進数「2A」を2進数で表したものはどれか。</div>
+      <div class="quiz-options">
+        <button class="quiz-opt" data-opt="A"><span>ア</span> 00101010</button>
+        <button class="quiz-opt" data-opt="B"><span>イ</span> 00101011</button>
+        <button class="quiz-opt" data-opt="C"><span>ウ</span> 00111010</button>
+        <button class="quiz-opt" data-opt="D"><span>エ</span> 01001010</button>
+      </div>
+      <div class="quiz-explain">
+        <span class="ans-badge">正解：ア（00101010）</span>
+        <p style="font-size: 0.92rem; margin: 0;">
+          1文字ずつ4桁の2進数に戻します。<br>
+          ・「2」 → 0010<br>
+          ・「A（10）」 → 8+2 なので 1010<br>
+          連結すると <strong>00101010</strong> になります。
+        </p>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="quiz-card" data-ans="C">
+      <div class="quiz-header">
+        <span class="quiz-tag">問5：情報量の計算</span>
+        <span style="font-size: 0.85rem; color: var(--text-faint);">ビットと状態数</span>
+      </div>
+      <div class="quiz-q">【問題】コンピュータで6ビットの情報を用いるとき、表現できる状態の数は最大で何通りか。</div>
+      <div class="quiz-options">
+        <button class="quiz-opt" data-opt="A"><span>ア</span> 12</button>
+        <button class="quiz-opt" data-opt="B"><span>イ</span> 32</button>
+        <button class="quiz-opt" data-opt="C"><span>ウ</span> 64</button>
+        <button class="quiz-opt" data-opt="D"><span>エ</span> 128</button>
+      </div>
+      <div class="quiz-explain">
+        <span class="ans-badge">正解：ウ（64）</span>
+        <p style="font-size: 0.92rem; margin: 0;">
+          n ビットで表せる状態数は <strong>2<sup>n</sup> 通り</strong>（2を n 回かけた数）です。<br>
+          本問は6ビットなので、<strong>2<sup>6</sup>（2を6回かけ算）</strong> します：<br>
+          <strong>2 × 2 × 2 × 2 × 2 × 2 ＝ 64通り</strong>
+        </p>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="quiz-card" data-ans="C">
+      <div class="quiz-header">
+        <span class="quiz-tag">問6：Webとカラー</span>
+        <span style="font-size: 0.85rem; color: var(--text-faint);">カラーコードの仕組み</span>
+      </div>
+      <div class="quiz-q">【問題】Webページで色を指定する際、赤・緑・青（RGB）の各色をそれぞれ8ビット（0〜255）で表現する方式がある。この方式で表現できる色の総数は約何通りか。</div>
+      <div class="quiz-options">
+        <button class="quiz-opt" data-opt="A"><span>ア</span> 約256色</button>
+        <button class="quiz-opt" data-opt="B"><span>イ</span> 約6万5千色</button>
+        <button class="quiz-opt" data-opt="C"><span>ウ</span> 約1,677万色</button>
+        <button class="quiz-opt" data-opt="D"><span>エ</span> 約43億色</button>
+      </div>
+      <div class="quiz-explain">
+        <span class="ans-badge">正解：ウ（約1,677万色）</span>
+        <p style="font-size: 0.92rem; margin: 0;">
+          赤256通り × 緑256通り × 青256通り ＝ <strong>2<sup>24</sup> ＝ 16,777,216通り（約1,677万色）</strong> となります。<br>
+          全体のビット数は 8+8+8 = 24ビットで、16進数では「#FFFFFF」のように6桁で表されます。
+        </p>
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="quiz-card" data-ans="B">
+      <div class="quiz-header">
+        <span class="quiz-tag">問7：ネットワーク知識</span>
+        <span style="font-size: 0.85rem; color: var(--text-faint);">IPv4とIPv6</span>
+      </div>
+      <div class="quiz-q">【問題】インターネットのアドレス規格に関する記述として、適切なものはどれか。</div>
+      <div class="quiz-options">
+        <button class="quiz-opt" data-opt="A"><span>ア</span> IPv4アドレスは16ビットで構成され、2進数で表記される。</button>
+        <button class="quiz-opt" data-opt="B"><span>イ</span> IPv4アドレスは32ビットで構成され、8ビットずつ区切って10進数で表記される。</button>
+        <button class="quiz-opt" data-opt="C"><span>ウ</span> IPv6アドレスは64ビットで構成され、8ビットずつ区切って10進数で表記される。</button>
+        <button class="quiz-opt" data-opt="D"><span>エ</span> IPv6アドレスは128ビットで構成され、16ビットずつ区切って10進数で表記される。</button>
+      </div>
+      <div class="quiz-explain">
+        <span class="ans-badge">正解：イ</span>
+        <p style="font-size: 0.92rem; margin: 0;">
+          ・<strong>IPv4</strong>：32ビット長（8ビット × 4組）を「10進数」で表記（例：192.168.1.1）<br>
+          ・<strong>IPv6</strong>：128ビット長（16ビット × 8組）を「16進数」で表記（例：2001:0db8:...）<br>
+          128ビットは長すぎるため、人間が読みやすい16進数が採用されています。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chapter 5: Cheat Sheet -->
+  <section id="sec5">
+    <h2>第5章：試験直前！暗記早見表</h2>
+
+    <h3>5.1 そもそも「2<sup>n</sup>（2の〇乗）」って何？</h3>
+    <p>
+      「2<sup>n</sup>（2の〇乗）」とは、<strong>「2を何回かけ算するか」</strong> という回数のことです。<br>
+      右肩に小さく乗っている数字（上付き文字）が、<strong>「2をかける回数」</strong> を表しています。
+    </p>
+
+    <!-- Paper folding metaphor cards -->
+    <div class="fold-metaphor">
+      <div class="fold-card">
+        <div class="fold-step">折らない (0回)</div>
+        <div class="fold-result">1枚</div>
+        <div class="fold-math"><strong>2<sup>0</sup></strong> ＝ 1</div>
+      </div>
+      <div class="fold-card">
+        <div class="fold-step">1回折る</div>
+        <div class="fold-result">2枚</div>
+        <div class="fold-math"><strong>2<sup>1</sup></strong> ＝ 2</div>
+      </div>
+      <div class="fold-card">
+        <div class="fold-step">2回折る</div>
+        <div class="fold-result">4枚</div>
+        <div class="fold-math"><strong>2<sup>2</sup></strong> ＝ 4</div>
+      </div>
+      <div class="fold-card">
+        <div class="fold-step">3回折る</div>
+        <div class="fold-result">8枚</div>
+        <div class="fold-math"><strong>2<sup>3</sup></strong> ＝ 8</div>
+      </div>
+      <div class="fold-card">
+        <div class="fold-step">4回折る</div>
+        <div class="fold-result">16枚</div>
+        <div class="fold-math"><strong>2<sup>4</sup></strong> ＝ 16</div>
+      </div>
+    </div>
+
+    <h3>5.2 2の累乗マスター表（ITパスポート頻出）</h3>
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>呼び方（言葉）</th>
+            <th>数式</th>
+            <th>かけ算の式（意味）</th>
+            <th>計算結果</th>
+            <th>試験での用途・重要ポイント</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>2の0乗</strong></td>
+            <td>2<sup>0</sup></td>
+            <td>まだ2をかけていない基準値</td>
+            <td><strong class="code-val">1</strong></td>
+            <td>2進数「1の位」</td>
+          </tr>
+          <tr>
+            <td><strong>2の1乗</strong></td>
+            <td>2<sup>1</sup></td>
+            <td>2が1個</td>
+            <td><strong class="code-val">2</strong></td>
+            <td>2進数「2の位」</td>
+          </tr>
+          <tr>
+            <td><strong>2の2乗</strong></td>
+            <td>2<sup>2</sup></td>
+            <td>2 × 2</td>
+            <td><strong class="code-val">4</strong></td>
+            <td>2進数「4の位」</td>
+          </tr>
+          <tr>
+            <td><strong>2の3乗</strong></td>
+            <td>2<sup>3</sup></td>
+            <td>2 × 2 × 2</td>
+            <td><strong class="code-val">8</strong></td>
+            <td>2進数「8の位」</td>
+          </tr>
+          <tr style="background: #f0f9ff;">
+            <td><strong>2の4乗</strong></td>
+            <td>2<sup>4</sup></td>
+            <td>2 × 2 × 2 × 2</td>
+            <td><strong class="code-val" style="color: #0284c7;">16</strong></td>
+            <td><strong>★16進数の1桁（4ビット＝16通り）</strong></td>
+          </tr>
+          <tr>
+            <td><strong>2の5乗</strong></td>
+            <td>2<sup>5</sup></td>
+            <td>2を5回かける（16 × 2）</td>
+            <td><strong class="code-val">32</strong></td>
+            <td>5ビットで32通り（IPv4長＝32ビット）</td>
+          </tr>
+          <tr>
+            <td><strong>2の6乗</strong></td>
+            <td>2<sup>6</sup></td>
+            <td>2を6回かける（32 × 2）</td>
+            <td><strong class="code-val">64</strong></td>
+            <td>6ビットで64通り</td>
+          </tr>
+          <tr>
+            <td><strong>2の7乗</strong></td>
+            <td>2<sup>7</sup></td>
+            <td>2を7回かける（64 × 2）</td>
+            <td><strong class="code-val">128</strong></td>
+            <td>7ビットで128通り（IPv6長＝128ビット）</td>
+          </tr>
+          <tr style="background: #f0fdf4;">
+            <td><strong>★ 2の8乗</strong></td>
+            <td>2<sup>8</sup></td>
+            <td>2を8回かける（128 × 2）</td>
+            <td><strong class="code-val" style="color: #059669; font-size: 1.05rem;">256</strong></td>
+            <td><strong>★最重要！1バイト（8ビット）＝256通り</strong></td>
+          </tr>
+          <tr>
+            <td><strong>2の9乗</strong></td>
+            <td>2<sup>9</sup></td>
+            <td>2を9回かける（256 × 2）</td>
+            <td><strong class="code-val">512</strong></td>
+            <td>9ビットで512通り</td>
+          </tr>
+          <tr style="background: #faf5ff;">
+            <td><strong>★ 2の10乗</strong></td>
+            <td>2<sup>10</sup></td>
+            <td>2を10回かける（512 × 2）</td>
+            <td><strong class="code-val" style="color: #7c3aed; font-size: 1.05rem;">1,024</strong></td>
+            <td><strong>★最重要！ITの世界の「約1,000（1K：キロ）」</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>5.3 0〜15 対照早見表</h3>
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>10進数</th>
+            <th>2進数 (4bit)</th>
+            <th>16進数</th>
+            <th>10進数</th>
+            <th>2進数 (4bit)</th>
+            <th>16進数</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>0</td><td><code>0000</code></td><td><strong>0</strong></td>
+            <td>8</td><td><code>1000</code></td><td><strong>8</strong></td>
+          </tr>
+          <tr>
+            <td>1</td><td><code>0001</code></td><td><strong>1</strong></td>
+            <td>9</td><td><code>1001</code></td><td><strong>9</strong></td>
+          </tr>
+          <tr>
+            <td>2</td><td><code>0010</code></td><td><strong>2</strong></td>
+            <td><strong>10</strong></td><td><code>1010</code></td><td><strong style="color: var(--primary);">A</strong></td>
+          </tr>
+          <tr>
+            <td>3</td><td><code>0011</code></td><td><strong>3</strong></td>
+            <td><strong>11</strong></td><td><code>1011</code></td><td><strong style="color: var(--primary);">B</strong></td>
+          </tr>
+          <tr>
+            <td>4</td><td><code>0100</code></td><td><strong>4</strong></td>
+            <td><strong>12</strong></td><td><code>1100</code></td><td><strong style="color: var(--primary);">C</strong></td>
+          </tr>
+          <tr>
+            <td>5</td><td><code>0101</code></td><td><strong>5</strong></td>
+            <td><strong>13</strong></td><td><code>1101</code></td><td><strong style="color: var(--primary);">D</strong></td>
+          </tr>
+          <tr>
+            <td>6</td><td><code>0110</code></td><td><strong>6</strong></td>
+            <td><strong>14</strong></td><td><code>1110</code></td><td><strong style="color: var(--primary);">E</strong></td>
+          </tr>
+          <tr>
+            <td>7</td><td><code>0111</code></td><td><strong>7</strong></td>
+            <td><strong>15</strong></td><td><code>1111</code></td><td><strong style="color: var(--primary);">F</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    <p>ITパスポート試験対策 2進数・16進数入門教材 | 独学用リファレンス</p>
+  </footer>
+
+</div>
+
+<script>
+  // --- Interactive Bit Switcher Logic ---
+  const bitBtns = document.querySelectorAll('.bit-btn');
+  const binOutput = document.getElementById('binOutput');
+  const calcOutput = document.getElementById('calcOutput');
+  const decOutput = document.getElementById('decOutput');
+  const hexOutput = document.getElementById('hexOutput');
+  const resetBtn = document.getElementById('resetBitsBtn');
+
+  function updateDisplay() {
+    let total = 0;
+    let binStr = '';
+    const activeWeights = [];
+
+    bitBtns.forEach((btn, idx) => {
+      const val = parseInt(btn.dataset.val, 10);
+      const isActive = btn.classList.contains('active');
+      btn.textContent = isActive ? '1' : '0';
+      binStr += isActive ? '1' : '0';
+      if (idx === 3) binStr += ' ';
+
+      if (isActive) {
+        total += val;
+        activeWeights.push(val);
+      }
+    });
+
+    binOutput.textContent = binStr;
+    calcOutput.textContent = activeWeights.length > 0 ? activeWeights.join(' + ') : '0';
+    decOutput.textContent = total;
+
+    let hex = total.toString(16).toUpperCase();
+    if (hex.length < 2) hex = '0' + hex;
+    hexOutput.textContent = '0x' + hex;
+  }
+
+  bitBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('active');
+      updateDisplay();
+    });
+  });
+
+  resetBtn.addEventListener('click', () => {
+    bitBtns.forEach(btn => btn.classList.remove('active'));
+    updateDisplay();
+  });
+
+  // --- Quiz Interactivity ---
+  const quizCards = document.querySelectorAll('.quiz-card');
+
+  quizCards.forEach(card => {
+    const correctOpt = card.dataset.ans;
+    const opts = card.querySelectorAll('.quiz-opt');
+    const explain = card.querySelector('.quiz-explain');
+    const badge = explain.querySelector('.ans-badge');
+
+    opts.forEach(opt => {
+      opt.addEventListener('click', () => {
+        opts.forEach(o => o.classList.add('disabled'));
+        const userChoice = opt.dataset.opt;
+
+        if (userChoice === correctOpt) {
+          opt.classList.add('selected-correct');
+          badge.className = 'ans-badge correct';
+          badge.textContent = '⭕️ 正解！ (' + opt.querySelector('span').textContent + ')';
+        } else {
+          opt.classList.add('selected-wrong');
+          badge.className = 'ans-badge wrong';
+          badge.textContent = '❌ 不正解...';
+          // Highlight the correct one
+          opts.forEach(o => {
+            if (o.dataset.opt === correctOpt) {
+              o.classList.add('selected-correct');
+            }
+          });
+        }
+        explain.classList.add('show');
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

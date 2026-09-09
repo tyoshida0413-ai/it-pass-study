@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ITパスポート合格学習ポータル | IT-PASS STUDY HUB</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f8fafc;
+    --surface: #ffffff;
+    --border: #e2e8f0;
+    --text: #0f172a;
+    --text-muted: #475569;
+    --primary: #0284c7;
+    --primary-dark: #0369a1;
+    --secondary: #7c3aed;
+    --accent-emerald: #059669;
+    --radius-lg: 20px;
+    --radius-md: 14px;
+    --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+    --shadow-hover: 0 20px 35px -8px rgba(15, 23, 42, 0.14), 0 8px 16px -3px rgba(15, 23, 42, 0.06);
+    --font-mono: "JetBrains Mono", monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--bg);
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(224, 242, 254, 0.7) 0px, transparent 45%),
+      radial-gradient(at 100% 0%, rgba(243, 232, 255, 0.6) 0px, transparent 40%),
+      radial-gradient(at 50% 100%, rgba(209, 250, 229, 0.5) 0px, transparent 45%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--text);
+    font-family: 'Noto Sans JP', 'Inter', -apple-system, sans-serif;
+    line-height: 1.8;
+  }
+
+  .container {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 40px 20px 100px;
+  }
+
+  /* ヒーローヘッダー */
+  .hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 55%, #0369a1 100%);
+    border-radius: 28px;
+    padding: 56px 44px;
+    color: #ffffff;
+    margin-bottom: 48px;
+    box-shadow: 0 24px 50px -12px rgba(15, 23, 42, 0.45);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -40%;
+    right: -15%;
+    width: 480px;
+    height: 480px;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    padding: 6px 16px;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: 2.6rem;
+    font-weight: 800;
+    line-height: 1.3;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 span.gradient {
+    background: linear-gradient(90deg, #38bdf8, #c084fc, #34d399);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero p.lead {
+    font-size: 1.12rem;
+    color: #cbd5e1;
+    line-height: 1.75;
+    max-width: 780px;
+    margin-bottom: 28px;
+  }
+  .hero-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .hero-meta-item {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-size: 0.88rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .hero-meta-item strong {
+    color: #38bdf8;
+  }
+
+  /* セクション見出し */
+  .section-title-wrap {
+    margin-bottom: 28px;
+  }
+  .section-tag {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .section-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text);
+  }
+
+  /* カードグリッド */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
+    margin-bottom: 56px;
+  }
+
+  .course-card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    box-shadow: var(--shadow);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+  }
+  .course-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+    border-color: #bae6fd;
+  }
+  .course-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+  }
+  .course-card.theme-blue::before { background: linear-gradient(90deg, #0284c7, #38bdf8); }
+  .course-card.theme-purple::before { background: linear-gradient(90deg, #7c3aed, #c084fc); }
+  .course-card.theme-gray::before { background: #cbd5e1; }
+
+  .card-badge-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .card-category {
+    font-size: 0.76rem;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 9999px;
+  }
+  .cat-blue { background: #e0f2fe; color: #0369a1; }
+  .cat-purple { background: #f3e8ff; color: #6d28d9; }
+  .cat-upcoming { background: #f1f5f9; color: #64748b; }
+
+  .card-icon {
+    font-size: 2.2rem;
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+  .course-card h3 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    color: #0f172a;
+  }
+  .course-card p {
+    font-size: 0.94rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 24px;
+    flex-grow: 1;
+  }
+
+  .card-features {
+    list-style: none;
+    margin-bottom: 24px;
+    font-size: 0.88rem;
+    color: #334155;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 16px;
+  }
+  .card-features li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .card-features li span {
+    color: var(--accent-emerald);
+    font-weight: 800;
+  }
+
+  .card-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: var(--radius-md);
+    font-size: 0.94rem;
+    font-weight: 700;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+  }
+  .btn-blue {
+    background: #0284c7;
+    color: #ffffff;
+  }
+  .btn-blue:hover { background: #0369a1; }
+  .btn-purple {
+    background: #7c3aed;
+    color: #ffffff;
+  }
+  .btn-purple:hover { background: #6d28d9; }
+  .btn-disabled {
+    background: #f1f5f9;
+    color: #94a3b8;
+    cursor: not-allowed;
+  }
+
+  /* 合格戦略インフォボックス */
+  .info-banner {
+    background: #ffffff;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 36px 32px;
+    box-shadow: var(--shadow);
+    margin-bottom: 56px;
+  }
+  .info-banner h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .criteria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 18px;
+  }
+  .criteria-card {
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 16px;
+    text-align: center;
+  }
+  .criteria-card .val {
+    font-size: 1.7rem;
+    font-weight: 800;
+    font-family: var(--font-mono);
+    color: #0284c7;
+    margin-bottom: 4px;
+  }
+  .criteria-card .desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  footer {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 0.88rem;
+    border-top: 1px solid var(--border);
+    padding-top: 36px;
+  }
+
+  @media (max-width: 768px) {
+    .hero { padding: 36px 24px; }
+    .hero h1 { font-size: 1.9rem; }
+    .container { padding: 20px 14px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ヒーロー -->
+  <header class="hero">
+    <div class="hero-badge">🎓 IT Passport Study Hub</div>
+    <h1>初学者のための<br><span class="gradient">ITパスポート 合格学習ポータル</span></h1>
+    <p class="lead">
+      つまずきやすい専門用語や計算問題、配点の高い難解概念を、身近なたとえ話と体験型シミュレータで徹底図解！スマホやタブレットからいつでもどこでも復習できるオンライン教材ハブです。
+    </p>
+
+    <div class="hero-meta-row">
+      <div class="hero-meta-item">
+        <span>⏱️ 試験時間:</span> <strong>120分</strong>
+      </div>
+      <div class="hero-meta-item">
+        <span>📝 出題数:</span> <strong>100問 (CBT方式)</strong>
+      </div>
+      <div class="hero-meta-item">
+        <span>🎯 合格基準:</span> <strong>総合600点 ＋ 各分野300点以上</strong>
+      </div>
+    </div>
+  </header>
+
+  <!-- 学習コンテンツ一覧 -->
+  <div class="section-title-wrap">
+    <span class="section-tag">Curriculum</span>
+    <h2 class="section-title">学習コンテンツ一覧</h2>
+  </div>
+
+  <div class="card-grid">
+
+    <!-- カード1：難解概念マスター -->
+    <div class="course-card theme-blue">
+      <div>
+        <div class="card-badge-row">
+          <span class="card-category cat-blue">新着・完全攻略</span>
+          <span style="font-size:0.8rem; color:#64748b;">印刷/PDF対応 🖨️</span>
+        </div>
+        <div class="card-icon">💡</div>
+        <h3>点数が取れない難解概念<br>系統別 徹底攻略マスター</h3>
+        <p>
+          「暗号の鍵の使い分け」「アルゴリズムと擬似言語」「損益分岐点」「クリティカルパス」「サイバー攻撃」など、受験生がつまずきやすい難所を日常のたとえ話でわかりやすく解説！
+        </p>
+        <ul class="card-features">
+          <li><span>✓</span> テクノロジ系難所 TOP9 徹底図解</li>
+          <li><span>✓</span> ストラテジ系（損益分岐点・財務諸表・マーケ）TOP6</li>
+          <li><span>✓</span> マネジメント系（PERT図・アジャイル）TOP3</li>
+          <li><span>✓</span> 損益分岐点＆通信速度の動的シミュレータ</li>
+        </ul>
+      </div>
+      <a href="concepts.html" class="card-btn btn-blue">
+        教材を開く ➔
+      </a>
+    </div>
+
+    <!-- カード2：2進数・16進数超入門 -->
+    <div class="course-card theme-purple">
+      <div>
+        <div class="card-badge-row">
+          <span class="card-category cat-purple">基礎・必修</span>
+          <span style="font-size:0.8rem; color:#64748b;">シミュレータ付き ⚡</span>
+        </div>
+        <div class="card-icon">🔢</div>
+        <h3>初学者のための<br>「2進数・16進数」超入門</h3>
+        <p>
+          コンピュータが0と1の世界で動く理由から、基数変換（10進数↔2進数↔16進数）の解き方、ビット・バイトの計算、頻出の過去問パターンまでをパズル感覚で楽しくマスターできます。
+        </p>
+        <ul class="card-features">
+          <li><span>✓</span> なぜコンピュータは2進数を使うのか？</li>
+          <li><span>✓</span> 筆算なしで解ける「8421ルール」</li>
+          <li><span>✓</span> 16進数とカラーコードの仕組み</li>
+          <li><span>✓</span> インタラクティブ基数変換ツール付き</li>
+        </ul>
+      </div>
+      <a href="binary-hex.html" class="card-btn btn-purple">
+        教材を開く ➔
+      </a>
+    </div>
+
+    <!-- カード3：今後追加予定の教材 -->
+    <div class="course-card theme-gray" style="background:#fafafa;">
+      <div>
+        <div class="card-badge-row">
+          <span class="card-category cat-upcoming">近日追加予定</span>
+          <span style="font-size:0.8rem; color:#94a3b8;">Coming Soon</span>
+        </div>
+        <div class="card-icon">🚀</div>
+        <h3>最新シラバス対応<br>頻出英略語＆AI用語ドリル</h3>
+        <p>
+          シラバス改定で追加された「生成AI・LLM」「ゼロトラスト」「DX」「ESG投資」などの最新バズワードを、一問一答クイズ形式でサクサク確認できる演習ドリルを準備中！
+        </p>
+        <ul class="card-features">
+          <li><span>⏳</span> 最新シラバス Ver 6.x 完全網羅</li>
+          <li><span>⏳</span> 3文字・4文字英略語スピード暗記</li>
+          <li><span>⏳</span> スマホで解ける一問一答クイズ</li>
+        </ul>
+      </div>
+      <div class="card-btn btn-disabled">
+        準備中（順次追加）
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 合格のツボ・インフォメーション -->
+  <div class="info-banner">
+    <h3>🎯 ITパスポート試験の配点構造と合格ルール</h3>
+    <p style="font-size:0.95rem; color:#475569;">
+      ITパスポート試験はIRT（項目応答理論）によって合否が判定されます。総合点だけでなく<strong>各分野300点以上の足切り</strong>を回避することが最も重要です。
+    </p>
+
+    <div class="criteria-grid">
+      <div class="criteria-card">
+        <div class="val">600 / 1000</div>
+        <div class="desc">総合評価点 合格基準</div>
+      </div>
+      <div class="criteria-card">
+        <div class="val" style="color:#e11d48;">各 300 点</div>
+        <div class="desc">分野別評価点（足切りライン）</div>
+      </div>
+      <div class="criteria-card">
+        <div class="val" style="color:#059669;">45 : 35 : 20</div>
+        <div class="desc">テクノロジ : ストラテジ : マネジ 出題比率</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© IT-PASS STUDY HUB | ITパスポート試験 合格学習リソース</p>
+    <p style="margin-top:4px; font-size:0.8rem;">Independent Learning Materials for Information Technology Passport Examination</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
