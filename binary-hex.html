@@ -734,8 +734,9 @@
       <a href="#sec2">第2章：なぜ16進数が必要なのか</a>
       <a href="#sec3">第3章：基数変換マスター術</a>
       <a href="#interactive">体験ツール</a>
-      <a href="#sec4">第4章：過去問演習（全7問）</a>
-      <a href="#sec5">第5章：暗記早見表</a>
+      <a href="#sec-calc">第4章：2進数の計算と表現範囲</a>
+      <a href="#sec4">第5章：過去問演習（全10問）</a>
+      <a href="#sec5">第6章：暗記早見表</a>
     </div>
   </div>
 
@@ -855,6 +856,18 @@
         16進数なら「FA」のたった2文字でスッキリ！
       </div>
     </div>
+
+    <h3>2.4 身近にある16進数</h3>
+    <div class="table-responsive">
+      <table>
+        <thead><tr><th>使われている場所</th><th>例</th><th>しくみ</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Webのカラーコード</strong></td><td><code>#FFFFFF</code>（白）<br><code>#FF0000</code>（赤）</td><td>光の3原色（R・G・B）の強さを、それぞれ0〜255（16進数2桁 <code>00</code>〜<code>FF</code>）で表す</td></tr>
+          <tr><td><strong>MACアドレス</strong></td><td><code>00:1A:2B:3C:4D:5E</code></td><td>ネットワーク機器ごとの番号（48ビット）を、16進数2桁×6組で表す</td></tr>
+          <tr><td><strong>IPv6アドレス</strong></td><td><code>2001:0db8:85a3:…</code></td><td>128ビットを16ビットずつ8組に区切り、16進数で表す</td></tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
   <!-- Interactive Experience Tool -->
@@ -969,6 +982,28 @@
     </div>
 
     <div class="step-box">
+      <div class="step-num">2&#39;</div>
+      <div class="step-body">
+        <strong>10進数 → 2進数（別解）：すだれ算（2で割り続ける）</strong><br>
+        商が0になるまで2で割り続け、<strong>余りを下から上へ</strong>並べます。数が大きくて重みを思い出しにくいときに便利です。<br>
+        例：<code>25</code> の場合
+        <div class="table-responsive" style="margin: 10px 0 8px; max-width: 360px;">
+          <table style="font-family: var(--font-mono);">
+            <thead><tr><th>計算</th><th>商</th><th>余り</th></tr></thead>
+            <tbody>
+              <tr><td>25 ÷ 2</td><td>12</td><td><strong>1</strong></td></tr>
+              <tr><td>12 ÷ 2</td><td>6</td><td><strong>0</strong></td></tr>
+              <tr><td>6 ÷ 2</td><td>3</td><td><strong>0</strong></td></tr>
+              <tr><td>3 ÷ 2</td><td>1</td><td><strong>1</strong></td></tr>
+              <tr><td>1 ÷ 2</td><td>0</td><td><strong>1</strong> ↑</td></tr>
+            </tbody>
+          </table>
+        </div>
+        余りを<strong>下から</strong>読むと <strong>11001</strong>（引き算方式と同じ答え）。上から読むと逆順になるので注意！
+      </div>
+    </div>
+
+    <div class="step-box">
       <div class="step-num">3</div>
       <div class="step-body">
         <strong>2進数 ⇔ 16進数：4桁ずつ区切るだけで瞬殺！</strong><br>
@@ -978,11 +1013,92 @@
         答え：<strong>B6</strong>
       </div>
     </div>
+
+    <div class="step-box">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <strong>16進数 ⇔ 10進数：間に2進数を挟むとミスが減る</strong><br>
+        例：<code>1A</code> の場合<br>
+        ・遠回り（おすすめ）：1→<code>0001</code>、A→<code>1010</code> で <code>00011010</code> → 16 + 8 + 2 ＝ <strong>26</strong><br>
+        ・直接計算：16進数の位の重みは「16, 1」なので 1 × 16 ＋ 10（A） × 1 ＝ <strong>26</strong><br>
+        逆に 10進数 → 16進数 は、いったん2進数にしてから4桁ずつ区切ります。
+      </div>
+    </div>
+  </section>
+
+  <!-- Chapter 4 (calc) -->
+  <section id="sec-calc">
+    <h2>第4章：2進数の計算と「表現できる範囲」</h2>
+    <p>シラバスVer.6.5は、基数変換に加えて<strong>「2進数の加算や減算」「表現可能な数値の範囲」</strong>も学ぶ範囲に挙げています。どれもルールは少ないので、ここで押さえましょう。</p>
+
+    <h3>4.1 2進数の足し算：「1 ＋ 1 ＝ 10」だけが特別</h3>
+    <div class="table-responsive" style="max-width: 520px;">
+      <table style="font-family: var(--font-mono); white-space: nowrap;">
+        <thead><tr><th>計算</th><th>答え</th><th>ポイント</th></tr></thead>
+        <tbody>
+          <tr><td>0 + 0</td><td>0</td><td></td></tr>
+          <tr><td>0 + 1</td><td>1</td><td></td></tr>
+          <tr><td>1 + 0</td><td>1</td><td></td></tr>
+          <tr style="background:#f0f9ff;"><td>1 + 1</td><td><strong>10</strong></td><td>2になったら繰り上がる</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="step-box">
+      <div class="step-num">例</div>
+      <div class="step-body">
+        <code>0101</code>（5）＋ <code>0011</code>（3）<br>
+        右の桁から：1+1＝10（0を書いて1繰り上げ）→ 0+1+繰り上がり1＝10（0を書いて1繰り上げ）→ 1+0+繰り上がり1＝10（0を書いて1繰り上げ）→ 0+0+繰り上がり1＝1<br>
+        答え：<strong>1000</strong>（10進数の8。5＋3＝8 で検算OK）
+      </div>
+    </div>
+    <div class="callout">
+      <div class="callout-title"><span>💡</span> 検算のコツ</div>
+      2進数のまま自信がないときは、<strong>いったん10進数に直して計算 → 答えを2進数に戻す</strong>のが確実です。試験では選択肢を10進数に直して照合するのが速い場合もあります。
+    </div>
+
+    <h3>4.2 2進数の引き算：「借りてきた1は2」</h3>
+    <div class="step-box">
+      <div class="step-num">例</div>
+      <div class="step-body">
+        <code>1010</code>（10）－ <code>0011</code>（3）<br>
+        右端の 0－1 は引けないので、左の桁から1を借ります。<strong>借りた1は、この桁では「2」</strong>として使います（10進数で借りた1が「10」になるのと同じ）。<br>
+        答え：<strong>0111</strong>（10進数の7。10－3＝7 で検算OK）
+      </div>
+    </div>
+
+    <h3>4.3 マイナスの数は「2の補数」で表す</h3>
+    <p>コンピュータには「－」の記号を書く場所がありません。そこで、<strong>先頭のビット（最上位ビット）を符号として扱い、0ならプラス、1ならマイナス</strong>と決めます。マイナスの数の表し方として代表的なのが<strong>2の補数</strong>です。</p>
+    <div class="callout">
+      <div class="callout-title"><span>🔁</span> 2の補数の作り方（2ステップ）</div>
+      <strong>(1) すべてのビットを反転（0⇔1）→ (2) 1を足す</strong><br>
+      例：8ビットで <strong>－5</strong> を表す<br>
+      <span style="font-family: var(--font-mono);">＋5 ＝ 00000101 → 反転 11111010 → ＋1 → <strong>11111011</strong></span><br>
+      確かめ：<span style="font-family: var(--font-mono);">00000101 ＋ 11111011 ＝ 1 00000000</span>。8ビットからあふれた先頭の1を捨てると 0 になり、「5 ＋（－5）＝ 0」が成り立ちます。
+    </div>
+    <p>この仕組みのおかげで、コンピュータは<strong>引き算を「2の補数の足し算」に置き換えて</strong>計算できます（引き算専用の回路を用意しなくてよい）。</p>
+
+    <h3>4.4 nビットで表せる数値の範囲</h3>
+    <div class="table-responsive">
+      <table>
+        <thead><tr><th>ビット数</th><th>符号なし（0以上だけ）</th><th>2の補数（マイナスも扱う）</th></tr></thead>
+        <tbody>
+          <tr><td><strong>4ビット</strong></td><td>0 〜 15</td><td>－8 〜 ＋7</td></tr>
+          <tr style="background:#f0fdf4;"><td><strong>8ビット</strong></td><td><strong>0 〜 255</strong></td><td><strong>－128 〜 ＋127</strong></td></tr>
+          <tr><td><strong>16ビット</strong></td><td>0 〜 65,535</td><td>－32,768 〜 ＋32,767</td></tr>
+          <tr style="background:#f0f9ff;"><td><strong>nビット（公式）</strong></td><td>0 〜 2<sup>n</sup> － 1</td><td>－2<sup>n－1</sup> 〜 2<sup>n－1</sup> － 1</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout warn">
+      <div class="callout-title"><span>⚠️</span> 試験の急所：プラス側が1つ少ない理由</div>
+      8ビットの2の補数は「－128 〜 ＋127」。表せる数は全部で 2<sup>8</sup> ＝ 256通りで変わりません。そのうち1つを「0」が使うため、<strong>プラス側だけ1つ少なく</strong>なります。「－127 〜 ＋127」「－128 〜 ＋128」というひっかけ選択肢に注意。<br>
+      範囲を超えた計算結果は正しく表せません（<strong>オーバーフロー</strong>）。
+    </div>
   </section>
 
   <!-- Chapter 4: Quiz -->
   <section id="sec4">
-    <h2>第4章：ITパスポート試験 頻出問題演習（全7問）</h2>
+    <h2>第5章：ITパスポート試験 頻出問題演習（全10問）</h2>
     <p style="color: var(--text-muted);">
       選択肢をクリックすると、その場で正解・不正解の判定と詳しい解説が表示されます。
     </p>
@@ -1150,13 +1266,80 @@
         </p>
       </div>
     </div>
+
+    <!-- Q8 -->
+    <div class="quiz-card" data-ans="C">
+      <div class="quiz-header">
+        <span class="quiz-tag">問8：2進数の加算</span>
+        <span style="font-size: 0.85rem; color: var(--text-faint);">繰り上がり</span>
+      </div>
+      <div class="quiz-q">【問題】2進数「0110」と「0111」を足した結果を2進数で表したものはどれか。</div>
+      <div class="quiz-options">
+        <button class="quiz-opt" data-opt="A"><span>ア</span> 1011</button>
+        <button class="quiz-opt" data-opt="B"><span>イ</span> 1100</button>
+        <button class="quiz-opt" data-opt="C"><span>ウ</span> 1101</button>
+        <button class="quiz-opt" data-opt="D"><span>エ</span> 1110</button>
+      </div>
+      <div class="quiz-explain">
+        <span class="ans-badge">正解：ウ（1101）</span>
+        <p style="font-size: 0.92rem; margin: 0;">
+          10進数に直すと 0110 ＝ 6、0111 ＝ 7 なので、6 ＋ 7 ＝ 13。<br>
+          13 を2進数に戻すと 8 ＋ 4 ＋ 1 ＝ <strong>1101</strong> です。<br>
+          2進数のまま右の桁から計算しても、0+1＝1、1+1＝10（繰り上げ）、1+1+1＝11（繰り上げ）、0+0+1＝1 で 1101 になります。
+        </p>
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="quiz-card" data-ans="C">
+      <div class="quiz-header">
+        <span class="quiz-tag">問9：2の補数</span>
+        <span style="font-size: 0.85rem; color: var(--text-faint);">負の数の表現</span>
+      </div>
+      <div class="quiz-q">【問題】負の数を2の補数で表すとき、8ビットで「－1」を表したものはどれか。</div>
+      <div class="quiz-options">
+        <button class="quiz-opt" data-opt="A"><span>ア</span> 10000001</button>
+        <button class="quiz-opt" data-opt="B"><span>イ</span> 11111110</button>
+        <button class="quiz-opt" data-opt="C"><span>ウ</span> 11111111</button>
+        <button class="quiz-opt" data-opt="D"><span>エ</span> 01111111</button>
+      </div>
+      <div class="quiz-explain">
+        <span class="ans-badge">正解：ウ（11111111）</span>
+        <p style="font-size: 0.92rem; margin: 0;">
+          ＋1 ＝ 00000001 を反転すると 11111110、これに1を足して <strong>11111111</strong>。<br>
+          イ（11111110）は「反転しただけ」で1を足し忘れたもの、ア（10000001）は先頭を1にしただけのもの、エ（01111111）は＋127です。
+        </p>
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="quiz-card" data-ans="C">
+      <div class="quiz-header">
+        <span class="quiz-tag">問10：表現できる範囲</span>
+        <span style="font-size: 0.85rem; color: var(--text-faint);">2の補数の範囲</span>
+      </div>
+      <div class="quiz-q">【問題】8ビットの2の補数表現で表すことができる整数の範囲はどれか。</div>
+      <div class="quiz-options">
+        <button class="quiz-opt" data-opt="A"><span>ア</span> 0 〜 255</button>
+        <button class="quiz-opt" data-opt="B"><span>イ</span> －127 〜 127</button>
+        <button class="quiz-opt" data-opt="C"><span>ウ</span> －128 〜 127</button>
+        <button class="quiz-opt" data-opt="D"><span>エ</span> －255 〜 255</button>
+      </div>
+      <div class="quiz-explain">
+        <span class="ans-badge">正解：ウ（－128 〜 127）</span>
+        <p style="font-size: 0.92rem; margin: 0;">
+          公式 －2<sup>n－1</sup> 〜 2<sup>n－1</sup> － 1 に n ＝ 8 を入れると、－2<sup>7</sup> 〜 2<sup>7</sup> － 1 ＝ <strong>－128 〜 127</strong>。<br>
+          ア（0〜255）は符号なし8ビットの範囲です。全部で256通りのうち1つを0が使うので、プラス側が1つ少なくなります。
+        </p>
+      </div>
+    </div>
   </section>
 
   <!-- Chapter 5: Cheat Sheet -->
   <section id="sec5">
-    <h2>第5章：試験直前！暗記早見表</h2>
+    <h2>第6章：試験直前！暗記早見表</h2>
 
-    <h3>5.1 そもそも「2<sup>n</sup>（2の〇乗）」って何？</h3>
+    <h3>6.1 そもそも「2<sup>n</sup>（2の〇乗）」って何？</h3>
     <p>
       「2<sup>n</sup>（2の〇乗）」とは、<strong>「2を何回かけ算するか」</strong> という回数のことです。<br>
       右肩に小さく乗っている数字（上付き文字）が、<strong>「2をかける回数」</strong> を表しています。
@@ -1191,7 +1374,7 @@
       </div>
     </div>
 
-    <h3>5.2 2の累乗マスター表（ITパスポート頻出）</h3>
+    <h3>6.2 2の累乗マスター表（ITパスポート頻出）</h3>
     <div class="table-responsive">
       <table>
         <thead>
@@ -1285,7 +1468,7 @@
       </table>
     </div>
 
-    <h3>5.3 0〜15 対照早見表</h3>
+    <h3>6.3 0〜15 対照早見表</h3>
     <div class="table-responsive">
       <table>
         <thead>
@@ -1331,6 +1514,22 @@
             <td>7</td><td><code>0111</code></td><td><strong>7</strong></td>
             <td><strong>15</strong></td><td><code>1111</code></td><td><strong style="color: var(--primary);">F</strong></td>
           </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>6.4 迷ったらこれ！解き方フローチャート</h3>
+    <div class="table-responsive">
+      <table>
+        <thead><tr><th>やりたいこと</th><th>解き方</th></tr></thead>
+        <tbody>
+          <tr><td><strong>2進数 → 10進数</strong></td><td>各桁の上に「…8, 4, 2, 1」とメモして、1のところを足す</td></tr>
+          <tr><td><strong>10進数 → 2進数</strong></td><td>大きい重み（…32, 16, 8, 4, 2, 1）から順に引く。数が大きければすだれ算（余りを下から読む）</td></tr>
+          <tr><td><strong>2進数 ⇔ 16進数</strong></td><td>迷わず4桁ずつ区切る（<code>1101</code> → <code>D</code>）</td></tr>
+          <tr><td><strong>16進数 ⇔ 10進数</strong></td><td>間に2進数を挟む（直接なら 上の桁×16 ＋ 下の桁）</td></tr>
+          <tr><td><strong>2進数の足し算・引き算</strong></td><td>不安なら10進数に直して計算 → 答えを2進数に戻す</td></tr>
+          <tr><td><strong>マイナスの数（2の補数）</strong></td><td>全ビット反転 → 1を足す</td></tr>
+          <tr><td><strong>表せる範囲</strong></td><td>符号なし 0〜2<sup>n</sup>－1／2の補数 －2<sup>n－1</sup>〜2<sup>n－1</sup>－1</td></tr>
         </tbody>
       </table>
     </div>

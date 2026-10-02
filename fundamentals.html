@@ -1,0 +1,1785 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>【シラバスVer.6.5対応】基礎理論 まるごと攻略ガイド ｜ ITパスポート試験対策</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f8fafc;
+    --bg-gradient: linear-gradient(180deg, #f0f7ff 0%, #f8fafc 300px);
+    --surface: #ffffff;
+    --surface-alt: #f1f7fd;
+    --surface-card: #ffffff;
+    --border: #e2eaf2;
+    --border-strong: #cbd8e6;
+    --text: #1e293b;
+    --text-muted: #475569;
+    --text-faint: #64748b;
+    --primary: #0284c7;
+    --primary-light: #e0f2fe;
+    --primary-hover: #0369a1;
+    --secondary: #7c3aed;
+    --secondary-light: #f3e8ff;
+    --success: #059669;
+    --success-light: #d1fae5;
+    --danger: #dc2626;
+    --danger-light: #fee2e2;
+    --amber: #d97706;
+    --amber-light: #fef3c7;
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.03);
+    --shadow: 0 4px 12px -2px rgba(2, 132, 199, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+    --shadow-lg: 0 12px 28px -4px rgba(2, 132, 199, 0.10), 0 6px 12px -3px rgba(0, 0, 0, 0.04);
+    --radius: 14px;
+    --radius-sm: 8px;
+    --font-mono: "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: #f8fafc;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(224, 242, 254, 0.7) 0px, transparent 40%),
+      radial-gradient(at 100% 0%, rgba(243, 232, 255, 0.6) 0px, transparent 40%),
+      radial-gradient(at 50% 100%, rgba(236, 253, 245, 0.5) 0px, transparent 40%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--text);
+    font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.85;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 36px 20px 120px;
+  }
+
+  /* Header / Hero */
+  .hero {
+    background: linear-gradient(135deg, #e0f2fe 0%, #ede9fe 60%, #f0fdf4 100%);
+    border: 1.5px solid #bae6fd;
+    border-radius: 24px;
+    padding: 48px 36px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 12px 30px -6px rgba(2, 132, 199, 0.12);
+  }
+  .badge-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #0284c7;
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 9999px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
+  }
+  .hero h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.35;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+    color: #0f172a;
+  }
+  .hero p.lead {
+    color: #334155;
+    font-size: 1.08rem;
+    line-height: 1.75;
+    margin-bottom: 24px;
+  }
+  .nav-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .nav-pills a {
+    color: #0369a1;
+    background: #ffffff;
+    border: 1.5px solid #bae6fd;
+    text-decoration: none;
+    font-size: 0.86rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(2, 132, 199, 0.08);
+  }
+  .nav-pills a:hover {
+    border-color: #0284c7;
+    background: #f0f9ff;
+    color: #0284c7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.15);
+  }
+
+  /* Sections (Cards) */
+  section {
+    background: #ffffff;
+    border: 1.5px solid #e2eaf2;
+    border-radius: var(--radius);
+    padding: 38px 32px;
+    margin-bottom: 36px;
+    box-shadow: 0 6px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
+  }
+  section h2 {
+    font-size: 1.55rem;
+    font-weight: 800;
+    border-left: 6px solid #0284c7;
+    padding-left: 14px;
+    margin-bottom: 26px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #0f172a;
+  }
+  section h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 32px 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #1e293b;
+  }
+
+  p { margin-bottom: 18px; color: #334155; }
+  strong { font-weight: 700; color: #0f172a; }
+
+  /* Cards & Callouts */
+  .callout {
+    background: #f0f9ff;
+    border: 1.5px solid #bae6fd;
+    border-left: 5px solid #0284c7;
+    padding: 20px 22px;
+    border-radius: var(--radius-sm);
+    margin: 22px 0;
+  }
+  .callout-title {
+    font-weight: 700;
+    color: #0369a1;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 1rem;
+  }
+  .callout.warn {
+    border-left-color: #d97706;
+    background: #fefce8;
+    border-color: #fef08a;
+  }
+  .callout.warn .callout-title { color: #b45309; }
+
+  /* Interactive Bit Switcher (Tool) */
+  .interactive-box {
+    background: linear-gradient(180deg, #f0f9ff 0%, #ffffff 100%);
+    border: 2px solid #7dd3fc;
+    border-radius: 18px;
+    padding: 26px;
+    margin: 28px 0;
+    box-shadow: 0 10px 25px -4px rgba(2, 132, 199, 0.12);
+  }
+  .interactive-box-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0284c7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+  }
+  .bit-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 600px) {
+    .bit-grid { gap: 4px; }
+  }
+  .bit-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .bit-weight {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+  .bit-btn {
+    width: 100%;
+    aspect-ratio: 1;
+    max-width: 70px;
+    background: #ffffff;
+    border: 2px solid #cbd5e1;
+    border-radius: 12px;
+    color: #475569;
+    font-family: var(--font-mono);
+    font-size: 1.55rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+  }
+  .bit-btn:hover {
+    transform: translateY(-2px);
+    border-color: #0284c7;
+    background: #f0f9ff;
+  }
+  .bit-btn.active {
+    background: #0284c7;
+    border-color: #0284c7;
+    color: #ffffff;
+    box-shadow: 0 6px 16px rgba(2, 132, 199, 0.35);
+  }
+  .calc-display {
+    background: #ffffff;
+    border: 1.5px solid #bae6fd;
+    border-radius: 12px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 2px 6px rgba(2, 132, 199, 0.05);
+  }
+  .display-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #e2e8f0;
+  }
+  .display-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .display-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #475569;
+  }
+  .display-value {
+    font-family: var(--font-mono);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0284c7;
+  }
+
+  /* Paper Fold Metaphor Card */
+  .fold-metaphor {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+    gap: 14px;
+    margin: 22px 0;
+  }
+  .fold-card {
+    background: #f8fafc;
+    border: 1.5px solid #e2eaf2;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  }
+  .fold-card:hover {
+    transform: translateY(-3px);
+    border-color: #0284c7;
+    background: #ffffff;
+    box-shadow: 0 6px 14px rgba(2, 132, 199, 0.1);
+  }
+  .fold-step {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 4px;
+  }
+  .fold-result {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0284c7;
+    margin-bottom: 4px;
+  }
+  .fold-math {
+    font-size: 0.78rem;
+    color: #94a3b8;
+    font-weight: 600;
+  }
+
+  /* Tables */
+  .table-responsive {
+    overflow-x: auto;
+    margin: 20px 0 28px;
+    border-radius: 12px;
+    border: 1.5px solid #e2eaf2;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    text-align: left;
+    background: #ffffff;
+  }
+  th {
+    background: #f1f7fd;
+    color: #0f172a;
+    font-weight: 700;
+    padding: 14px 18px;
+    border-bottom: 2px solid #cbd8e6;
+    white-space: nowrap;
+  }
+  td {
+    padding: 13px 18px;
+    border-bottom: 1px solid #e2eaf2;
+    color: #334155;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #f8fafc; }
+  .code-val {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    background: #f0f9ff;
+    color: #0369a1;
+    padding: 3px 8px;
+    border-radius: 6px;
+    border: 1px solid #bae6fd;
+  }
+
+  /* Diagrams & Step boxes */
+  .step-box {
+    display: flex;
+    gap: 16px;
+    margin: 16px 0;
+    align-items: flex-start;
+  }
+  .step-num {
+    width: 34px;
+    height: 34px;
+    background: #0284c7;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(2, 132, 199, 0.3);
+  }
+  .step-body { flex: 1; font-size: 0.98rem; }
+
+  /* Quiz Area */
+  .quiz-card {
+    background: #f8fafc;
+    border: 1.5px solid #e2eaf2;
+    border-radius: 16px;
+    padding: 26px;
+    margin: 24px 0;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  }
+  .quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  .quiz-tag {
+    font-size: 0.8rem;
+    font-weight: 700;
+    background: #f3e8ff;
+    color: #7c3aed;
+    padding: 4px 12px;
+    border-radius: 8px;
+    border: 1px solid #e9d5ff;
+  }
+  .quiz-q {
+    font-weight: 800;
+    font-size: 1.08rem;
+    margin-bottom: 18px;
+    line-height: 1.6;
+    color: #0f172a;
+  }
+  .quiz-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  @media (max-width: 640px) {
+    .quiz-options { grid-template-columns: 1fr; }
+  }
+  .quiz-opt {
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 13px 18px;
+    font-size: 0.96rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.15s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #1e293b;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  }
+  .quiz-opt:hover {
+    border-color: #0284c7;
+    background: #f0f9ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(2, 132, 199, 0.12);
+  }
+  .quiz-opt.selected-correct {
+    background: #ecfdf5;
+    border-color: #10b981;
+    color: #065f46;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+  }
+  .quiz-opt.selected-wrong {
+    background: #fef2f2;
+    border-color: #ef4444;
+    color: #991b1b;
+  }
+  .quiz-opt.disabled {
+    pointer-events: none;
+    opacity: 0.75;
+  }
+  .quiz-explain {
+    display: none;
+    background: #ffffff;
+    border: 1.5px solid #bae6fd;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 16px;
+    animation: fadeIn 0.3s ease;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.08);
+  }
+  .quiz-explain.show { display: block; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .ans-badge {
+    display: inline-block;
+    font-weight: 800;
+    font-size: 0.88rem;
+    padding: 5px 14px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  .ans-badge.correct { background: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
+  .ans-badge.wrong { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+
+  /* Superscript Styling for Powers */
+  sup {
+    font-size: 0.74em;
+    font-weight: 700;
+    vertical-align: super;
+    line-height: 0;
+    color: #0284c7;
+    margin-left: 1px;
+    padding: 0 1px;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 40px 0;
+    color: var(--text-faint);
+    font-size: 0.88rem;
+  }
+
+  /* ========================================================
+     Print & PDF Optimization Styles (A4 Standard)
+     ======================================================== */
+  @page {
+    size: A4 portrait;
+    margin: 12mm 10mm 12mm 10mm;
+  }
+
+  @media print {
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    body {
+      background: #ffffff !important;
+      background-image: none !important;
+      color: #0f172a !important;
+      font-size: 13px !important;
+      line-height: 1.6 !important;
+    }
+
+    .container {
+      max-width: 100% !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    /* 印刷時に非表示にするUI要素 */
+    .no-print,
+    .nav-pills,
+    #resetBitsBtn,
+    .print-bar {
+      display: none !important;
+    }
+
+    /* ヒーローセクション */
+    .hero {
+      padding: 20px 22px !important;
+      margin-bottom: 20px !important;
+      border-radius: 10px !important;
+      box-shadow: none !important;
+      border: 1.5px solid #bae6fd !important;
+      background: #f0f9ff !important;
+      break-inside: avoid;
+    }
+    .hero h1 {
+      font-size: 1.6rem !important;
+      margin-bottom: 8px !important;
+    }
+    .hero p.lead {
+      font-size: 0.95rem !important;
+      margin-bottom: 0 !important;
+      line-height: 1.6 !important;
+    }
+
+    /* 各章のカード */
+    section {
+      background: #ffffff !important;
+      border: 1px solid #cbd5e1 !important;
+      box-shadow: none !important;
+      padding: 20px 22px !important;
+      margin-bottom: 22px !important;
+      border-radius: 10px !important;
+      break-inside: auto;
+    }
+
+    /* 改ページの制御（見出しだけ取り残されるのを防止） */
+    h2, h3 {
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+    section h2 {
+      font-size: 1.35rem !important;
+      margin-bottom: 14px !important;
+      padding-left: 10px !important;
+      border-left-width: 5px !important;
+    }
+    section h3 {
+      font-size: 1.1rem !important;
+      margin: 18px 0 8px !important;
+    }
+
+    p {
+      margin-bottom: 12px !important;
+    }
+
+    .callout {
+      padding: 12px 16px !important;
+      margin: 14px 0 !important;
+      border-radius: 8px !important;
+      break-inside: avoid;
+    }
+
+    /* 8ビット・シミュレータ */
+    .interactive-box {
+      box-shadow: none !important;
+      padding: 16px !important;
+      margin: 16px 0 !important;
+      border: 1.5px solid #bae6fd !important;
+      background: #f8fafc !important;
+      break-inside: avoid;
+    }
+    .bit-btn {
+      box-shadow: none !important;
+      font-size: 1.25rem !important;
+      border-width: 1.5px !important;
+      border-color: #cbd5e1 !important;
+      background: #ffffff !important;
+      color: #334155 !important;
+    }
+
+    /* クイズカード：途中で切れないようにし、印刷時は最初から正解・解説を表示 */
+    .quiz-card {
+      box-shadow: none !important;
+      padding: 18px 20px !important;
+      margin: 16px 0 !important;
+      border: 1.5px solid #cbd5e1 !important;
+      background: #ffffff !important;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .quiz-q {
+      font-size: 1rem !important;
+      margin-bottom: 12px !important;
+    }
+    .quiz-options {
+      gap: 8px !important;
+      margin-bottom: 12px !important;
+    }
+    .quiz-opt {
+      padding: 8px 14px !important;
+      font-size: 0.9rem !important;
+      box-shadow: none !important;
+      border-width: 1.5px !important;
+    }
+
+    /* 印刷時に正解の選択肢をハイライト */
+    .quiz-card[data-ans="A"] .quiz-opt[data-opt="A"],
+    .quiz-card[data-ans="B"] .quiz-opt[data-opt="B"],
+    .quiz-card[data-ans="C"] .quiz-opt[data-opt="C"],
+    .quiz-card[data-ans="D"] .quiz-opt[data-opt="D"] {
+      background: #ecfdf5 !important;
+      border-color: #10b981 !important;
+      color: #065f46 !important;
+      font-weight: 700 !important;
+    }
+
+    /* 解説欄を常時表示 */
+    .quiz-explain {
+      display: block !important;
+      box-shadow: none !important;
+      padding: 12px 16px !important;
+      margin-top: 10px !important;
+      background: #f0fdf4 !important;
+      border: 1px solid #86efac !important;
+    }
+
+    /* テーブル・早見表 */
+    .table-responsive {
+      box-shadow: none !important;
+      margin: 14px 0 !important;
+      border: 1px solid #cbd5e1 !important;
+      overflow: visible !important;
+    }
+    table {
+      font-size: 0.86rem !important;
+    }
+    th, td {
+      padding: 7px 10px !important;
+    }
+
+    /* 折り紙カード */
+    .fold-metaphor {
+      gap: 8px !important;
+      margin: 14px 0 !important;
+    }
+    .fold-card {
+      padding: 10px 8px !important;
+      box-shadow: none !important;
+      border-width: 1px !important;
+    }
+    .fold-result {
+      font-size: 1.25rem !important;
+    }
+
+    footer {
+      padding: 16px 0 0 !important;
+      font-size: 0.75rem !important;
+    }
+  }
+  /* ===== fundamentals.html 追加スタイル ===== */
+  .container { max-width: 940px; }
+  @media (max-width: 640px) {
+    .container { padding: 20px 14px 100px; }
+    .hero { padding: 30px 20px; }
+    .hero h1 { font-size: 1.6rem; }
+    section { padding: 26px 18px; }
+    section h2 { font-size: 1.3rem; }
+    th, td { padding: 10px 12px; }
+  }
+  .ch-label { display: inline-block; font-size: 0.78rem; font-weight: 700; color: #7c3aed; background: #f3e8ff; border: 1px solid #e9d5ff; padding: 2px 10px; border-radius: 999px; margin-bottom: 10px; }
+  .syl-note { font-size: 0.86rem; color: #64748b; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 10px; padding: 10px 14px; margin: 0 0 22px; }
+  .toc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; margin-top: 18px; }
+  .toc-grid a { display: block; background: #fff; border: 1.5px solid #bae6fd; border-radius: 12px; padding: 12px 14px; text-decoration: none; color: #0f172a; font-weight: 700; font-size: 0.92rem; line-height: 1.5; box-shadow: 0 2px 6px rgba(2,132,199,0.06); transition: all .2s ease; }
+  .toc-grid a:hover { border-color: #0284c7; transform: translateY(-2px); }
+  .toc-grid a small { display: block; font-weight: 500; color: #64748b; font-size: 0.8rem; }
+  .toc-grid a .toc-score { float: right; font-size: 0.75rem; color: #059669; font-weight: 700; }
+  .progress-wrap { position: sticky; top: 0; z-index: 20; background: rgba(248,250,252,0.94); backdrop-filter: blur(6px); border: 1.5px solid #e2eaf2; border-radius: 12px; padding: 10px 14px; margin-bottom: 26px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 0.86rem; }
+  .progress-track { flex: 1; min-width: 140px; height: 10px; background: #e2e8f0; border-radius: 999px; overflow: hidden; }
+  .progress-fill { height: 100%; width: 0; background: linear-gradient(90deg, #0284c7, #7c3aed); transition: width .3s ease; }
+  .mini-btn { background: #fff; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 4px 10px; font-size: 0.8rem; font-weight: 600; cursor: pointer; color: #475569; font-family: inherit; }
+  .mini-btn:hover { border-color: #0284c7; color: #0284c7; }
+  .term-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px; margin: 16px 0 24px; }
+  .term { background: #f8fafc; border: 1.5px solid #e2eaf2; border-radius: 10px; padding: 12px 14px; font-size: 0.9rem; line-height: 1.65; color: #334155; }
+  .term b { display: block; color: #0f172a; font-size: 0.95rem; margin-bottom: 2px; }
+  .vs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+  @media (max-width: 640px) { .vs-grid { grid-template-columns: 1fr; } }
+  .vs-card { border: 1.5px solid #e2eaf2; border-radius: 12px; padding: 16px; background: #fff; font-size: 0.93rem; }
+  .vs-card.a { border-top: 5px solid #0284c7; }
+  .vs-card.b { border-top: 5px solid #7c3aed; }
+  .vs-card h4 { font-size: 1.02rem; margin-bottom: 6px; color: #0f172a; }
+  .vs-card p { margin-bottom: 0; font-size: 0.92rem; }
+  .formula { font-family: var(--font-mono); background: #0f172a; color: #e2e8f0; border-radius: 10px; padding: 14px 16px; margin: 14px 0 20px; font-size: 0.95rem; line-height: 1.8; overflow-x: auto; }
+  .formula b { color: #7dd3fc; }
+  .code-block { font-family: var(--font-mono); background: #0f172a; color: #e2e8f0; border-radius: 10px; padding: 14px 16px; margin: 12px 0 18px; font-size: 0.86rem; line-height: 1.7; overflow-x: auto; white-space: pre; }
+  .code-block .cm { color: #94a3b8; }
+  .code-block .kw { color: #f0abfc; }
+  .code-block .st { color: #86efac; }
+  .tool-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 14px; }
+  .tool-row label { font-size: 0.88rem; font-weight: 700; color: #475569; }
+  .tool-row input[type=number], .tool-row input[type=text], .tool-row select { font-family: var(--font-mono); font-size: 1rem; padding: 7px 10px; border: 1.5px solid #cbd5e1; border-radius: 8px; background: #fff; color: #0f172a; min-width: 0; }
+  .tool-row input[type=number] { width: 110px; }
+  .tool-row input[type=text] { flex: 1; min-width: 200px; }
+  .op-btns { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .op-btn { background: #fff; border: 1.5px solid #cbd5e1; border-radius: 9px; padding: 7px 12px; font-weight: 700; font-size: 0.86rem; cursor: pointer; color: #334155; font-family: inherit; }
+  .op-btn.on { background: #0284c7; border-color: #0284c7; color: #fff; }
+  .venn-wrap { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 16px; align-items: center; }
+  @media (max-width: 640px) { .venn-wrap { grid-template-columns: 1fr; } }
+  .venn-wrap svg { width: 100%; height: auto; background: #fff; border: 1.5px solid #bae6fd; border-radius: 12px; }
+  .tt td.hit { background: #e0f2fe; font-weight: 800; color: #0369a1; }
+  .result-box { background: #fff; border: 1.5px solid #bae6fd; border-radius: 12px; padding: 14px 16px; font-size: 0.93rem; line-height: 1.9; }
+  .result-box .big { font-family: var(--font-mono); font-size: 1.25rem; font-weight: 800; color: #0284c7; }
+  .ds-area { display: flex; gap: 6px; min-height: 56px; align-items: flex-end; padding: 10px; background: #fff; border: 1.5px solid #bae6fd; border-radius: 12px; margin: 10px 0; flex-wrap: wrap; }
+  .ds-area.stack { flex-direction: column-reverse; align-items: center; min-height: 200px; justify-content: flex-start; }
+  .ds-item { font-family: var(--font-mono); font-weight: 800; background: #0284c7; color: #fff; border-radius: 8px; padding: 6px 14px; min-width: 48px; text-align: center; animation: fadeIn .25s ease; }
+  .ds-area.stack .ds-item { width: 120px; }
+  .ds-log { font-size: 0.86rem; color: #475569; font-family: var(--font-mono); min-height: 1.6em; }
+  .bars { display: flex; align-items: flex-end; gap: 6px; height: 170px; padding: 10px; background: #fff; border: 1.5px solid #bae6fd; border-radius: 12px; margin: 10px 0; }
+  .bar { flex: 1; background: #94a3b8; border-radius: 6px 6px 0 0; color: #fff; font-family: var(--font-mono); font-weight: 800; font-size: 0.85rem; display: flex; align-items: flex-start; justify-content: center; padding-top: 4px; transition: height .25s ease, background .2s ease; }
+  .bar.cmp { background: #d97706; }
+  .bar.swap { background: #dc2626; }
+  .bar.done { background: #059669; }
+  .chapter-quiz-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 36px; padding-top: 22px; border-top: 2px dashed #e2eaf2; }
+  .chapter-quiz-head h3 { margin: 0; }
+  .link-card { display: flex; gap: 12px; align-items: center; background: #faf5ff; border: 1.5px solid #e9d5ff; border-radius: 12px; padding: 14px 16px; margin: 16px 0; text-decoration: none; color: #0f172a; font-size: 0.93rem; }
+  .link-card:hover { border-color: #7c3aed; }
+  .link-card span.ic { font-size: 1.5rem; }
+  @media print {
+    .progress-wrap, .tool-only, .chapter-quiz-head .mini-btn { display: none !important; }
+    .term-grid { gap: 6px !important; }
+    .term { padding: 8px 10px !important; break-inside: avoid; }
+    .formula, .code-block { background: #f1f5f9 !important; color: #0f172a !important; border: 1px solid #cbd5e1; }
+    .formula b { color: #0369a1 !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="print-bar no-print" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+    <a href="index.html" style="display: inline-flex; align-items: center; gap: 8px; background: #ffffff; color: #0369a1; border: 1.5px solid #bae6fd; padding: 8px 18px; border-radius: 10px; font-weight: 700; font-size: 0.92rem; text-decoration: none; box-shadow: 0 2px 8px rgba(2, 132, 199, 0.08);">
+      <span>🏠</span> ポータルTOP
+    </a>
+    <button onclick="window.print()" style="display: inline-flex; align-items: center; gap: 8px; background: #ffffff; color: #0369a1; border: 1.5px solid #bae6fd; padding: 8px 18px; border-radius: 10px; font-weight: 700; font-size: 0.92rem; cursor: pointer; box-shadow: 0 2px 8px rgba(2, 132, 199, 0.08); font-family: inherit;">
+      <span>🖨️</span> A4印刷 / PDFとして保存
+    </button>
+  </div>
+
+  <div class="hero">
+    <span class="badge-tag">テクノロジ系・大分類7「基礎理論」</span>
+    <h1>基礎理論 まるごと攻略ガイド</h1>
+    <p class="lead">
+      論理演算・確率と統計・デジタル化・AIのしくみ・データ構造・アルゴリズム・プログラム言語・HTML/XML/JSON。<br>
+      シラバスVer.6.5の「基礎理論」に載っている用語を全部カバーし、図解・計算ツール・章末問題（全55問）で得点源に変えます。
+    </p>
+    <div class="toc-grid" id="toc">
+      <a href="#ch1">第1章 数・集合・論理演算<small>離散数学</small><span class="toc-score" data-ch="1"></span></a>
+      <a href="#ch2">第2章 確率・統計・数値の扱い<small>応用数学</small><span class="toc-score" data-ch="2"></span></a>
+      <a href="#ch3">第3章 情報量・デジタル化・AI<small>情報に関する理論</small><span class="toc-score" data-ch="3"></span></a>
+      <a href="#ch4">第4章 データ構造<small>配列・リスト・スタック・キュー・木</small><span class="toc-score" data-ch="4"></span></a>
+      <a href="#ch5">第5章 アルゴリズム<small>流れ図・探索・整列</small><span class="toc-score" data-ch="5"></span></a>
+      <a href="#ch6">第6章 プログラム言語<small>言語の特徴・コーディング標準・API</small><span class="toc-score" data-ch="6"></span></a>
+      <a href="#ch7">第7章 HTML・XML・JSON<small>データ記述言語</small><span class="toc-score" data-ch="7"></span></a>
+    </div>
+  </div>
+
+  <div class="progress-wrap" id="progressWrap">
+    <strong>章末問題の進み具合</strong>
+    <div class="progress-track"><div class="progress-fill" id="progFill"></div></div>
+    <span id="progText">0 / 55問 解答</span>
+    <button class="mini-btn" id="resetAll">すべてやり直す</button>
+  </div>
+
+  <div class="callout">
+    <div class="callout-title"><span>🧭</span> このページの使い方</div>
+    各章は「解説 → 用語チェック → 章末問題」の順です。章末問題の結果はこの端末のブラウザに保存されるので、途中でやめても続きから再開できます（別の端末とは共有されません）。<br>
+    基礎理論は<strong>計算のルールさえ覚えれば確実に取れる問題が多い分野</strong>です。苦手意識がある人ほど、計算ツールで手を動かしてから問題に進んでください。
+  </div>
+
+  <!-- ===================== 第1章 ===================== -->
+  <section id="ch1">
+    <span class="ch-label">シラバス 小分類33：離散数学</span>
+    <h2>第1章：数の表現・集合・論理演算</h2>
+    <p class="syl-note">シラバスの目標：基数（2進数など）の考え方と、集合の考え方を理解する。範囲は「数と表現」「集合」「論理演算」の3つ。</p>
+
+    <h3>1.1 数と表現（2進数・16進数）</h3>
+    <p>コンピュータは0と1の2進数で数を扱います。基数変換（10進⇔2進⇔16進）、2進数の足し算・引き算、マイナスの数（2の補数）、nビットで表せる範囲は、専用ページで図解とシミュレータつきで解説しています。</p>
+    <a class="link-card" href="binary-hex.html"><span class="ic">🔢</span><span><strong>2進数・16進数 超入門</strong>（基数変換・すだれ算）<br><small>2進数の計算・2の補数・表現範囲は同ページ「第4章」</small></span></a>
+    <div class="formula">
+      nビットで表せるパターン数 ＝ <b>2<sup style="color:#7dd3fc">n</sup> 通り</b>（8ビット＝256通り）<br>
+      符号なしの範囲 ＝ <b>0 〜 2<sup style="color:#7dd3fc">n</sup>－1</b>　／　2の補数の範囲 ＝ <b>－2<sup style="color:#7dd3fc">n－1</sup> 〜 2<sup style="color:#7dd3fc">n－1</sup>－1</b>
+    </div>
+
+    <h3>1.2 集合とベン図</h3>
+    <p><strong>集合</strong>とは「条件にあてはまるものの集まり」です。たとえば「英検に合格した人」「数検に合格した人」はそれぞれ集合です。2つの集合の関係は、円を重ねた<strong>ベン図</strong>で表すと一目でわかります。</p>
+    <div class="table-responsive">
+      <table>
+        <thead><tr><th>名前</th><th>記号</th><th>意味（A＝英検合格、B＝数検合格）</th><th>論理演算でいうと</th></tr></thead>
+        <tbody>
+          <tr><td><strong>和集合</strong></td><td>A∪B</td><td>英検<strong>または</strong>数検に合格（少なくとも一方）</td><td>OR（論理和）</td></tr>
+          <tr><td><strong>積集合（共通部分）</strong></td><td>A∩B</td><td>英検<strong>かつ</strong>数検に合格（両方）</td><td>AND（論理積）</td></tr>
+          <tr><td><strong>補集合</strong></td><td>Ā</td><td>英検に合格<strong>していない</strong>人全員</td><td>NOT（否定）</td></tr>
+          <tr><td><strong>差集合</strong></td><td>A－B</td><td>英検は合格、数検は合格していない</td><td>A AND (NOT B)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout">
+      <div class="callout-title"><span>🧮</span> 試験頻出：人数を数える問題の公式</div>
+      <span style="font-family: var(--font-mono);">A∪B の人数 ＝ Aの人数 ＋ Bの人数 － A∩Bの人数</span><br>
+      両方に入っている人を2回数えてしまうので、1回分を引きます。「どちらにも入らない人」＝ 全体 － A∪B です。
+    </div>
+    <p><strong>命題</strong>とは「正しい（真）か正しくない（偽）かがはっきり決まる文」のことです。「5は奇数である」は真の命題、「5は偶数である」は偽の命題。「この問題は難しい」は人によって判断が変わるので命題ではありません。真を1、偽を0と置くと、命題の組合せを論理演算で計算できます。</p>
+
+    <h3>1.3 論理演算と真理値表</h3>
+    <p>0（偽）と1（真）を入力して、0か1を出力する計算が<strong>論理演算</strong>です。すべての入力の組合せと出力を並べた表を<strong>真理値表</strong>といいます。</p>
+    <div class="table-responsive">
+      <table>
+        <thead><tr><th>A</th><th>B</th><th>A AND B<br><small>論理積</small></th><th>A OR B<br><small>論理和</small></th><th>A XOR B<br><small>排他的論理和</small></th><th>NOT A<br><small>否定</small></th></tr></thead>
+        <tbody style="font-family: var(--font-mono); text-align:center;">
+          <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+          <tr><td>0</td><td>1</td><td>0</td><td>1</td><td><strong>1</strong></td><td>1</td></tr>
+          <tr><td>1</td><td>0</td><td>0</td><td>1</td><td><strong>1</strong></td><td>0</td></tr>
+          <tr><td>1</td><td>1</td><td><strong>1</strong></td><td>1</td><td><strong>0</strong></td><td>0</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="term-grid">
+      <div class="term"><b>AND（論理積）</b>両方1のときだけ1。「かけ算」と同じ（1×1＝1、それ以外は0）。</div>
+      <div class="term"><b>OR（論理和）</b>どちらか一方でも1なら1。両方0のときだけ0。</div>
+      <div class="term"><b>XOR（排他的論理和）</b>2つが<strong>異なるとき</strong>だけ1。OR との違いは「両方1のとき0」になる点。</div>
+      <div class="term"><b>NOT（否定）</b>0と1をひっくり返す。入力は1つだけ。</div>
+    </div>
+    <div class="callout warn">
+      <div class="callout-title"><span>⚠️</span> 混同注意：OR と XOR</div>
+      どちらも「片方だけ1」なら1です。違うのは<strong>両方1のとき</strong>だけ。OR は1、XOR は0。「ランチはパンまたはご飯（両方頼んでもOK）」が OR、「パンかご飯のどちらか一方（両方は不可）」が XOR のイメージです。
+    </div>
+    <p><strong>条件検索での使い方（活用例）</strong>：検索サイトや社内データベースで「東京 AND ホテル」は両方を含むもの（絞り込み）、「ホテル OR 旅館」はどちらかを含むもの（範囲を広げる）、「ホテル NOT ビジネス」はビジネスを含まないもの（除外）を探します。</p>
+    <p style="font-size:0.9rem; color:#64748b;">参考：AND・OR の結果を NOT で反転したものを NAND・NOR といいます。シラバスVer.6.5の活用例に挙がっているのは AND・OR・NOT・XOR の4つです。</p>
+
+    <div class="interactive-box tool-only">
+      <div class="interactive-box-title"><span>🎯 体験ツール：論理演算 × ベン図</span></div>
+      <p style="font-size:0.9rem; color:#475569;">演算を選ぶと、ベン図の「1になる部分」が塗られ、真理値表の該当行が光ります。</p>
+      <div class="op-btns" id="vennOps"></div>
+      <div class="venn-wrap">
+        <svg viewBox="0 0 320 210" id="vennSvg" role="img" aria-label="ベン図">
+          <defs><clipPath id="clipA"><circle cx="125" cy="105" r="70"/></clipPath></defs>
+          <rect id="vOut" x="4" y="4" width="312" height="202" rx="10" fill="#fff" stroke="#94a3b8" stroke-width="1.5"/>
+          <circle id="vA" cx="125" cy="105" r="70" fill="#fff"/>
+          <circle id="vB" cx="195" cy="105" r="70" fill="#fff"/>
+          <circle id="vAB" cx="195" cy="105" r="70" fill="#fff" clip-path="url(#clipA)"/>
+          <circle cx="125" cy="105" r="70" fill="none" stroke="#0369a1" stroke-width="2"/>
+          <circle cx="195" cy="105" r="70" fill="none" stroke="#7c3aed" stroke-width="2"/>
+          <text x="80" y="110" font-size="22" font-weight="800" fill="#0369a1">A</text>
+          <text x="228" y="110" font-size="22" font-weight="800" fill="#7c3aed">B</text>
+          <text x="14" y="26" font-size="12" fill="#64748b">全体</text>
+        </svg>
+        <div>
+          <div class="table-responsive" style="margin:0;">
+            <table class="tt" style="text-align:center; font-family: var(--font-mono);">
+              <thead><tr><th>A</th><th>B</th><th id="ttHead">結果</th></tr></thead>
+              <tbody id="ttBody"></tbody>
+            </table>
+          </div>
+          <p id="vennExplain" style="font-size:0.9rem; margin:10px 0 0;"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="chapter-quiz-head"><h3>📝 第1章 章末問題</h3><button class="mini-btn" data-reset="1">この章をやり直す</button></div>
+    <div class="quiz-list" data-ch="1"></div>
+  </section>
+
+  <!-- ===================== 第2章 ===================== -->
+  <section id="ch2">
+    <span class="ch-label">シラバス 小分類34：応用数学</span>
+    <h2>第2章：確率・統計・数値の扱い</h2>
+    <p class="syl-note">シラバスの目標：確率と統計の基本的な考え方を理解する。範囲は「確率と統計」「数値計算・数値解析・数式処理」「グラフ理論」「待ち行列」「最適化問題」。</p>
+
+    <h3>2.1 場合の数：順列と組合せ</h3>
+    <div class="vs-grid">
+      <div class="vs-card a">
+        <h4>順列（P）＝ 並べ方。順番を区別する</h4>
+        <p>5人から「委員長」と「副委員長」を1人ずつ選ぶ。<br>委員長は5通り、副委員長は残り4人から4通り。<br><strong>5 × 4 ＝ 20通り</strong>（₅P₂）</p>
+      </div>
+      <div class="vs-card b">
+        <h4>組合せ（C）＝ 選び方。順番を区別しない</h4>
+        <p>5人から「掃除当番」を2人選ぶ。<br>（Aさん, Bさん）と（Bさん, Aさん）は同じ組なので、順列の20通りを 2×1 で割る。<br><strong>20 ÷ 2 ＝ 10通り</strong>（₅C₂）</p>
+      </div>
+    </div>
+    <div class="formula">
+      <b>ₙPᵣ</b> ＝ n × (n－1) × … （r個かける）　例：₅P₃ ＝ 5×4×3 ＝ 60<br>
+      <b>ₙCᵣ</b> ＝ ₙPᵣ ÷ (r × (r－1) × … × 1)　例：₅C₃ ＝ 60 ÷ (3×2×1) ＝ 10
+    </div>
+    <div class="callout">
+      <div class="callout-title"><span>🔑</span> 見分け方</div>
+      選んだ人に<strong>役割・順位がつく</strong>（1位と2位、委員長と副委員長、暗証番号の並び）なら<strong>順列</strong>。<strong>ただ選ぶだけ</strong>（代表2人、くじで3人）なら<strong>組合せ</strong>。
+    </div>
+
+    <h3>2.2 確率</h3>
+    <div class="formula">確率 ＝ <b>その事柄が起こる場合の数 ÷ 起こりうるすべての場合の数</b>（どれも同じ程度に起こるとき）</div>
+    <div class="step-box"><div class="step-num">例</div><div class="step-body">
+      サイコロを2個投げて、目の合計が7になる確率。<br>
+      全部の出方は 6 × 6 ＝ 36通り。合計7は（1,6）（2,5）（3,4）（4,3）（5,2）（6,1）の6通り。<br>
+      確率 ＝ 6 ÷ 36 ＝ <strong>1/6</strong>
+    </div></div>
+    <div class="step-box"><div class="step-num">例</div><div class="step-body">
+      赤玉3個・白玉2個の袋から2個を同時に取り出し、2個とも赤の確率。<br>
+      すべての取り出し方は ₅C₂ ＝ 10通り、赤2個の取り出し方は ₃C₂ ＝ 3通り。確率 ＝ <strong>3/10</strong>
+    </div></div>
+    <p>2つの事柄が互いに影響しない（独立）とき、「両方起こる確率」は<strong>かけ算</strong>です。例：コインを2回投げて2回とも表 ＝ 1/2 × 1/2 ＝ 1/4。</p>
+
+    <h3>2.3 統計：データの真ん中とばらつき</h3>
+    <p>テストの点数などのデータを、区間ごとの人数にまとめた表が<strong>度数分布表</strong>、それを棒グラフにしたものが<strong>ヒストグラム</strong>です。データの特徴は「真ん中（代表値）」と「ばらつき（散らばり）」で表します。</p>
+    <div class="table-responsive">
+      <table>
+        <thead><tr><th>用語</th><th>求め方</th><th>例：2, 4, 4, 4, 5, 5, 7, 9</th></tr></thead>
+        <tbody>
+          <tr><td><strong>平均値</strong></td><td>合計 ÷ 個数</td><td>40 ÷ 8 ＝ <strong>5</strong></td></tr>
+          <tr><td><strong>中央値（メジアン）</strong></td><td>小さい順に並べた真ん中。偶数個なら真ん中2つの平均</td><td>4番目と5番目（4と5）の平均 ＝ <strong>4.5</strong></td></tr>
+          <tr><td><strong>最頻値（モード）</strong></td><td>一番多く出てくる値</td><td>4が3回 ＝ <strong>4</strong></td></tr>
+          <tr><td><strong>分散</strong></td><td>（各データ－平均）²の平均</td><td>(9+1+1+1+0+0+4+16) ÷ 8 ＝ <strong>4</strong></td></tr>
+          <tr><td><strong>標準偏差</strong></td><td>分散の平方根（√）</td><td>√4 ＝ <strong>2</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout warn">
+      <div class="callout-title"><span>⚠️</span> 試験の急所：外れ値に強いのは中央値</div>
+      年収のように一部だけ極端に大きい値（外れ値）があると、平均値は引っぱられて実感より高くなります。中央値・最頻値は外れ値の影響を受けにくい代表値です。<br>
+      分散・標準偏差は<strong>大きいほど、データが平均から散らばっている</strong>ことを表します。分散は2乗しているので単位が元と変わりますが、標準偏差は元のデータと同じ単位で比べられます。
+    </div>
+    <p style="font-size:0.9rem; color:#64748b;">補足：分散を「個数（n）」で割る方法と「個数－1（n－1）」で割る方法があります（後者は標本から母集団のばらつきを推定するとき）。このページの計算は n で割る方法です。</p>
+    <div class="formula"><b>偏差値</b> ＝ 50 ＋ 10 ×（自分の得点 － 平均点）÷ 標準偏差<br>例：平均60点・標準偏差10点のテストで75点 → 50 ＋ 10 × 15 ÷ 10 ＝ <b>65</b></div>
+
+    <h3>2.4 2つのデータの関係：相関と回帰</h3>
+    <div class="term-grid">
+      <div class="term"><b>相関係数</b>2つのデータの直線的な関係の強さ。－1〜＋1の値をとり、＋1に近いほど「一方が増えると他方も増える（正の相関）」、－1に近いほど「一方が増えると他方は減る（負の相関）」、0付近は直線的な関係がほぼない。</div>
+      <div class="term"><b>相関分析</b>散布図や相関係数を使って、2つのデータにどのくらい関係があるかを調べること。</div>
+      <div class="term"><b>回帰分析</b>「広告費を増やすと売上がどれだけ増えるか」のように、一方から他方を予測する式（回帰直線など）を求めること。</div>
+      <div class="term"><b>説明変数と目的変数</b>予測の<strong>手がかり</strong>になる変数が説明変数（例：広告費・気温）、<strong>予測したい</strong>変数が目的変数（例：売上）。</div>
+      <div class="term"><b>推定</b>一部のデータ（標本）から、全体（母集団）の平均などを推し量ること。例：視聴率調査。</div>
+      <div class="term"><b>仮説検定</b>「新しい広告で売上が増えた」などの仮説が、偶然の差ではないと言えるかを確率で判断する方法。</div>
+    </div>
+    <div class="callout warn">
+      <div class="callout-title"><span>⚠️</span> 相関があっても「原因」とは限らない</div>
+      「アイスクリームの売上が多い日は水の事故も多い」。両者には正の相関がありますが、アイスが事故の原因ではありません。<strong>気温が高い</strong>という共通の要因が両方を増やしています。このような見かけ上の相関を<strong>擬似相関</strong>といいます。
+    </div>
+
+    <div class="interactive-box tool-only">
+      <div class="interactive-box-title"><span>🎯 体験ツール：代表値・ばらつき計算機</span></div>
+      <div class="tool-row"><label for="statIn">データ（カンマ・スペース区切り）</label><input type="text" id="statIn" value="2, 4, 4, 4, 5, 5, 7, 9"></div>
+      <div class="result-box" id="statOut"></div>
+    </div>
+    <div class="interactive-box tool-only">
+      <div class="interactive-box-title"><span>🎯 体験ツール：順列・組合せ計算機</span></div>
+      <div class="tool-row"><label>n（全体）</label><input type="number" id="pcN" value="5" min="0" max="20"><label>r（選ぶ数）</label><input type="number" id="pcR" value="2" min="0" max="20"></div>
+      <div class="result-box" id="pcOut"></div>
+    </div>
+
+    <h3>2.5 数値計算・数値解析・数式処理</h3>
+    <p>データを比べるときは<strong>比べる条件をそろえる</strong>ことが大切です（例：人口が違う市どうしは「件数」でなく「人口1万人あたり」で比べる。処理の前後で比べるなら同じ期間・同じ条件で）。</p>
+    <h4 style="margin: 18px 0 8px;">データの尺度（4種類）</h4>
+    <div class="table-responsive">
+      <table>
+        <thead><tr><th>尺度</th><th>意味</th><th>例</th><th>できる計算</th></tr></thead>
+        <tbody>
+          <tr><td><strong>名義尺度</strong></td><td>区別するための名前・番号</td><td>性別、血液型、背番号、郵便番号</td><td>個数を数える（最頻値）</td></tr>
+          <tr><td><strong>順序尺度</strong></td><td>順番に意味がある。間隔は等しくない</td><td>順位、満足度（5段階）、成績（A〜E）</td><td>大小の比較（中央値）</td></tr>
+          <tr><td><strong>間隔尺度</strong></td><td>間隔が等しい。0は「無い」の意味ではない</td><td>気温（℃）、西暦、テストの偏差値</td><td>差（＋－）に意味あり。比は×</td></tr>
+          <tr><td><strong>比例尺度</strong>（比尺度）</td><td>0が「何も無い」を表す</td><td>身長、体重、売上金額、年齢</td><td>比（2倍・半分）にも意味あり</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout warn">
+      <div class="callout-title"><span>⚠️</span> ひっかけ：気温は「比例尺度」ではない</div>
+      20℃は10℃の「2倍暑い」とは言えません（0℃は「温度が無い」状態ではないため）。だから気温（℃）は<strong>間隔尺度</strong>です。売上100万円は50万円の2倍と言えるので<strong>比例尺度</strong>です。
+    </div>
+    <div class="term-grid">
+      <div class="term"><b>データの集計・並べ替え・ランキング</b>合計・平均を出す、大きい順に並べる、順位をつける、といった基本処理。表計算ソフトで行うことが多い。</div>
+      <div class="term"><b>誤差</b>本当の値と、計算・測定で得た値とのずれ。コンピュータは桁数に限りがあるため、四捨五入などで生じる<strong>丸め誤差</strong>が代表例。</div>
+      <div class="term"><b>線形代数・ベクトル・行列</b>ベクトルは数の並び（例：身長・体重・年齢の組）、行列は数を縦横の表に並べたもの。AIの計算は大量の行列計算でできている。</div>
+      <div class="term"><b>1変数関数の微分と積分</b>微分は「その瞬間の変化の割合（グラフの傾き）」、積分は「積み重ねた合計（グラフの下の面積）」。例：速度を積分すると移動距離。</div>
+    </div>
+
+    <h3>2.6 グラフ理論・待ち行列・最適化問題</h3>
+    <div class="term-grid">
+      <div class="term"><b>グラフ理論</b>「点」と「点を結ぶ線」で、つながり方を表す考え方（棒グラフのグラフとは別物）。</div>
+      <div class="term"><b>頂点（ノード）／辺（エッジ）</b>点が頂点、線が辺。例：駅が頂点、線路が辺。</div>
+      <div class="term"><b>無向グラフ</b>辺に向きがない。例：路線図（どちらの方向にも行ける）、相互の友達関係。</div>
+      <div class="term"><b>有向グラフ</b>辺に向き（矢印）がある。例：SNSの「フォロー」（片思いがありうる）、作業の順序を表すアローダイアグラム。</div>
+    </div>
+    <div class="vs-grid">
+      <div class="vs-card a">
+        <h4>待ち行列</h4>
+        <p>レジや窓口、サーバへの処理要求のように「到着 → 待つ → サービスを受ける」流れを考えるもの。<br><strong>窓口の混み具合（利用率）が100%に近づくと、待ち時間は急激に長くなる</strong>のがポイント。対策は窓口を増やす・処理を速くする。<br><small style="color:#64748b;">※シラバスでは M/M/1 などの理論的な公式は問わないとされています。</small></p>
+      </div>
+      <div class="vs-card b">
+        <h4>最適化問題</h4>
+        <p>決められた<strong>制約条件</strong>（材料の量・予算・時間など）の中で、利益を最大にする・費用を最小にするなどの<strong>最もよい答え</strong>を探す問題。例：材料Aが10kgまでのとき、利益が最大になる製品X・Yの生産量を決める。</p>
+      </div>
+    </div>
+
+    <div class="chapter-quiz-head"><h3>📝 第2章 章末問題</h3><button class="mini-btn" data-reset="2">この章をやり直す</button></div>
+    <div class="quiz-list" data-ch="2"></div>
+  </section>
+
+  <!-- ===================== 第3章 ===================== -->
+  <section id="ch3">
+    <span class="ch-label">シラバス 小分類35：情報に関する理論</span>
+    <h2>第3章：情報量・デジタル化・文字・論理・AI</h2>
+    <p class="syl-note">シラバスの目標：情報量の単位、情報のデジタル化の考え方、AIの技術の基本的な考え方を理解する。範囲は「情報量の単位」「デジタル化」「文字の表現」「論理的な記述」「AIの技術」。</p>
+
+    <h3>3.1 情報量の単位と接頭語</h3>
+    <p>情報量の最小単位が<strong>ビット（bit）</strong>、8ビットをまとめたものが<strong>バイト（Byte）</strong>です。大きな数・小さな数は<strong>接頭語</strong>をつけて表します。</p>
+    <div class="vs-grid">
+      <div class="table-responsive" style="margin:0;">
+        <table>
+          <thead><tr><th colspan="3">大きい方（1,000倍ずつ）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>k</strong>（キロ）</td><td>10<sup>3</sup></td><td>千</td></tr>
+            <tr><td><strong>M</strong>（メガ）</td><td>10<sup>6</sup></td><td>百万</td></tr>
+            <tr><td><strong>G</strong>（ギガ）</td><td>10<sup>9</sup></td><td>十億</td></tr>
+            <tr><td><strong>T</strong>（テラ）</td><td>10<sup>12</sup></td><td>一兆</td></tr>
+            <tr><td><strong>P</strong>（ペタ）</td><td>10<sup>15</sup></td><td>千兆</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-responsive" style="margin:0;">
+        <table>
+          <thead><tr><th colspan="3">小さい方（1/1,000ずつ）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>m</strong>（ミリ）</td><td>10<sup>－3</sup></td><td>千分の一</td></tr>
+            <tr><td><strong>μ</strong>（マイクロ）</td><td>10<sup>－6</sup></td><td>百万分の一</td></tr>
+            <tr><td><strong>n</strong>（ナノ）</td><td>10<sup>－9</sup></td><td>十億分の一</td></tr>
+            <tr><td><strong>p</strong>（ピコ）</td><td>10<sup>－12</sup></td><td>一兆分の一</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="callout">
+      <div class="callout-title"><span>💡</span> 覚え方：となりは必ず1,000倍</div>
+      「k → M → G → T → P」も「m → μ → n → p」も、1段ちがうと1,000倍（10<sup>3</sup>）。1ミリ秒 ＝ 1,000マイクロ秒、1マイクロ秒 ＝ 1,000ナノ秒。<br>
+      補足：記憶容量では 1k を 2<sup>10</sup> ＝ 1,024 として扱う場合もあります（区別するときは Ki・Mi などと書く）。試験では問題文の指示に従いましょう。
+    </div>
+
+    <h3>3.2 デジタル化（A/D変換）：標本化 → 量子化 → 符号化</h3>
+    <p>音や光などの<strong>アナログ</strong>（連続的に変化する量）を、コンピュータが扱える<strong>デジタル</strong>（とびとびの数値）に変えることを<strong>A/D変換</strong>といいます。デジタルは劣化せずにコピー・送信・加工できるのが強みです。</p>
+    <div class="step-box"><div class="step-num">1</div><div class="step-body"><strong>標本化（サンプリング）</strong>：一定の<strong>時間間隔</strong>で波の値を拾う。1秒間に拾う回数がサンプリング周波数（例：8kHz ＝ 1秒に8,000回）。回数が多いほど元の音に近い。</div></div>
+    <div class="step-box"><div class="step-num">2</div><div class="step-body"><strong>量子化</strong>：拾った値を、決められた<strong>段階の数値</strong>に丸める。8ビットなら 2<sup>8</sup> ＝ 256段階。段階が細かいほど正確。</div></div>
+    <div class="step-box"><div class="step-num">3</div><div class="step-body"><strong>符号化</strong>：段階の数値を<strong>0と1の並び（2進数）</strong>に置き換える。</div></div>
+    <div class="callout warn">
+      <div class="callout-title"><span>⚠️</span> 混同注意：標本化と量子化</div>
+      <strong>標本化 ＝ 横方向（時間）を区切る</strong>、<strong>量子化 ＝ 縦方向（値の大きさ）を区切る</strong>。「標本は時間でとる、量子は量をはかる」と覚えましょう。
+    </div>
+    <div class="formula"><b>音声のデータ量（バイト）</b> ＝ サンプリング周波数 × 量子化ビット数 × 秒数 × チャンネル数 ÷ 8<br>例：8,000回/秒・8ビット・60秒・モノラル → 8,000 × 8 × 60 ÷ 8 ＝ <b>480,000バイト（480kバイト）</b></div>
+    <div class="interactive-box tool-only">
+      <div class="interactive-box-title"><span>🎯 体験ツール：音声データ量の計算</span></div>
+      <div class="tool-row">
+        <label>サンプリング周波数（回/秒）</label><input type="number" id="adF" value="8000" min="1">
+        <label>量子化ビット数</label><input type="number" id="adB" value="8" min="1">
+      </div>
+      <div class="tool-row">
+        <label>秒数</label><input type="number" id="adS" value="60" min="1">
+        <label>チャンネル</label><select id="adC"><option value="1">1（モノラル）</option><option value="2">2（ステレオ）</option></select>
+      </div>
+      <div class="result-box" id="adOut"></div>
+    </div>
+
+    <h3>3.3 文字の表現（文字コード）</h3>
+    <p>コンピュータの内部では、文字も<strong>数値（文字コード）</strong>で表しています。「A」は何番、「あ」は何番、という対応表が文字コードです。送る側と読む側で使う文字コードが違うと、<strong>文字化け</strong>が起こります。</p>
+    <div class="table-responsive">
+      <table>
+        <thead><tr><th>文字コード</th><th>特徴</th></tr></thead>
+        <tbody>
+          <tr><td><strong>ASCII（アスキー）</strong></td><td>英数字・記号用。7ビットで表す基本の文字コード。日本語は含まない。</td></tr>
+          <tr><td><strong>JISコード</strong></td><td>日本の工業規格で定めた日本語の文字コード。電子メールなどで使われてきた。</td></tr>
+          <tr><td><strong>シフトJISコード</strong></td><td>JISコードを変形し、英数字（1バイト）と日本語（2バイト）を混在させやすくしたもの。パソコンで広く使われてきた。</td></tr>
+          <tr><td><strong>Unicode（ユニコード）</strong></td><td>世界中の文字を1つの体系で扱うために作られた文字コード。符号化方式の <strong>UTF-8</strong> は Web で最も広く使われている。</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>3.4 論理的な記述：演繹推論と帰納推論</h3>
+    <div class="vs-grid">
+      <div class="vs-card a">
+        <h4>演繹推論（えんえき）＝ 一般 → 個別</h4>
+        <p>「人間はいつか死ぬ」（一般的なルール）＋「ソクラテスは人間」→「ソクラテスはいつか死ぬ」。<br>前提が正しければ、結論も<strong>必ず</strong>正しい（三段論法）。</p>
+      </div>
+      <div class="vs-card b">
+        <h4>帰納推論（きのう）＝ 個別 → 一般</h4>
+        <p>「カラスAは黒い、カラスBも黒い、カラスCも黒い」→「カラスは黒い」。<br>たくさんの例からルールを導く。新しい例で<strong>くつがえる可能性</strong>がある。データサイエンスや機械学習はこちらの考え方。</p>
+      </div>
+    </div>
+    <p><strong>述語論理</strong>：「xは人間である」のように、主語を変数にした文（述語）と、「すべてのxについて」「あるxが存在する」といった記号を組み合わせて、文を論理的に表す方法です。自然な日本語の文を、記号で曖昧さなく表現できます。</p>
+
+    <h3>3.5 AI（人工知能）の技術</h3>
+    <div class="vs-grid">
+      <div class="vs-card a">
+        <h4>ルールベース</h4>
+        <p>人間が「もし〇〇なら△△する」という<strong>ルールを書いて</strong>判断させる方式。理由が説明しやすい反面、ルールにない状況には対応できない。</p>
+      </div>
+      <div class="vs-card b">
+        <h4>機械学習</h4>
+        <p>大量のデータからコンピュータが<strong>自分でパターン（ルール）を学ぶ</strong>方式。判断の手がかりになるデータの特徴を<strong>特徴量</strong>という（例：迷惑メール判定での「特定の単語の出現回数」）。</p>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table>
+        <thead><tr><th>機械学習の種類</th><th>学び方</th><th>代表的な使い道</th></tr></thead>
+        <tbody>
+          <tr><td><strong>教師あり学習</strong></td><td><strong>正解（ラベル）つき</strong>のデータで学ぶ</td><td>分類（迷惑メールか否か、画像の犬・猫）、回帰（売上・気温の予測）</td></tr>
+          <tr><td><strong>教師なし学習</strong></td><td>正解の<strong>ない</strong>データから、似たもの同士のまとまりや構造を見つける</td><td>クラスタリング（顧客のグループ分け）</td></tr>
+          <tr><td><strong>強化学習</strong></td><td>試行錯誤し、<strong>報酬</strong>が最大になる行動を学ぶ</td><td>ゲームAI、ロボットの歩行、自動運転の制御</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h4 style="margin: 18px 0 8px;">ニューラルネットワークとディープラーニング</h4>
+    <p>人間の脳の神経細胞（ニューロン）のつながりをまねた計算のしくみが<strong>ニューラルネットワーク</strong>です。<strong>入力層 → 中間層（隠れ層） → 出力層</strong>と値を伝え、つながりごとの<strong>重み</strong>を調整することで学習します。中間層を何層にも重ねたものが<strong>ディープラーニング（深層学習）</strong>です。</p>
+    <div class="term-grid">
+      <div class="term"><b>活性化関数</b>各ニューロンが受け取った値の合計を、次へ渡す出力値に変換する関数（例：シグモイド関数、ReLU）。これがあることで複雑な関係を表現できる。</div>
+      <div class="term"><b>バックプロパゲーション（誤差逆伝播法）</b>出力と正解の<strong>誤差</strong>を、出力層から入力層へ<strong>逆向き</strong>に伝えて、各重みを少しずつ修正する学習方法。</div>
+      <div class="term"><b>過学習（過剰適合）</b>学習用データに合わせすぎて、<strong>新しいデータでは正しく判断できなく</strong>なる状態。「過去問の答えを丸暗記して、初見の問題が解けない」状態。</div>
+      <div class="term"><b>事前学習</b>大量の汎用データで、あらかじめ幅広い知識を学習させておくこと。こうして作った汎用的なモデルを基盤モデルという。</div>
+      <div class="term"><b>ファインチューニング</b>事前学習済みのモデルに、特定の目的のデータを追加で学習させて<strong>調整</strong>すること。</div>
+      <div class="term"><b>転移学習</b>ある分野で学習したモデルの知識を、<strong>別の関連する分野</strong>に流用して効率よく学習すること。</div>
+      <div class="term"><b>CNN（畳み込みニューラルネットワーク）</b>画像の一部分ずつ特徴（輪郭・模様）を取り出すしくみを持つ。<strong>画像認識</strong>が得意。</div>
+      <div class="term"><b>RNN（リカレントニューラルネットワーク）</b>前の出力を次の入力に戻す（再帰する）しくみを持つ。文章・音声など<strong>順番のあるデータ（時系列）</strong>が得意。</div>
+      <div class="term"><b>GAN（敵対的生成ネットワーク）</b>偽物を作る「生成器」と、本物か見破る「識別器」を<strong>競わせて</strong>、本物そっくりの画像などを生成する。</div>
+      <div class="term"><b>LLM（大規模言語モデル）</b>膨大な文章で事前学習した、文章の生成・要約・翻訳などができる言語モデル。生成AIの中心技術。</div>
+      <div class="term"><b>プロンプトエンジニアリング</b>生成AIから望む出力を得るために、指示文（プロンプト）の書き方を工夫すること。</div>
+      <div class="term"><b>AI技術の応用分野</b>自然言語処理（文章の理解・生成）、音声の認識・合成、画像（静止画・動画）の認識・生成など。</div>
+    </div>
+    <a class="link-card" href="ai-drill.html"><span class="ic">🤖</span><span><strong>生成AI・LLMの用語は一問一答ドリルでも確認</strong><br><small>ハルシネーション・マルチモーダルAIなど</small></span></a>
+
+    <div class="chapter-quiz-head"><h3>📝 第3章 章末問題</h3><button class="mini-btn" data-reset="3">この章をやり直す</button></div>
+    <div class="quiz-list" data-ch="3"></div>
+  </section>
+
+  <!-- ===================== 第4章 ===================== -->
+  <section id="ch4">
+    <span class="ch-label">シラバス 小分類36：データ構造</span>
+    <h2>第4章：データ構造</h2>
+    <p class="syl-note">シラバスの目標：データ構造の基本的な考え方を理解する。用語例：リスト、キュー、スタック、木構造、2分木。</p>
+
+    <h3>4.1 データを入れる「入れ物」の基本</h3>
+    <div class="term-grid">
+      <div class="term"><b>変数</b>値を一時的に入れておく、名前つきの箱。例：<code>点数 ← 80</code></div>
+      <div class="term"><b>データ型</b>変数に入れる値の種類。整数型（例：25）、実数型（例：3.14）、文字型（例：'A'）、論理型（真か偽）など。</div>
+      <div class="term"><b>配列</b>同じ型の箱を<strong>番号（添字）つきで一列に並べた</strong>もの。「何番目」を指定してすぐ取り出せる。途中への挿入・削除は、後ろを全部ずらす必要があり手間。</div>
+      <div class="term"><b>レコード</b>「氏名・年齢・住所」のように、<strong>種類の違う項目（フィールド）をひとまとめ</strong>にしたもの。表の1行にあたる。</div>
+      <div class="term"><b>ファイル</b>レコードを集めて、記憶装置に保存したもの。</div>
+      <div class="term"><b>リスト（連結リスト）</b>各データが「次のデータの場所（ポインタ）」を持ち、<strong>数珠つなぎ</strong>になった構造。ポインタをつなぎ替えるだけで挿入・削除ができる。その代わり「〇番目」へは先頭からたどる必要がある。</div>
+    </div>
+
+    <h3>4.2 スタックとキュー：取り出す順番のルール</h3>
+    <div class="vs-grid">
+      <div class="vs-card a">
+        <h4>スタック ＝ LIFO（後入れ先出し）</h4>
+        <p>Last In, First Out。<strong>最後に入れたものから取り出す</strong>。積み重ねたお皿、ブラウザの「戻る」ボタン、文章作成ソフトの「元に戻す」。<br>入れる操作を <strong>push（プッシュ）</strong>、取り出す操作を <strong>pop（ポップ）</strong> という。</p>
+      </div>
+      <div class="vs-card b">
+        <h4>キュー ＝ FIFO（先入れ先出し）</h4>
+        <p>First In, First Out。<strong>最初に入れたものから取り出す</strong>。レジの行列、プリンタの印刷待ち。<br>入れる操作を <strong>enqueue（エンキュー）</strong>、取り出す操作を <strong>dequeue（デキュー）</strong> という。</p>
+      </div>
+    </div>
+    <div class="interactive-box tool-only">
+      <div class="interactive-box-title"><span>🎯 体験ツール：スタックとキューの出し入れ</span></div>
+      <div class="op-btns" id="dsMode"></div>
+      <div class="tool-row">
+        <button class="op-btn" id="dsPush">入れる（次の番号）</button>
+        <button class="op-btn" id="dsPop">取り出す</button>
+        <button class="mini-btn" id="dsClear">空にする</button>
+      </div>
+      <div class="ds-area" id="dsArea"></div>
+      <div class="ds-log" id="dsLog"></div>
+    </div>
+
+    <h3>4.3 木構造と2分木</h3>
+    <p>会社の組織図やパソコンのフォルダのように、1つの<strong>根（ルート）</strong>から枝分かれしていく構造を<strong>木構造</strong>といいます。各要素を<strong>節（ノード）</strong>、枝分かれの先を<strong>子</strong>、子を持たない末端を<strong>葉</strong>と呼びます。</p>
+    <div style="text-align:center; margin: 16px 0;">
+      <svg viewBox="0 0 360 200" style="max-width: 420px; width: 100%; background:#fff; border:1.5px solid #bae6fd; border-radius: 12px;" role="img" aria-label="2分探索木の例">
+        <g stroke="#94a3b8" stroke-width="2">
+          <line x1="180" y1="35" x2="100" y2="95"/><line x1="180" y1="35" x2="260" y2="95"/>
+          <line x1="100" y1="95" x2="55" y2="160"/><line x1="100" y1="95" x2="145" y2="160"/>
+          <line x1="260" y1="95" x2="305" y2="160"/>
+        </g>
+        <g font-family="JetBrains Mono, monospace" font-weight="800" font-size="16" text-anchor="middle">
+          <circle cx="180" cy="35" r="20" fill="#0284c7"/><text x="180" y="41" fill="#fff">50</text>
+          <circle cx="100" cy="95" r="20" fill="#38bdf8"/><text x="100" y="101" fill="#fff">30</text>
+          <circle cx="260" cy="95" r="20" fill="#38bdf8"/><text x="260" y="101" fill="#fff">70</text>
+          <circle cx="55" cy="160" r="20" fill="#7dd3fc"/><text x="55" y="166" fill="#0f172a">20</text>
+          <circle cx="145" cy="160" r="20" fill="#7dd3fc"/><text x="145" y="166" fill="#0f172a">40</text>
+          <circle cx="305" cy="160" r="20" fill="#7dd3fc"/><text x="305" y="166" fill="#0f172a">80</text>
+        </g>
+        <text x="12" y="22" font-size="11" fill="#64748b">根</text>
+        <text x="12" y="192" font-size="11" fill="#64748b">葉：20・40・80</text>
+      </svg>
+    </div>
+    <div class="term-grid">
+      <div class="term"><b>2分木</b>どの節も、子が<strong>2つ以下</strong>（左の子・右の子）の木構造。</div>
+      <div class="term"><b>2分探索木</b>2分木のうち「<strong>左の子孫 ＜ 親 ＜ 右の子孫</strong>」となるように値を並べたもの。上の図で40を探すなら、50より小さいので左へ → 30より大きいので右へ、と半分ずつ絞り込める。</div>
+    </div>
+
+    <div class="chapter-quiz-head"><h3>📝 第4章 章末問題</h3><button class="mini-btn" data-reset="4">この章をやり直す</button></div>
+    <div class="quiz-list" data-ch="4"></div>
+  </section>
+
+  <!-- ===================== 第5章 ===================== -->
+  <section id="ch5">
+    <span class="ch-label">シラバス 小分類37：アルゴリズムとプログラミング</span>
+    <h2>第5章：アルゴリズム（流れ図・擬似言語・探索・整列）</h2>
+    <p class="syl-note">シラバスの目標：アルゴリズムの基本的な考え方と、擬似言語などによる表現方法、プログラミングの目的を理解する。範囲は「基本構造」「表現方法」「代表的なアルゴリズム」「プログラミング」。</p>
+
+    <h3>5.1 アルゴリズムの基本構造は3つだけ</h3>
+    <p><strong>アルゴリズム</strong>とは、問題を解くための<strong>手順</strong>のことです。料理のレシピのように、どんな手順も次の3つの組合せで書けます。</p>
+    <div class="table-responsive">
+      <table>
+        <thead><tr><th>構造</th><th>意味</th><th>料理でいうと</th></tr></thead>
+        <tbody>
+          <tr><td><strong>順次</strong></td><td>上から順番に1つずつ実行する</td><td>野菜を切る → 炒める → 盛り付ける</td></tr>
+          <tr><td><strong>選択</strong>（分岐）</td><td>条件によって実行する処理を変える</td><td>味が薄ければ塩を足す、そうでなければそのまま</td></tr>
+          <tr><td><strong>繰返し</strong>（反復・ループ）</td><td>条件を満たす間、同じ処理をくり返す</td><td>焼き色がつくまで混ぜ続ける</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>5.2 表現方法：流れ図と擬似言語</h3>
+    <div class="vs-grid">
+      <div class="vs-card a">
+        <h4>流れ図（フローチャート）</h4>
+        <p>記号と矢印で手順を図にしたもの。代表的な記号：<br>
+        ・<strong>端子</strong>（角の丸い長方形）：開始・終了<br>
+        ・<strong>処理</strong>（長方形）：計算や代入<br>
+        ・<strong>判断</strong>（ひし形）：条件で分岐<br>
+        ・<strong>ループ端</strong>（角を切った長方形の組）：繰返しの始まりと終わり<br>
+        ・<strong>データ</strong>（平行四辺形）：入力・出力</p>
+      </div>
+      <div class="vs-card b">
+        <h4>擬似言語</h4>
+        <p>特定のプログラム言語に依存しない、日本語まじりの書き方でアルゴリズムを表したもの。ITパスポート試験でもこの形式で出題されます。<br>変数への<strong>代入は「←」</strong>で表し、<code>合計 ← 合計 ＋ 点数</code> は「合計に点数を足した結果を、合計に入れ直す」という意味です。</p>
+      </div>
+    </div>
+    <div class="code-block"><span class="cm">// 配列 点数 の平均を返す関数（擬似言語の例）</span>
+<span class="kw">○実数型:</span> 平均(<span class="kw">整数型の配列:</span> 点数)
+  <span class="kw">整数型:</span> 合計 ← 0, i
+  <span class="kw">for</span> (i を 1 から 点数の要素数 まで 1 ずつ増やす)
+    合計 ← 合計 ＋ 点数[i]        <span class="cm">// 繰返し</span>
+  <span class="kw">endfor</span>
+  <span class="kw">if</span> (点数の要素数 ＝ 0)        <span class="cm">// 選択</span>
+    <span class="kw">return</span> 0
+  <span class="kw">endif</span>
+  <span class="kw">return</span> 合計 ÷ 点数の要素数</div>
+    <div class="term-grid">
+      <div class="term"><b>式・演算子</b>式は値を計算する記述（例：<code>合計 ÷ 人数</code>）。演算子は ＋ － × ÷ や、比較の ＝ ≠ ＞ ≦、論理の and・or・not など。</div>
+      <div class="term"><b>条件式</b>真か偽になる式。if や while のかっこ内に書く（例：<code>点数 ≧ 60</code>）。</div>
+      <div class="term"><b>代入</b>変数に値を入れること。擬似言語では「←」。</div>
+      <div class="term"><b>注釈（コメント）</b>処理の説明のために書くメモ。実行には影響しない。</div>
+      <div class="term"><b>入出力</b>キーボードやファイルからデータを受け取る（入力）、画面やファイルに結果を書き出す（出力）こと。</div>
+      <div class="term"><b>手続・関数</b>ひとまとまりの処理に名前をつけたもの。<strong>関数は結果の値を返す</strong>、手続は値を返さない、と区別して使われる。</div>
+      <div class="term"><b>引数（ひきすう）</b>関数・手続を呼び出すときに<strong>渡す値</strong>。上の例では「点数」。</div>
+      <div class="term"><b>戻り値（返り値）</b>関数が処理の結果として<strong>呼び出し元に返す値</strong>。上の例では平均点。</div>
+    </div>
+    <a class="link-card" href="concepts.html#technology"><span class="ic">🧩</span><span><strong>擬似言語の「トレース（追跡）」は難解概念マスターで練習</strong><br><small>変数の値を1行ずつ追う解き方</small></span></a>
+
+    <h3>5.3 探索：データを探すアルゴリズム</h3>
+    <div class="vs-grid">
+      <div class="vs-card a">
+        <h4>線形探索法</h4>
+        <p>先頭から<strong>1つずつ順番に</strong>調べる。データが並んでいなくても使える。<br>n件のとき比較回数は最大 <strong>n回</strong>、平均 約 <strong>n/2回</strong>。</p>
+      </div>
+      <div class="vs-card b">
+        <h4>2分探索法</h4>
+        <p>真ん中の値と比べ、探す範囲を<strong>半分ずつ</strong>絞り込む。<strong>あらかじめ小さい順（または大きい順）に並んでいる</strong>ことが条件。<br>1,000件でも最大10回程度で見つかる（2<sup>10</sup> ＝ 1,024）。</p>
+      </div>
+    </div>
+    <div class="callout warn">
+      <div class="callout-title"><span>⚠️</span> 試験の急所</div>
+      2分探索法の前提は<strong>「データが整列済み」</strong>。比較回数は「データ数が2倍になっても1回しか増えない」。辞書を真ん中から開いて前後どちらかに絞る探し方と同じです。
+    </div>
+
+    <h3>5.4 整列（ソート）と併合（マージ）</h3>
+    <div class="table-responsive">
+      <table>
+        <thead><tr><th>アルゴリズム</th><th>やり方（小さい順に並べる場合）</th></tr></thead>
+        <tbody>
+          <tr><td><strong>選択ソート</strong></td><td>未整列の中から<strong>最小値を選び</strong>、未整列部分の先頭と交換する。これをくり返す。</td></tr>
+          <tr><td><strong>バブルソート</strong></td><td><strong>隣どうし</strong>を比べ、順番が逆なら交換する。1周すると最大値が末尾に「泡のように」浮かび上がる。</td></tr>
+          <tr><td><strong>クイックソート</strong></td><td>基準値（ピボット）を1つ決め、それより<strong>小さいグループと大きいグループに分ける</strong>。各グループで同じことをくり返す。一般に高速。</td></tr>
+          <tr><td><strong>併合（マージ）</strong></td><td>整列済みの2つの列の先頭どうしを比べ、小さい方から取り出して<strong>1つの整列済みの列にまとめる</strong>。</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="interactive-box tool-only">
+      <div class="interactive-box-title"><span>🎯 体験ツール：ソートを1手ずつ見る</span></div>
+      <div class="op-btns" id="sortMode"></div>
+      <div class="bars" id="sortBars"></div>
+      <div class="tool-row">
+        <button class="op-btn" id="sortStep">1手進める</button>
+        <button class="op-btn" id="sortRun">最後まで自動</button>
+        <button class="mini-btn" id="sortReset">最初の並び [5, 3, 8, 1, 6, 2] に戻す</button>
+      </div>
+      <div class="ds-log" id="sortLog">オレンジ＝比べている2つ、赤＝交換、緑＝位置が確定</div>
+    </div>
+
+    <h3>5.5 プログラミング</h3>
+    <p>アルゴリズムを、コンピュータが実行できる<strong>プログラム言語で書き表すこと</strong>がプログラミングです。プログラミングによって、人が考えた手順をコンピュータに実行させられるようになります。</p>
+
+    <div class="chapter-quiz-head"><h3>📝 第5章 章末問題</h3><button class="mini-btn" data-reset="5">この章をやり直す</button></div>
+    <div class="quiz-list" data-ch="5"></div>
+  </section>
+
+  <!-- ===================== 第6章 ===================== -->
+  <section id="ch6">
+    <span class="ch-label">シラバス 小分類38：プログラム言語</span>
+    <h2>第6章：プログラム言語とコーディング標準</h2>
+    <p class="syl-note">シラバスの目標：プログラム言語の種類・特徴を理解する。目的に応じて言語を選ぶこと、コーディング標準・プログラム構造・ライブラリがあることを理解する。</p>
+
+    <h3>6.1 代表的なプログラム言語</h3>
+    <div class="table-responsive">
+      <table>
+        <thead><tr><th>言語</th><th>特徴・主な用途</th></tr></thead>
+        <tbody>
+          <tr><td><strong>C</strong></td><td>ハードウェアに近い処理を書ける。OSや組込みシステム（家電・機器の制御）の開発に使われる。</td></tr>
+          <tr><td><strong>C++</strong></td><td>C言語に<strong>オブジェクト指向</strong>の機能を加えた言語。ゲームや大規模なソフトウェアに使われる。</td></tr>
+          <tr><td><strong>Java</strong></td><td>オブジェクト指向言語。Java仮想マシン（JVM）上で動くため、<strong>OSなどの環境に依存しにくい</strong>。業務システムやAndroidアプリで広く使われる。</td></tr>
+          <tr><td><strong>Python</strong></td><td>文法が簡潔で読みやすい。ライブラリが豊富で、<strong>AI・機械学習・データ分析</strong>の分野で特によく使われる。</td></tr>
+          <tr><td><strong>JavaScript</strong></td><td><strong>Webブラウザ上で動く</strong>言語。Webページに動き（ボタンの反応・画面の書き換え）をつける。Javaとは別の言語。</td></tr>
+          <tr><td><strong>R</strong></td><td><strong>統計解析</strong>やデータの可視化（グラフ作成）に特化した言語。</td></tr>
+          <tr><td><strong>Fortran</strong></td><td>最も古い高水準言語の1つ。<strong>科学技術計算</strong>（数値計算・シミュレーション）向け。</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout warn">
+      <div class="callout-title"><span>⚠️</span> 混同注意：Java と JavaScript</div>
+      名前は似ていますが<strong>まったく別の言語</strong>です。「ブラウザで動いてWebページに動きをつける」が JavaScript、「JVMで動き環境に依存しにくい」が Java。
+    </div>
+
+    <h3>6.2 コーディング標準とプログラムの構造</h3>
+    <p><strong>コーディング標準</strong>とは、プログラムの書き方について開発チームで決めたルールです。目的は、<strong>誰が書いても読みやすく、品質がそろい、修正（保守）しやすいプログラムにする</strong>こと。プログラムが正しく動くかどうかとは別に、後から読む人のためのルールです。</p>
+    <div class="term-grid">
+      <div class="term"><b>字下げ（インデンテーション）</b>if や for の中身を行頭から下げて書き、処理のまとまりを見やすくする。</div>
+      <div class="term"><b>ネストの深さ</b>if の中に if…のような入れ子の深さ。深すぎると読みにくくミスの原因になるため、上限を決めることが多い。</div>
+      <div class="term"><b>命名規則</b>変数名・関数名のつけ方のルール（例：意味のわかる英単語を使う、単語の区切り方をそろえる）。</div>
+      <div class="term"><b>モジュール分割</b>大きなプログラムを、機能ごとの小さな部品（モジュール）に分けること。作業の分担や修正がしやすくなる。</div>
+      <div class="term"><b>メインルーチン／サブルーチン</b>全体の流れを受け持つ中心の処理がメインルーチン。そこから呼び出される部品の処理がサブルーチン。</div>
+      <div class="term"><b>ライブラリ</b>よく使う機能を、他のプログラムから使える部品としてまとめたもの。<strong>一から作らずに済み、効率よく開発</strong>できる。</div>
+      <div class="term"><b>API</b>Application Programming Interface。あるソフトウェアの機能を、<strong>外部のプログラムから呼び出して使うための窓口（約束事）</strong>。</div>
+      <div class="term"><b>WebAPI</b>インターネット経由（HTTPなど）で呼び出せるAPI。例：地図サービスや天気予報の情報を自社アプリに組み込む。</div>
+      <div class="term"><b>ローコード</b>画面上の操作を中心に、<strong>少しのプログラムを書くだけ</strong>でアプリを作れる開発方法。</div>
+      <div class="term"><b>ノーコード</b>プログラムを<strong>まったく書かず</strong>に、画面上の部品の組合せや設定だけでアプリを作れる開発方法。</div>
+    </div>
+
+    <div class="chapter-quiz-head"><h3>📝 第6章 章末問題</h3><button class="mini-btn" data-reset="6">この章をやり直す</button></div>
+    <div class="quiz-list" data-ch="6"></div>
+  </section>
+
+  <!-- ===================== 第7章 ===================== -->
+  <section id="ch7">
+    <span class="ch-label">シラバス 小分類39：その他の言語</span>
+    <h2>第7章：データ記述言語（HTML・XML・JSON）</h2>
+    <p class="syl-note">シラバスの目標：代表的なデータ記述言語の種類と、その基本的な使い方（書き方を含む）を理解する。用語例：HTML、XML、タグ、SGML、JSON。</p>
+
+    <h3>7.1 マークアップ言語とタグ</h3>
+    <p><strong>マークアップ言語</strong>とは、文章やデータに<strong>タグ</strong>という目印をつけて、「ここは見出し」「ここは価格」のように意味や構造を表す言語です。タグは <code>&lt;名前&gt;</code> で始まり、<code>&lt;/名前&gt;</code> で終わるのが基本です。</p>
+    <div class="table-responsive">
+      <table>
+        <thead><tr><th>言語</th><th>特徴</th></tr></thead>
+        <tbody>
+          <tr><td><strong>SGML</strong></td><td>マークアップ言語の元祖となる国際規格。HTML や XML はここから生まれた。</td></tr>
+          <tr><td><strong>HTML</strong></td><td><strong>Webページ</strong>を作るための言語。見出し・段落・リンク・画像などを、<strong>あらかじめ決められたタグ</strong>で表す。</td></tr>
+          <tr><td><strong>XML</strong></td><td>Extensible（拡張可能な）の名のとおり、<strong>利用者が自由にタグを定義できる</strong>。データの意味を表してやり取り・保存するのに使う。</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="code-block"><span class="cm">&lt;!-- HTML：見た目の構造を、決められたタグで表す --&gt;</span>
+&lt;h1&gt;本日のおすすめ&lt;/h1&gt;
+&lt;p&gt;りんごが &lt;strong&gt;120円&lt;/strong&gt; です。&lt;/p&gt;
+&lt;a href="shop.html"&gt;お店のページへ&lt;/a&gt;</div>
+    <div class="code-block"><span class="cm">&lt;!-- XML：データの意味を、自分で決めたタグで表す --&gt;</span>
+&lt;商品&gt;
+  &lt;品名&gt;りんご&lt;/品名&gt;
+  &lt;価格&gt;120&lt;/価格&gt;
+  &lt;産地&gt;青森&lt;/産地&gt;
+&lt;/商品&gt;</div>
+
+    <h3>7.2 JSON</h3>
+    <p><strong>JSON（JavaScript Object Notation）</strong>は、JavaScript の書き方をもとにしたデータ記述言語です。<strong>「"名前": 値」の組</strong>を <code>{ }</code> で囲み、複数の値は <code>[ ]</code>（配列）で並べます。XMLより短く書けて読みやすいため、<strong>WebAPIでのデータのやり取り</strong>や、異なるプログラム言語で書かれたプログラム間のデータ交換によく使われます。</p>
+    <div class="code-block">{
+  <span class="st">"品名"</span>: <span class="st">"りんご"</span>,
+  <span class="st">"価格"</span>: 120,
+  <span class="st">"産地"</span>: <span class="st">"青森"</span>,
+  <span class="st">"規格"</span>: [<span class="st">"S"</span>, <span class="st">"M"</span>, <span class="st">"L"</span>]
+}</div>
+    <div class="callout">
+      <div class="callout-title"><span>🔑</span> 3つの見分け方</div>
+      <strong>HTML</strong> ＝ Webページの表示用・タグは決まっている／<strong>XML</strong> ＝ データ用・タグを自由に定義できる／<strong>JSON</strong> ＝ データ用・タグではなく <code>{"名前": 値}</code> の形。
+    </div>
+
+    <div class="chapter-quiz-head"><h3>📝 第7章 章末問題</h3><button class="mini-btn" data-reset="7">この章をやり直す</button></div>
+    <div class="quiz-list" data-ch="7"></div>
+  </section>
+
+  <section id="sources" style="padding: 26px 28px;">
+    <h2 style="font-size: 1.2rem;">📚 このページの範囲と出典</h2>
+    <p style="font-size: 0.9rem;">範囲は IPA「ITパスポート試験 シラバス Ver.6.5」（令和8年1月）の大分類7「基礎理論」（中分類13「基礎理論」・中分類14「アルゴリズムとプログラミング」、小分類33〜39）です。各章の冒頭に、シラバスに書かれた目標と範囲を示しています。2進数・16進数の詳しい解説は「2進数・16進数 超入門」ページにあります。</p>
+  </section>
+
+  <footer>
+    <p>ITパスポート試験対策 基礎理論 まるごと攻略ガイド | IT-PASS STUDY HUB</p>
+  </footer>
+
+</div>
+
+<script>
+  // ===== 章末問題データ（a は正解：A=ア, B=イ, C=ウ, D=エ） =====
+  const QUIZ = [
+    // --- 第1章 ---
+    {id:'1-1', ch:1, tag:'集合の人数', q:'40人のクラスで、英検の合格者が25人、数検の合格者が18人、両方の合格者が10人いた。どちらにも合格していない人は何人か。', o:['3人','7人','10人','17人'], a:'B', e:'どちらか一方以上に合格した人（A∪B）＝ 25 ＋ 18 － 10 ＝ 33人。どちらにも合格していない人 ＝ 40 － 33 ＝ <strong>7人</strong>。両方の合格者10人を2回数えないよう、1回分引くのがポイントです。'},
+    {id:'1-2', ch:1, tag:'論理演算', q:'2つの入力A、Bの値が<strong>異なるときだけ</strong>出力が1になり、同じときは0になる論理演算はどれか。', o:['AND（論理積）','OR（論理和）','XOR（排他的論理和）','NOT（否定）'], a:'C', e:'XOR は「異なるときだけ1」。OR は両方1のときも1になる点が違います。AND は両方1のときだけ1、NOT は入力が1つで0と1を反転します。'},
+    {id:'1-3', ch:1, tag:'論理演算', q:'A ＝ 1、B ＝ 0 のとき、結果が1になる式はどれか。', o:['A AND B','NOT A','NOT (A OR B)','A XOR B'], a:'D', e:'ア：1 AND 0 ＝ 0。イ：NOT 1 ＝ 0。ウ：A OR B ＝ 1 なので NOT で 0。エ：1と0は異なるので XOR は <strong>1</strong>。'},
+    {id:'1-4', ch:1, tag:'ベン図', q:'ベン図で「集合Aには含まれるが、集合Bには含まれない部分」を表す論理式はどれか。', o:['A AND B','A AND (NOT B)','(NOT A) AND B','NOT (A OR B)'], a:'B', e:'「Aである」かつ「Bではない」なので <strong>A AND (NOT B)</strong>（差集合 A－B）。ア は重なった部分、ウ は Bだけの部分、エ はどちらの円にも入らない部分です。'},
+    {id:'1-5', ch:1, tag:'条件検索', q:'「ITパスポート」という語を含み、「過去問」という語を含まないWebページを検索したい。適切な検索条件はどれか。', o:['ITパスポート OR 過去問','ITパスポート AND 過去問','ITパスポート AND (NOT 過去問)','(NOT ITパスポート) AND 過去問'], a:'C', e:'「含む」は AND、「含まない」は NOT で表します。ア は どちらかを含むページ（範囲が広がる）、イ は両方を含むページ、エ は逆に「過去問」だけを含むページになります。'},
+    {id:'1-6', ch:1, tag:'命題', q:'命題（真か偽かがはっきり決まる文）にあたるものはどれか。', o:['富士山は日本で一番高い山である。','この料理はおいしい。','明日は晴れてほしい。','この問題は簡単だ。'], a:'A', e:'ア は事実として真か偽かを判定できるので命題です（この場合は真）。イ・エ は人によって判断が変わり、ウ は願望なので、真偽が決まらず命題ではありません。'},
+    {id:'1-7', ch:1, tag:'数の表現', q:'8ビットの符号なし2進数で表すことができる最大の値（10進数）はどれか。', o:['127','128','255','256'], a:'C', e:'8ビットのパターン数は 2<sup>8</sup> ＝ 256通り。0から数えるので、最大値は 256 － 1 ＝ <strong>255</strong>（2進数 11111111）。127 は2の補数（符号つき）で表せる最大値です。'},
+    {id:'1-8', ch:1, tag:'集合の人数', q:'集合Aの要素が20個、集合Bの要素が15個、A∪B（和集合）の要素が30個のとき、A∩B（共通部分）の要素は何個か。', o:['5個','10個','15個','35個'], a:'A', e:'A∪B ＝ A ＋ B － A∩B なので、30 ＝ 20 ＋ 15 － A∩B。よって A∩B ＝ 35 － 30 ＝ <strong>5個</strong>。'},
+    // --- 第2章 ---
+    {id:'2-1', ch:2, tag:'順列', q:'6人の部員から部長と副部長を1人ずつ選ぶ方法は何通りか。', o:['15通り','30通り','36通り','720通り'], a:'B', e:'部長と副部長は役割が違う（順番を区別する）ので順列。部長6通り × 副部長5通り ＝ <strong>30通り</strong>（₆P₂）。15通りは役割を区別しない組合せ（₆C₂）の数です。'},
+    {id:'2-2', ch:2, tag:'組合せ', q:'6人の中から代表を3人選ぶ方法は何通りか。', o:['20通り','18通り','120通り','216通り'], a:'A', e:'代表3人に役割の区別はないので組合せ。₆P₃ ＝ 6 × 5 × 4 ＝ 120 を、3人の並び方 3 × 2 × 1 ＝ 6 で割って <strong>20通り</strong>。120通りは順番を区別した順列の数です。'},
+    {id:'2-3', ch:2, tag:'確率', q:'サイコロを2個投げたとき、2個とも偶数の目が出る確率はどれか。', o:['1/4','1/2','1/6','1/12'], a:'A', e:'1個のサイコロで偶数（2・4・6）が出る確率は 3/6 ＝ 1/2。2個は互いに影響しない（独立）ので、かけ算して 1/2 × 1/2 ＝ <strong>1/4</strong>。'},
+    {id:'2-4', ch:2, tag:'確率', q:'赤玉3個と白玉2個が入った袋から、同時に2個取り出す。2個とも赤玉である確率はどれか。', o:['9/25','3/5','3/10','2/5'], a:'C', e:'5個から2個を取り出す方法は ₅C₂ ＝ 10通り。赤3個から2個を取り出す方法は ₃C₂ ＝ 3通り。確率 ＝ <strong>3/10</strong>。'},
+    {id:'2-5', ch:2, tag:'代表値', q:'6つのデータ「3, 8, 5, 10, 4, 100」の中央値はどれか。', o:['5','6.5','8','約21.7'], a:'B', e:'小さい順に並べると 3, 4, 5, 8, 10, 100。データが偶数個なので、真ん中の2つ（5と8）の平均 ＝ <strong>6.5</strong>。約21.7は平均値で、外れ値の100に引っぱられて大きくなっています。'},
+    {id:'2-6', ch:2, tag:'代表値', q:'一部に極端に大きな値（外れ値）が含まれるデータで、外れ値の影響を受けにくい代表値はどれか。', o:['平均値','最大値','合計値','中央値'], a:'D', e:'<strong>中央値</strong>は並べたときの真ん中の値なので、端の値がどれだけ大きくても変わりにくいです。平均値は合計を個数で割るため、外れ値の影響を強く受けます。'},
+    {id:'2-7', ch:2, tag:'分散', q:'5つのデータ「1, 3, 5, 7, 9」の分散はどれか。ここで分散は、各データと平均との差の2乗の平均とする。', o:['2','4','8','40'], a:'C', e:'平均は 25 ÷ 5 ＝ 5。平均との差は －4, －2, 0, 2, 4、その2乗は 16, 4, 0, 4, 16 で合計40。40 ÷ 5 ＝ <strong>8</strong>。なお標準偏差は √8（約2.83）です。'},
+    {id:'2-8', ch:2, tag:'偏差値', q:'平均点55点、標準偏差5点のテストで65点を取った。偏差値はいくつか。', o:['60','65','70','75'], a:'C', e:'偏差値 ＝ 50 ＋ 10 ×（65 － 55）÷ 5 ＝ 50 ＋ 20 ＝ <strong>70</strong>。平均より標準偏差2つ分高いので、偏差値は50より20高くなります。'},
+    {id:'2-9', ch:2, tag:'尺度', q:'間隔尺度にあたるデータはどれか。', o:['血液型','摂氏（℃）で表した気温','売上金額','マラソン大会の順位'], a:'B', e:'気温は目盛りの間隔が等しく差に意味がありますが、0℃は「温度が無い」ことではないので比（2倍など）には意味がありません。これが<strong>間隔尺度</strong>。ア は名義尺度、ウ は比例尺度、エ は順序尺度です。'},
+    {id:'2-10', ch:2, tag:'相関', q:'2つのデータの相関係数が －0.9 だった。この結果の解釈として適切なものはどれか。', o:['強い負の相関がある','強い正の相関がある','ほとんど相関がない','一方が他方の原因であることが証明された'], a:'A', e:'相関係数は －1〜＋1。－1に近いので「一方が増えると他方が減る」<strong>強い負の相関</strong>です。エ：相関が強くても因果関係（原因と結果）があるとは限りません（擬似相関の可能性）。'},
+    {id:'2-11', ch:2, tag:'待ち行列', q:'銀行の窓口で、窓口の利用率（忙しさ）が50%から90%に上がった。客の平均待ち時間の変化として、一般的な傾向に合うものはどれか。', o:['ほとんど変わらない','利用率に比例して約1.8倍になる','急激に長くなる','短くなる'], a:'C', e:'待ち行列の考え方では、利用率が100%に近づくほど待ち時間は<strong>急激に（比例以上に）長く</strong>なります。窓口を増やす・処理を速くするなどして利用率を下げることが対策になります。'},
+    {id:'2-12', ch:2, tag:'グラフ理論', q:'グラフ理論で、<strong>有向グラフ</strong>で表すのが適しているものはどれか。', o:['鉄道の路線図','互いに友人である関係','双方向に通行できる道路網','SNSで誰が誰をフォローしているかの関係'], a:'D', e:'フォローは「AがBをフォローしても、BがAをフォローするとは限らない」ので、向き（矢印）のある<strong>有向グラフ</strong>で表します。ア〜ウはどちら向きにも成り立つ関係なので無向グラフ向きです。'},
+    // --- 第3章 ---
+    {id:'3-1', ch:3, tag:'接頭語', q:'1ミリ秒は1マイクロ秒の何倍か。', o:['10倍','100倍','1,000倍','1,000,000倍'], a:'C', e:'ミリ ＝ 10<sup>－3</sup>、マイクロ ＝ 10<sup>－6</sup>。10<sup>－3</sup> ÷ 10<sup>－6</sup> ＝ 10<sup>3</sup> ＝ <strong>1,000倍</strong>。接頭語は1段ちがうと1,000倍です。'},
+    {id:'3-2', ch:3, tag:'デジタル化', q:'音声を1秒間に8,000回標本化し、1回あたり8ビットで量子化する。1分間（モノラル）のデータ量は何バイトか。', o:['64kバイト','480kバイト','3.84Mバイト','480Mバイト'], a:'B', e:'8,000回 × 8ビット × 60秒 ＝ 3,840,000ビット。÷8でバイトに直すと 480,000バイト ＝ <strong>480kバイト</strong>。ウ の3.84Mは「ビット」のままの値なので、単位のひっかけに注意。'},
+    {id:'3-3', ch:3, tag:'デジタル化', q:'アナログ信号を、一定の<strong>時間間隔</strong>で区切って値を取り出す処理はどれか。', o:['符号化','量子化','圧縮','標本化'], a:'D', e:'時間（横方向）を区切って値を拾うのが<strong>標本化</strong>。拾った値を決められた段階に丸める（縦方向）のが量子化、それを0と1の並びにするのが符号化です。'},
+    {id:'3-4', ch:3, tag:'文字コード', q:'世界中のさまざまな言語の文字を、1つの体系で統一して扱うことを目的とした文字コードはどれか。', o:['Unicode','シフトJISコード','JISコード','ASCII'], a:'A', e:'<strong>Unicode</strong> は世界の文字を共通の体系で扱う文字コードで、符号化方式の UTF-8 がWebで広く使われています。ASCII は英数字のみ、JIS・シフトJIS は日本語用です。'},
+    {id:'3-5', ch:3, tag:'推論', q:'帰納推論の例として、適切なものはどれか。', o:['「哺乳類は肺で呼吸する。クジラは哺乳類だ。だからクジラは肺で呼吸する」と考えた。','これまで観察した数百羽の白鳥がすべて白かったので「白鳥は白い」と考えた。','決められたルールに従って、入力に対する出力を決めた。','「AならばB」と「BならばC」から「AならばC」を導いた。'], a:'B', e:'たくさんの個別の例から一般的なルールを導くのが<strong>帰納推論</strong>（新しい例でくつがえる可能性がある）。ア・エ は一般的なルールから個別の結論を導く演繹推論です。'},
+    {id:'3-6', ch:3, tag:'機械学習', q:'試行錯誤を通じて、得られる<strong>報酬</strong>が最大になるような行動を学習する機械学習の手法はどれか。', o:['教師あり学習','教師なし学習','強化学習','転移学習'], a:'C', e:'<strong>強化学習</strong>は報酬を手がかりに行動を学びます（ゲームAI・ロボット制御など）。教師あり学習は正解つきデータ、教師なし学習は正解のないデータから学びます。'},
+    {id:'3-7', ch:3, tag:'機械学習', q:'過学習の説明として、適切なものはどれか。', o:['学習用データには高い精度で正解するが、未知のデータに対する精度が低くなる状態','学習用データが少なすぎて、学習が始められない状態','学習に時間がかかりすぎて、処理が終わらない状態','正解ラベルのないデータで学習している状態'], a:'A', e:'<strong>過学習</strong>は学習用データに合わせすぎて汎用性を失った状態です。「過去問の答えを丸暗記して、初見の問題が解けない」イメージ。エ は教師なし学習の説明です。'},
+    {id:'3-8', ch:3, tag:'ディープラーニング', q:'画像の一部分ずつから輪郭や模様などの特徴を取り出す「畳み込み」の処理を持ち、画像認識で広く使われるニューラルネットワークはどれか。', o:['RNN','GAN','CNN','LLM'], a:'C', e:'<strong>CNN</strong>（畳み込みニューラルネットワーク）は画像認識が得意。RNN は時系列データ（文章・音声）、GAN は生成器と識別器を競わせる生成モデル、LLM は大規模言語モデルです。'},
+    {id:'3-9', ch:3, tag:'ニューラルネットワーク', q:'ニューラルネットワークの学習で、出力と正解との誤差を出力層から入力層の方向へ伝え、各層の重みを修正していく手法はどれか。', o:['活性化関数','バックプロパゲーション','ファインチューニング','転移学習'], a:'B', e:'誤差を<strong>逆向き</strong>に伝えるのでバックプロパゲーション（誤差逆伝播法）。活性化関数は各ニューロンの出力を決める関数、ファインチューニング・転移学習は学習済みモデルを活用する方法です。'},
+    {id:'3-10', ch:3, tag:'生成AI', q:'本物そっくりのデータを作る「生成器」と、本物か偽物かを見分ける「識別器」を競わせて学習させるモデルはどれか。', o:['CNN','RNN','ルールベース','GAN'], a:'D', e:'<strong>GAN</strong>（敵対的生成ネットワーク）は、生成器と識別器が互いに競い合う（敵対する）ことで、本物に近い画像などを生成できるようになります。'},
+    // --- 第4章 ---
+    {id:'4-1', ch:4, tag:'スタック', q:'空のスタックに対して「push 1 → push 2 → pop → push 3 → pop → pop」の順に操作した。取り出された（pop された）データの順番はどれか。', o:['1, 2, 3','2, 3, 1','3, 2, 1','2, 1, 3'], a:'B', e:'push 1, push 2 で中身は [1, 2]。pop で最後に入れた<strong>2</strong>。push 3 で [1, 3]、pop で<strong>3</strong>、最後の pop で<strong>1</strong>。よって 2, 3, 1。スタックは後入れ先出し（LIFO）です。'},
+    {id:'4-2', ch:4, tag:'キュー', q:'空のキューに 1, 2, 3 の順にデータを入れ、1回取り出した後、4を入れて、もう1回取り出した。キューに残っているデータを先頭から並べたものはどれか。', o:['1, 4','2, 3','3, 4','4, 3'], a:'C', e:'キューは先入れ先出し（FIFO）。[1, 2, 3] から取り出すと先頭の1が出て [2, 3]。4を入れて [2, 3, 4]、取り出すと2が出て <strong>[3, 4]</strong> が残ります。'},
+    {id:'4-3', ch:4, tag:'データ構造', q:'最後に格納したデータを最初に取り出す「後入れ先出し」のデータ構造はどれか。', o:['キュー','配列','2分木','スタック'], a:'D', e:'後入れ先出し（LIFO）は<strong>スタック</strong>。積み重ねたお皿や、ブラウザの「戻る」ボタンが例です。キューは先入れ先出し（FIFO）です。'},
+    {id:'4-4', ch:4, tag:'リスト', q:'連結リストの特徴として、適切なものはどれか。', o:['各データが次のデータの位置（ポインタ）を持つので、ポインタのつなぎ替えだけで挿入や削除ができる','添字を指定すれば、どの要素にも先頭からたどらずに直接アクセスできる','最後に格納したデータしか取り出せない','データは必ず小さい順に並んでいる'], a:'A', e:'連結リストは数珠つなぎの構造で、<strong>挿入・削除が得意</strong>です。イ は配列の特徴（リストは先頭からたどる必要がある）、ウ はスタックの特徴です。'},
+    {id:'4-5', ch:4, tag:'2分探索木', q:'本文4.3の2分探索木（根が50、その左の子が30・右の子が70、30の子が20と40、70の右の子が80）に、値35を新たに追加する。追加される位置はどこか。', o:['20の右の子','40の左の子','40の右の子','70の左の子'], a:'B', e:'35は50より小さいので左（30）へ。30より大きいので右（40）へ。40より小さいので<strong>40の左の子</strong>になります。「左の子孫 ＜ 親 ＜ 右の子孫」のルールで、根から順にたどります。'},
+    {id:'4-6', ch:4, tag:'配列', q:'同じ型のデータを連続して並べ、添字（番号）を指定して個々の要素を扱うデータ構造はどれか。', o:['レコード','リスト','配列','キュー'], a:'C', e:'<strong>配列</strong>は番号で直接取り出せるのが特徴です。レコードは種類の違う項目（氏名・年齢など）をひとまとめにしたもの、リストはポインタでつないだ構造です。'},
+    {id:'4-7', ch:4, tag:'2分木', q:'2分木の説明として、適切なものはどれか。', o:['どの節も、子の数が2つ以下である木構造','どの節も、子の数がちょうど2つである木構造','葉の数が2つの木構造','根から葉までの深さが2の木構造'], a:'A', e:'2分木は各節の子が<strong>2つ以下</strong>（0〜2）の木構造です。子が1つしかない節や、子がない葉があっても2分木です。'},
+    // --- 第5章 ---
+    {id:'5-1', ch:5, tag:'基本構造', q:'アルゴリズムの基本構造の組合せとして、適切なものはどれか。', o:['入力・処理・出力','探索・整列・併合','計画・実行・評価','順次・選択・繰返し'], a:'D', e:'どんなアルゴリズムも<strong>順次・選択・繰返し</strong>の3つの組合せで表せます。イ は代表的なアルゴリズムの種類、ア はコンピュータの基本動作です。'},
+    {id:'5-2', ch:5, tag:'探索', q:'2分探索法を使うための前提条件として、適切なものはどれか。', o:['データの件数が偶数である','データがあらかじめ整列されている','データがリスト構造で格納されている','探すデータが必ず存在する'], a:'B', e:'2分探索法は真ん中の値と比べて「前半か後半か」を判断するため、データが<strong>整列済み</strong>であることが必要です。線形探索法は整列されていなくても使えます。'},
+    {id:'5-3', ch:5, tag:'探索', q:'小さい順に整列された1,000件のデータから2分探索法で目的のデータを探す。比較回数は最大でおよそ何回か。', o:['10回','32回','500回','1,000回'], a:'A', e:'1回比べるごとに範囲が半分になります。2<sup>10</sup> ＝ 1,024 ≧ 1,000 なので、最大でおよそ<strong>10回</strong>。500回は線形探索法の平均比較回数、1,000回は線形探索法の最大比較回数です。'},
+    {id:'5-4', ch:5, tag:'探索', q:'1,000件のデータから線形探索法で目的のデータを探すとき、平均の比較回数はおよそ何回か（目的のデータは必ず存在するものとする）。', o:['10回','100回','500回','1,000回'], a:'C', e:'線形探索法は先頭から順に調べるので、見つかる位置は平均すると真ん中あたり。n件なら平均 約 n/2 回 ＝ <strong>500回</strong>です。'},
+    {id:'5-5', ch:5, tag:'整列', q:'データ「5, 3, 4, 1, 2」をバブルソートで小さい順に並べる。先頭から隣どうしを比べて交換する操作を<strong>1周</strong>終えたときの並びはどれか。', o:['1, 2, 3, 4, 5','3, 5, 4, 1, 2','1, 3, 4, 5, 2','3, 4, 1, 2, 5'], a:'D', e:'(5,3)交換→3,5,4,1,2　(5,4)交換→3,4,5,1,2　(5,1)交換→3,4,1,5,2　(5,2)交換→<strong>3,4,1,2,5</strong>。1周で最大値の5が末尾に移動します。'},
+    {id:'5-6', ch:5, tag:'擬似言語', q:'次の処理を実行した後の x の値はどれか。<div class="code-block" style="margin:10px 0 0;">x ← 0\nfor (i を 1 から 4 まで 1 ずつ増やす)\n  x ← x ＋ i × 2\nendfor</div>', o:['10','16','20','30'], a:'C', e:'i ＝ 1, 2, 3, 4 のとき、x に 2, 4, 6, 8 が順に足されます。0 ＋ 2 ＋ 4 ＋ 6 ＋ 8 ＝ <strong>20</strong>。'},
+    {id:'5-7', ch:5, tag:'プログラムの用語', q:'関数を呼び出すときに、呼び出し元から関数へ渡す値を何というか。', o:['戻り値','引数','注釈','代入'], a:'B', e:'関数へ<strong>渡す</strong>値が<strong>引数</strong>、関数が処理の結果として<strong>返す</strong>値が戻り値です。'},
+    // --- 第6章 ---
+    {id:'6-1', ch:6, tag:'プログラム言語', q:'機械学習やディープラーニングのライブラリが豊富で、AI開発やデータ分析で特に広く使われているプログラム言語はどれか。', o:['Fortran','Python','C','JavaScript'], a:'B', e:'<strong>Python</strong> は文法が簡潔で、AI・データ分析向けのライブラリが充実しています。Fortran は科学技術計算、C はOS・組込み、JavaScript はWebブラウザ上の処理が主な用途です。'},
+    {id:'6-2', ch:6, tag:'プログラム言語', q:'Webブラウザ上で動作し、Webページに動きや対話的な機能を加えるために使われるプログラム言語はどれか。', o:['Java','Fortran','R','JavaScript'], a:'D', e:'<strong>JavaScript</strong> はブラウザで動く言語です。名前が似ている Java は、JVM上で動き環境に依存しにくい別の言語です。R は統計解析向け。'},
+    {id:'6-3', ch:6, tag:'コーディング標準', q:'コーディング標準を定める主な目的として、適切なものはどれか。', o:['プログラムの読みやすさをそろえ、品質の確保や保守をしやすくする','プログラムの実行速度を必ず速くする','プログラムをコンパイルせずに実行できるようにする','プログラムの著作権を保護する'], a:'A', e:'コーディング標準は字下げ・命名規則・ネストの深さなど書き方のルールです。目的は<strong>読みやすさ・品質・保守性</strong>の向上で、実行速度や著作権のためのものではありません。'},
+    {id:'6-4', ch:6, tag:'API', q:'自社のスマートフォンアプリに、他社が提供する地図サービスの機能を、インターネット経由で呼び出して組み込みたい。このとき利用するものとして、最も適切なものはどれか。', o:['ノーコード','サブルーチン','WebAPI','インデンテーション'], a:'C', e:'インターネット経由で他のサービスの機能を呼び出す窓口が<strong>WebAPI</strong>です。サブルーチンは同じプログラム内の部品、インデンテーションは字下げのことです。'},
+    {id:'6-5', ch:6, tag:'開発手法', q:'プログラムのコードをまったく書かずに、画面上で部品を組み合わせたり設定したりするだけでアプリケーションを作成できる開発手法はどれか。', o:['ローコード','ノーコード','モジュール分割','ライブラリ'], a:'B', e:'コードを<strong>まったく</strong>書かないのがノーコード、<strong>少し</strong>書くのがローコードです。'},
+    // --- 第7章 ---
+    {id:'7-1', ch:7, tag:'マークアップ言語', q:'利用者が独自にタグを定義でき、データの意味や構造を表してやり取りするのに適したマークアップ言語はどれか。', o:['HTML','JSON','XML','CSV'], a:'C', e:'<strong>XML</strong>（Extensible Markup Language）は「拡張可能」の名のとおり、自由にタグを定義できます。HTML はWebページ用で使えるタグが決まっています。JSON・CSV はタグを使いません。'},
+    {id:'7-2', ch:7, tag:'JSON', q:'JSON形式で記述されたデータはどれか。', o:['&lt;品名&gt;りんご&lt;/品名&gt;','{"品名": "りんご", "価格": 120}','品名,価格 / りんご,120','品名=りんご;価格=120'], a:'B', e:'JSON は <strong>{"名前": 値}</strong> の組を中かっこで囲んで表します。ア はXML、ウ はCSV（カンマ区切り）の形式です。'},
+    {id:'7-3', ch:7, tag:'HTML', q:'HTMLの説明として、適切なものはどれか。', o:['Webページの見出し・段落・リンクなどの構造を、あらかじめ定められたタグで記述する言語','利用者が自由にタグを定義して、データ交換に使う言語','統計解析に特化したプログラム言語','キーと値の組でデータを表す、JavaScriptの記法をもとにした形式'], a:'A', e:'<strong>HTML</strong> はWebページを記述するマークアップ言語です。イ はXML、ウ はR、エ はJSON の説明です。'},
+    {id:'7-4', ch:7, tag:'マークアップ言語', q:'HTMLやXMLのもとになった、文書の構造をタグで記述するマークアップ言語の国際規格はどれか。', o:['JSON','CSV','UTF-8','SGML'], a:'D', e:'<strong>SGML</strong> がマークアップ言語の元祖で、HTML・XML はここから生まれました。UTF-8 は Unicode の符号化方式です。'},
+    {id:'7-5', ch:7, tag:'JSON', q:'JSONの説明として、適切なものはどれか。', o:['開始タグと終了タグでデータを囲んで表す','Webページのレイアウトを指定するための言語である','「"名前": 値」の組でデータを表し、WebAPIなどで異なるプログラム間のデータ交換に使われる','表計算ソフト専用で、他のプログラムでは読み込めない'], a:'C', e:'JSON は <strong>"名前": 値</strong> の組で表すデータ記述言語で、WebAPIの応答などに広く使われます。ア はXML・HTMLの特徴です。'},
+    {id:'7-6', ch:7, tag:'タグ', q:'マークアップ言語における「タグ」の説明として、適切なものはどれか。', o:['データを暗号化するための鍵','文書やデータの要素の始まりと終わりを示し、意味や構造を表す目印','Webページの閲覧履歴を保存する小さなファイル','プログラムの処理の順番を表す記号'], a:'B', e:'<strong>タグ</strong>は &lt;h1&gt;…&lt;/h1&gt; のように要素を囲む目印です。ウ はCookieの説明です。'}
+  ];
+
+  // ===== 章末問題の表示と進捗保存 =====
+  const STORE_KEY = 'itpass-fundamentals-v1';
+  const KANA = {A:'ア', B:'イ', C:'ウ', D:'エ'};
+  function loadAns() { try { return JSON.parse(localStorage.getItem(STORE_KEY) || '{}') || {}; } catch (e) { return {}; } }
+  function saveAns(obj) { try { localStorage.setItem(STORE_KEY, JSON.stringify(obj)); } catch (e) {} }
+  let answers = loadAns();
+
+  function applyResult(card, qd, chosen) {
+    const opts = card.querySelectorAll('.quiz-opt');
+    const badge = card.querySelector('.ans-badge');
+    opts.forEach(o => {
+      o.classList.add('disabled');
+      if (o.dataset.opt === qd.a) o.classList.add('selected-correct');
+      if (o.dataset.opt === chosen && chosen !== qd.a) o.classList.add('selected-wrong');
+    });
+    if (chosen === qd.a) { badge.className = 'ans-badge correct'; badge.textContent = '⭕️ 正解！（' + KANA[qd.a] + '）'; }
+    else { badge.className = 'ans-badge wrong'; badge.textContent = '❌ 不正解…　正解は ' + KANA[qd.a]; }
+    card.querySelector('.quiz-explain').classList.add('show');
+  }
+
+  function renderQuizzes() {
+    document.querySelectorAll('.quiz-list').forEach(list => {
+      const ch = Number(list.dataset.ch);
+      const qs = QUIZ.filter(q => q.ch === ch);
+      list.innerHTML = qs.map((qd, i) => `
+        <div class="quiz-card" data-ans="${qd.a}" data-qid="${qd.id}">
+          <div class="quiz-header"><span class="quiz-tag">問${ch}-${i + 1}：${qd.tag}</span></div>
+          <div class="quiz-q">${qd.q}</div>
+          <div class="quiz-options">
+            ${qd.o.map((t, j) => { const k = 'ABCD'[j]; return `<button class="quiz-opt" data-opt="${k}"><span>${KANA[k]}</span> ${t}</button>`; }).join('')}
+          </div>
+          <div class="quiz-explain"><span class="ans-badge">正解：${KANA[qd.a]}</span><p style="font-size:0.92rem; margin:0;">${qd.e}</p></div>
+        </div>`).join('');
+      list.querySelectorAll('.quiz-card').forEach(card => {
+        const qd = QUIZ.find(q => q.id === card.dataset.qid);
+        if (answers[qd.id]) applyResult(card, qd, answers[qd.id]);
+        card.querySelectorAll('.quiz-opt').forEach(opt => {
+          opt.addEventListener('click', () => {
+            if (answers[qd.id]) return;
+            answers[qd.id] = opt.dataset.opt;
+            saveAns(answers);
+            applyResult(card, qd, opt.dataset.opt);
+            updateProgress();
+          });
+        });
+      });
+    });
+  }
+
+  function updateProgress() {
+    const total = QUIZ.length;
+    const done = QUIZ.filter(q => answers[q.id]).length;
+    const correct = QUIZ.filter(q => answers[q.id] === q.a).length;
+    document.getElementById('progFill').style.width = (done / total * 100) + '%';
+    document.getElementById('progText').textContent = `${done} / ${total}問 解答（正解 ${correct}問）`;
+    document.querySelectorAll('.toc-score').forEach(el => {
+      const ch = Number(el.dataset.ch);
+      const qs = QUIZ.filter(q => q.ch === ch);
+      const d = qs.filter(q => answers[q.id]).length;
+      const c = qs.filter(q => answers[q.id] === q.a).length;
+      el.textContent = d ? `${c}/${qs.length}正解` : `全${qs.length}問`;
+      el.style.color = d ? '#059669' : '#94a3b8';
+    });
+  }
+
+  function resetChapter(ch) {
+    QUIZ.filter(q => ch === 0 || q.ch === ch).forEach(q => delete answers[q.id]);
+    saveAns(answers);
+    renderQuizzes();
+    updateProgress();
+  }
+  document.getElementById('resetAll').addEventListener('click', () => { if (confirm('すべての章末問題の解答をリセットしますか？')) resetChapter(0); });
+  document.querySelectorAll('[data-reset]').forEach(b => b.addEventListener('click', () => resetChapter(Number(b.dataset.reset))));
+
+  // ===== 体験ツール1：論理演算 × ベン図 =====
+  // regions: [どちらにも入らない, Aだけ, Bだけ, 両方]
+  const OPS = [
+    {k:'AND', label:'A AND B', f:(a,b)=>a&b, r:[0,0,0,1], ex:'両方の円が重なった部分だけ。「英検<strong>かつ</strong>数検に合格」（積集合 A∩B）。'},
+    {k:'OR', label:'A OR B', f:(a,b)=>a|b, r:[0,1,1,1], ex:'どちらかの円に入っていれば全部。「英検<strong>または</strong>数検に合格」（和集合 A∪B）。'},
+    {k:'XOR', label:'A XOR B', f:(a,b)=>a^b, r:[0,1,1,0], ex:'片方の円だけに入る部分。重なった部分は<strong>含まない</strong>のが OR との違い。'},
+    {k:'NOTA', label:'NOT A', f:(a,b)=>1-a, r:[1,0,1,0], ex:'Aの円の<strong>外側</strong>全部（補集合）。Bだけの部分も含む。'},
+    {k:'ANB', label:'A AND (NOT B)', f:(a,b)=>a&(1-b), r:[0,1,0,0], ex:'Aには入るがBには入らない部分（差集合 A－B）。検索の「A NOT B」。'},
+    {k:'NOR', label:'NOT (A OR B)', f:(a,b)=>1-(a|b), r:[1,0,0,0], ex:'どちらの円にも入らない部分。「どちらにも合格していない人」。'}
+  ];
+  const ON = '#7dd3fc', OFF = '#ffffff';
+  function drawVenn(op) {
+    document.getElementById('vOut').setAttribute('fill', op.r[0] ? ON : OFF);
+    document.getElementById('vA').setAttribute('fill', op.r[1] ? ON : OFF);
+    document.getElementById('vB').setAttribute('fill', op.r[2] ? ON : OFF);
+    document.getElementById('vAB').setAttribute('fill', op.r[3] ? ON : OFF);
+    document.getElementById('ttHead').textContent = op.label;
+    document.getElementById('ttBody').innerHTML = [[0,0],[0,1],[1,0],[1,1]].map(([a,b]) => {
+      const v = op.f(a,b);
+      return `<tr><td>${a}</td><td>${b}</td><td class="${v ? 'hit' : ''}">${v}</td></tr>`;
+    }).join('');
+    document.getElementById('vennExplain').innerHTML = op.ex;
+    document.querySelectorAll('#vennOps .op-btn').forEach(b => b.classList.toggle('on', b.dataset.k === op.k));
+  }
+  const vennOps = document.getElementById('vennOps');
+  vennOps.innerHTML = OPS.map(o => `<button class="op-btn" data-k="${o.k}">${o.label}</button>`).join('');
+  vennOps.querySelectorAll('.op-btn').forEach(b => b.addEventListener('click', () => drawVenn(OPS.find(o => o.k === b.dataset.k))));
+  drawVenn(OPS[0]);
+
+  // ===== 体験ツール2：代表値・ばらつき =====
+  const fmt = n => Number.isInteger(n) ? String(n) : (Math.round(n * 1000) / 1000).toString();
+  function calcStats() {
+    const raw = document.getElementById('statIn').value;
+    const xs = raw.split(/[\s,、，]+/).filter(s => s !== '').map(Number);
+    const out = document.getElementById('statOut');
+    if (!xs.length || xs.some(x => !Number.isFinite(x))) { out.innerHTML = '数値をカンマかスペースで区切って入力してください。'; return; }
+    const n = xs.length;
+    const sorted = [...xs].sort((a, b) => a - b);
+    const sum = xs.reduce((s, x) => s + x, 0);
+    const mean = sum / n;
+    const median = n % 2 ? sorted[(n - 1) / 2] : (sorted[n / 2 - 1] + sorted[n / 2]) / 2;
+    const cnt = new Map(); xs.forEach(x => cnt.set(x, (cnt.get(x) || 0) + 1));
+    const maxC = Math.max(...cnt.values());
+    const modes = [...cnt.entries()].filter(([, c]) => c === maxC).map(([v]) => v).sort((a, b) => a - b);
+    const sq = xs.map(x => (x - mean) ** 2);
+    const variance = sq.reduce((s, x) => s + x, 0) / n;
+    out.innerHTML = `
+      並べ替え：<span style="font-family:var(--font-mono)">${sorted.join(', ')}</span>（${n}個）<br>
+      平均値 ＝ ${fmt(sum)} ÷ ${n} ＝ <span class="big">${fmt(mean)}</span><br>
+      中央値 ＝ <span class="big">${fmt(median)}</span>${n % 2 ? '（真ん中の値）' : '（真ん中2つの平均）'}<br>
+      最頻値 ＝ <span class="big">${maxC === 1 ? 'なし' : modes.map(fmt).join('・')}</span>${maxC === 1 ? '（どの値も1回ずつ）' : '（' + maxC + '回）'}<br>
+      分散 ＝ (${sq.map(fmt).join(' + ')}) ÷ ${n} ＝ <span class="big">${fmt(variance)}</span><br>
+      標準偏差 ＝ √${fmt(variance)} ＝ <span class="big">${fmt(Math.sqrt(variance))}</span>`;
+  }
+  document.getElementById('statIn').addEventListener('input', calcStats);
+  calcStats();
+
+  // ===== 体験ツール3：順列・組合せ =====
+  function calcPC() {
+    const n = parseInt(document.getElementById('pcN').value, 10);
+    const r = parseInt(document.getElementById('pcR').value, 10);
+    const out = document.getElementById('pcOut');
+    if (!(n >= 0 && n <= 20 && r >= 0 && r <= n)) { out.innerHTML = '0 ≦ r ≦ n ≦ 20 の整数を入力してください。'; return; }
+    let p = 1n; const terms = [];
+    for (let i = 0; i < r; i++) { p *= BigInt(n - i); terms.push(n - i); }
+    let rf = 1n; const rt = [];
+    for (let i = r; i >= 1; i--) { rf *= BigInt(i); rt.push(i); }
+    const c = p / rf;
+    out.innerHTML = `
+      順列 <sub>${n}</sub>P<sub>${r}</sub> ＝ ${r ? terms.join(' × ') : '1'} ＝ <span class="big">${p.toLocaleString()}</span> 通り（順番を区別）<br>
+      組合せ <sub>${n}</sub>C<sub>${r}</sub> ＝ ${p.toLocaleString()} ÷ (${r ? rt.join(' × ') : '1'}) ＝ <span class="big">${c.toLocaleString()}</span> 通り（順番を区別しない）`;
+  }
+  ['pcN', 'pcR'].forEach(id => document.getElementById(id).addEventListener('input', calcPC));
+  calcPC();
+
+  // ===== 体験ツール4：音声データ量 =====
+  function calcAD() {
+    const f = Number(document.getElementById('adF').value), b = Number(document.getElementById('adB').value);
+    const s = Number(document.getElementById('adS').value), c = Number(document.getElementById('adC').value);
+    const out = document.getElementById('adOut');
+    if (!(f > 0 && b > 0 && s > 0)) { out.innerHTML = '正の数を入力してください。'; return; }
+    const bits = f * b * s * c, bytes = bits / 8;
+    out.innerHTML = `
+      ${f.toLocaleString()} × ${b} × ${s.toLocaleString()} × ${c} ＝ ${bits.toLocaleString()} ビット<br>
+      ÷ 8 ＝ <span class="big">${bytes.toLocaleString()} バイト</span><br>
+      ＝ 約 ${fmt(bytes / 1e3)} kバイト ＝ 約 ${fmt(bytes / 1e6)} Mバイト（1k ＝ 1,000 として計算）`;
+  }
+  ['adF', 'adB', 'adS', 'adC'].forEach(id => document.getElementById(id).addEventListener('input', calcAD));
+  calcAD();
+
+  // ===== 体験ツール5：スタックとキュー =====
+  let dsMode = 'stack', dsItems = [], dsNext = 1;
+  const dsModeEl = document.getElementById('dsMode');
+  dsModeEl.innerHTML = '<button class="op-btn" data-m="stack">スタック（LIFO）</button><button class="op-btn" data-m="queue">キュー（FIFO）</button>';
+  function drawDS(msg) {
+    const area = document.getElementById('dsArea');
+    area.className = 'ds-area' + (dsMode === 'stack' ? ' stack' : '');
+    area.innerHTML = dsItems.length ? dsItems.map(v => `<div class="ds-item">${v}</div>`).join('') : '<span style="color:#94a3b8; font-size:0.85rem;">（空）</span>';
+    dsModeEl.querySelectorAll('.op-btn').forEach(b => b.classList.toggle('on', b.dataset.m === dsMode));
+    document.getElementById('dsPush').textContent = (dsMode === 'stack' ? 'push：' : 'enqueue：') + dsNext + ' を入れる';
+    document.getElementById('dsPop').textContent = dsMode === 'stack' ? 'pop：取り出す（上から）' : 'dequeue：取り出す（先頭から）';
+    document.getElementById('dsLog').textContent = msg || (dsMode === 'stack' ? '下が底、上が最後に入れたもの。取り出せるのは一番上だけ。' : '左が先頭、右が末尾。入れるのは末尾、取り出すのは先頭。');
+  }
+  dsModeEl.querySelectorAll('.op-btn').forEach(b => b.addEventListener('click', () => { dsMode = b.dataset.m; dsItems = []; dsNext = 1; drawDS(); }));
+  document.getElementById('dsPush').addEventListener('click', () => { if (dsItems.length >= 8) { drawDS('いっぱいです（このツールは8個まで）'); return; } dsItems.push(dsNext++); drawDS(); });
+  document.getElementById('dsPop').addEventListener('click', () => {
+    if (!dsItems.length) { drawDS('空なので取り出せません'); return; }
+    const v = dsMode === 'stack' ? dsItems.pop() : dsItems.shift();
+    drawDS(`取り出したのは「${v}」　${dsMode === 'stack' ? '← 最後に入れたもの' : '← 最初に入れたもの'}`);
+  });
+  document.getElementById('dsClear').addEventListener('click', () => { dsItems = []; dsNext = 1; drawDS(); });
+  drawDS();
+
+  // ===== 体験ツール6：ソート =====
+  const SORT_INIT = [5, 3, 8, 1, 6, 2];
+  function bubbleSteps(a0) {
+    const a = [...a0], st = [], done = [];
+    for (let end = a.length - 1; end > 0; end--) {
+      for (let i = 0; i < end; i++) {
+        st.push({a: [...a], cmp: [i, i + 1], swap: false, done: [...done], msg: `${a[i]} と ${a[i + 1]} を比べる`});
+        if (a[i] > a[i + 1]) {
+          [a[i], a[i + 1]] = [a[i + 1], a[i]];
+          st.push({a: [...a], cmp: [i, i + 1], swap: true, done: [...done], msg: `左が大きいので交換 → ${a.join(', ')}`});
+        }
+      }
+      done.push(end);
+      st.push({a: [...a], cmp: [], swap: false, done: [...done], msg: `${a.length - end}周目終了：最大の ${a[end]} が右端に確定`});
+    }
+    done.push(0);
+    st.push({a: [...a], cmp: [], swap: false, done: [...done], msg: '整列完了！'});
+    return st;
+  }
+  function selectionSteps(a0) {
+    const a = [...a0], st = [], done = [];
+    for (let i = 0; i < a.length - 1; i++) {
+      let m = i;
+      for (let j = i + 1; j < a.length; j++) {
+        st.push({a: [...a], cmp: [m, j], swap: false, done: [...done], msg: `今の最小 ${a[m]} と ${a[j]} を比べる`});
+        if (a[j] < a[m]) m = j;
+      }
+      if (m !== i) {
+        [a[i], a[m]] = [a[m], a[i]];
+        st.push({a: [...a], cmp: [i, m], swap: true, done: [...done], msg: `最小値 ${a[i]} を未整列部分の先頭と交換`});
+      }
+      done.push(i);
+      st.push({a: [...a], cmp: [], swap: false, done: [...done], msg: `${a[i]} の位置が確定`});
+    }
+    done.push(a.length - 1);
+    st.push({a: [...a], cmp: [], swap: false, done: [...done], msg: '整列完了！'});
+    return st;
+  }
+  let sortMode = 'bubble', sortSt = [], sortIdx = -1, sortTimer = null;
+  const sortModeEl = document.getElementById('sortMode');
+  sortModeEl.innerHTML = '<button class="op-btn" data-m="bubble">バブルソート</button><button class="op-btn" data-m="selection">選択ソート</button>';
+  function drawSort(state) {
+    const max = Math.max(...SORT_INIT);
+    document.getElementById('sortBars').innerHTML = state.a.map((v, i) => {
+      let cls = 'bar';
+      if (state.done.includes(i)) cls += ' done';
+      else if (state.cmp.includes(i)) cls += state.swap ? ' swap' : ' cmp';
+      return `<div class="${cls}" style="height:${20 + v / max * 80}%">${v}</div>`;
+    }).join('');
+    if (state.msg) document.getElementById('sortLog').textContent = state.msg;
+    sortModeEl.querySelectorAll('.op-btn').forEach(b => b.classList.toggle('on', b.dataset.m === sortMode));
+  }
+  function sortReset() {
+    clearInterval(sortTimer); sortTimer = null;
+    sortSt = sortMode === 'bubble' ? bubbleSteps(SORT_INIT) : selectionSteps(SORT_INIT);
+    sortIdx = -1;
+    drawSort({a: SORT_INIT, cmp: [], swap: false, done: [], msg: 'オレンジ＝比べている2つ、赤＝交換、緑＝位置が確定'});
+  }
+  function sortStep() { if (sortIdx < sortSt.length - 1) { sortIdx++; drawSort(sortSt[sortIdx]); } else { clearInterval(sortTimer); sortTimer = null; } }
+  sortModeEl.querySelectorAll('.op-btn').forEach(b => b.addEventListener('click', () => { sortMode = b.dataset.m; sortReset(); }));
+  document.getElementById('sortStep').addEventListener('click', () => { clearInterval(sortTimer); sortTimer = null; sortStep(); });
+  document.getElementById('sortRun').addEventListener('click', () => { if (!sortTimer) sortTimer = setInterval(sortStep, 600); });
+  document.getElementById('sortReset').addEventListener('click', sortReset);
+  sortReset();
+
+  renderQuizzes();
+  updateProgress();
+</script>
+
+</body>
+</html>
